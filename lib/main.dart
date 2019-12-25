@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'dart:math' show Random;
+import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -29,7 +29,9 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   AnimationController animationController;
-  var random = Random();
+  AnimationController nameController;
+
+  var random = math.Random();
 
   @override
   void initState() {
@@ -42,6 +44,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           animationController.reverse();
         }
       });
+    nameController = AnimationController(
+        vsync: this, duration: const Duration(seconds: 4), value: 0.1);
     super.initState();
   }
 
@@ -52,6 +56,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     Timer.periodic(Duration(seconds: 1), (Timer t) => setAnimation());
+    nameController.forward();
 
     return Scaffold(
       body: Stack(
@@ -65,24 +70,38 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               MediaQuery.of(context).size.height),
           Align(
             alignment: Alignment.topLeft,
-            child: Container(
-              margin: EdgeInsets.only(top: 100, left: 100),
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.grey,
-                    blurRadius: 50.0,
-                    spreadRadius: 5.0,
-                    offset: Offset(
-                      0.0, // horizontal, move right 10
-                      0.0, // vertical, move down 10
+            child: AnimatedBuilder(
+              animation: Tween(
+                begin: 0,
+                end: 1,
+              ).animate(nameController),
+              builder: (context, child) {
+                return Transform.rotate(
+                  angle: nameController.value * 2.0 * math.pi,
+                  child: child,
+                );
+              },
+              child: Container(
+                margin: EdgeInsets.only(top: 100, left: 100),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 50.0,
+                      // has the effect of softening the shadow
+                      spreadRadius: 5.0,
+                      // has the effect of extending the shadow
+                      offset: Offset(
+                        0.0, // horizontal, move right 10
+                        0.0, // vertical, move down 10
+                      ),
                     ),
-                  ),
-                ],
-              ),
-              child: Text(
-                "Hi, It's me!",
-                style: TextStyle(color: Colors.white, fontSize: 100),
+                  ],
+                ),
+                child: Text(
+                  "Hi, It's me!",
+                  style: TextStyle(color: Colors.white, fontSize: 100),
+                ),
               ),
             ),
           ),
