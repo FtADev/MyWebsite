@@ -2,9 +2,10 @@ import 'dart:async';
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
 
+import 'bg_laptop.dart';
+import 'bg_me.dart';
+import 'bio.dart';
 import 'star.dart';
 
 void main() => runApp(MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'FtaDev',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
@@ -29,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   AnimationController animationController;
-  AnimationController nameController;
 
   var random = math.Random();
 
@@ -44,8 +44,6 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           animationController.reverse();
         }
       });
-    nameController = AnimationController(
-        vsync: this, duration: const Duration(seconds: 4), value: 0.1);
     super.initState();
   }
 
@@ -56,46 +54,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     Timer.periodic(Duration(seconds: 1), (Timer t) => setAnimation());
-    nameController.forward();
 
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            color: Color(0xFF020012),
+          LaptopBG(),
+          ...makeStar(
+            MediaQuery.of(context).size.width,
+            MediaQuery.of(context).size.height,
           ),
-          ...makeStar(MediaQuery.of(context).size.width,
-              MediaQuery.of(context).size.height),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Align(
-              alignment: Alignment.topLeft,
-              child: ScaleTransition(
-                scale: CurvedAnimation(
-                  parent: nameController,
-                  curve: Curves.easeInOutBack,
-                ),
-                alignment: Alignment.center,
-                child: Container(
-                  margin: EdgeInsets.only(top: 100, left: 100),
-                  child: Text(
-                    "Hi, It's me!",
-                    style: TextStyle(color: Colors.white, fontSize: 100),
-                  ),
-                ),
-              ),
-            ),
-          ),
+          Bio(),
         ],
       ),
     );
   }
 
   List<Widget> makeStar(double width, double height) {
-    double starsInRow = width / 50;
-    double starsInColumn = height / 50;
+    double starsInRow = width / 100;
+    double starsInColumn = height / 100;
     double starsNum = starsInRow != 0
         ? starsInRow * (starsInColumn != 0 ? starsInColumn : starsInRow)
         : starsInColumn;
