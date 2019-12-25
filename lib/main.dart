@@ -1,8 +1,10 @@
 import 'dart:async';
+import 'dart:math' show Random;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
-import 'dart:math' show Random;
+
 import 'star.dart';
 
 void main() => runApp(MyApp());
@@ -34,8 +36,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     animationController = AnimationController(
       vsync: this,
       duration: const Duration(milliseconds: 1000),
-    )
-      ..addStatusListener((AnimationStatus status) {
+    )..addStatusListener((AnimationStatus status) {
         if (status == AnimationStatus.completed) {
           if (!mounted) return;
           animationController.reverse();
@@ -60,17 +61,25 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             height: MediaQuery.of(context).size.height,
             color: Color(0xFF020012),
           ),
-          ...makeStar(MediaQuery
-              .of(context)
-              .size
-              .width, MediaQuery
-              .of(context)
-              .size
-              .height),
+          ...makeStar(MediaQuery.of(context).size.width,
+              MediaQuery.of(context).size.height),
           Align(
             alignment: Alignment.topLeft,
             child: Container(
               margin: EdgeInsets.only(top: 100, left: 100),
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.grey,
+                    blurRadius: 50.0,
+                    spreadRadius: 5.0,
+                    offset: Offset(
+                      0.0, // horizontal, move right 10
+                      0.0, // vertical, move down 10
+                    ),
+                  ),
+                ],
+              ),
               child: Text(
                 "Hi, It's me!",
                 style: TextStyle(color: Colors.white, fontSize: 100),
