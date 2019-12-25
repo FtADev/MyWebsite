@@ -66,7 +66,17 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               .width, MediaQuery
               .of(context)
               .size
-              .height)
+              .height),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.only(top: 100, left: 100),
+              child: Text(
+                "Hi, It's me!",
+                style: TextStyle(color: Colors.white, fontSize: 100),
+              ),
+            ),
+          ),
         ],
       ),
     );
