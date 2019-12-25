@@ -70,37 +70,20 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               MediaQuery.of(context).size.height),
           Align(
             alignment: Alignment.topLeft,
-            child: AnimatedBuilder(
-              animation: Tween(
-                begin: 0,
-                end: 1,
-              ).animate(nameController),
-              builder: (context, child) {
-                return Transform.rotate(
-                  angle: nameController.value * 2.0 * math.pi,
-                  child: child,
-                );
-              },
-              child: Container(
-                margin: EdgeInsets.only(top: 100, left: 100),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey,
-                      blurRadius: 50.0,
-                      // has the effect of softening the shadow
-                      spreadRadius: 5.0,
-                      // has the effect of extending the shadow
-                      offset: Offset(
-                        0.0, // horizontal, move right 10
-                        0.0, // vertical, move down 10
-                      ),
-                    ),
-                  ],
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: ScaleTransition(
+                scale: CurvedAnimation(
+                  parent: nameController,
+                  curve: Curves.easeInOutBack,
                 ),
-                child: Text(
-                  "Hi, It's me!",
-                  style: TextStyle(color: Colors.white, fontSize: 100),
+                alignment: Alignment.center,
+                child: Container(
+                  margin: EdgeInsets.only(top: 100, left: 100),
+                  child: Text(
+                    "Hi, It's me!",
+                    style: TextStyle(color: Colors.white, fontSize: 100),
+                  ),
                 ),
               ),
             ),
