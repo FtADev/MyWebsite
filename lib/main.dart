@@ -3,7 +3,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'bg_laptop.dart';
 import 'bg_me.dart';
 import 'bio.dart';
 import 'star.dart';
@@ -64,6 +63,33 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             MediaQuery.of(context).size.height,
           ),
           Bio(),
+//          WaveProgress(180.0, Colors.blue, Colors.blueAccent, 50.0),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: EdgeInsets.only(bottom: 50),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  GestureDetector(
+                    child: Container(
+                      padding: EdgeInsets.all(7),
+                      child: Text(
+                        "Hellothere",
+                        style: TextStyle(color: Colors.white, fontSize: 20),
+                      ),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(30.0),
+                        shape: BoxShape.rectangle,
+                        border: Border.all(width: 1, color: Colors.white),
+                      ),
+                    ),
+                    onTap: () {},
+                  ),
+                ],
+              ),
+            ),
+          )
         ],
       ),
     );
