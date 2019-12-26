@@ -3,8 +3,8 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'bg_me.dart';
 import 'bio.dart';
+import 'fancy_background.dart';
 import 'star.dart';
 
 void main() => runApp(MyApp());
@@ -57,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          MeBG(),
+          FancyBackgroundApp(),
           ...makeStar(
             MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height,
