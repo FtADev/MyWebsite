@@ -6,6 +6,10 @@ import 'package:simple_animations/simple_animations.dart';
 import 'bio.dart';
 
 class FancyBackgroundApp extends StatelessWidget {
+  final Widget child;
+
+  const FancyBackgroundApp({Key key, this.child}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -25,7 +29,7 @@ class FancyBackgroundApp extends StatelessWidget {
           speed: 1.2,
           offset: pi / 2,
         )),
-        Positioned.fill(child: Center(child: Bio())),
+        Positioned.fill(child: Center(child: child)),
       ],
     );
   }
