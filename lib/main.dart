@@ -3,7 +3,6 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
-import 'bio.dart';
 import 'fancy_background.dart';
 import 'star.dart';
 
@@ -62,12 +61,11 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height,
           ),
-          Bio(),
 //          WaveProgress(180.0, Colors.blue, Colors.blueAccent, 50.0),
           Align(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.topRight,
             child: Container(
-              margin: EdgeInsets.only(bottom: 50),
+              margin: EdgeInsets.only(top: 50, right: 50),
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
@@ -96,8 +94,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   }
 
   List<Widget> makeStar(double width, double height) {
-    double starsInRow = width / 100;
-    double starsInColumn = height / 100;
+    double starsInRow = width / 50;
+    double starsInColumn = height / 50;
     double starsNum = starsInRow != 0
         ? starsInRow * (starsInColumn != 0 ? starsInColumn : starsInRow)
         : starsInColumn;

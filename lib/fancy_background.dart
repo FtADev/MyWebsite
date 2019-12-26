@@ -3,6 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
+import 'bio.dart';
+
 class FancyBackgroundApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -23,17 +25,17 @@ class FancyBackgroundApp extends StatelessWidget {
           speed: 1.2,
           offset: pi / 2,
         )),
-        Positioned.fill(child: CenteredText()),
+        Positioned.fill(child: Center(child: Bio())),
       ],
     );
   }
 
   onBottom(Widget child) => Positioned.fill(
-    child: Align(
-      alignment: Alignment.bottomCenter,
-      child: child,
-    ),
-  );
+        child: Align(
+          alignment: Alignment.bottomCenter,
+          child: child,
+        ),
+      );
 }
 
 class AnimatedWave extends StatelessWidget {
@@ -120,21 +122,5 @@ class AnimatedBackground extends StatelessWidget {
         );
       },
     );
-  }
-}
-
-class CenteredText extends StatelessWidget {
-  const CenteredText({
-    Key key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-        child: Text(
-          "Hello!",
-          style: TextStyle(color: Colors.white),
-          textScaleFactor: 5,
-        ));
   }
 }
