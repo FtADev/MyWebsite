@@ -3,6 +3,10 @@ import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
 
+import 'Projects.dart';
+import 'abilities.dart';
+import 'about.dart';
+import 'bio.dart';
 import 'fancy_background.dart';
 import 'flat_border_button.dart';
 import 'star.dart';
@@ -29,8 +33,12 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   AnimationController animationController;
-
   var random = math.Random();
+
+  bool showBio = true;
+  bool showAbout = false;
+  bool showAbilities = false;
+  bool showProjects = false;
 
   @override
   void initState() {
@@ -57,7 +65,15 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          FancyBackgroundApp(),
+          FancyBackgroundApp(
+            child: showBio
+                ? Bio()
+                : showAbout
+                    ? About()
+                    : showAbilities
+                        ? Abilities()
+                        : showProjects ? Projects() : Container(),
+          ),
           ...makeStar(
             MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height,
@@ -72,7 +88,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                 children: <Widget>[
                   FlatBorderButton(
                     text: "About Me",
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        showBio = false;
+                        showAbout = true;
+                        showAbilities = false;
+                        showProjects = false;
+                      });
+                    },
                   ),
                   SizedBox(width: 20),
                   FlatBorderButton(
