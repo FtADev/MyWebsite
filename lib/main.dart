@@ -4,6 +4,7 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 
 import 'fancy_background.dart';
+import 'flat_border_button.dart';
 import 'star.dart';
 
 void main() => runApp(MyApp());
@@ -69,19 +70,18 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               child: Row(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  GestureDetector(
-                    child: Container(
-                      padding: EdgeInsets.all(7),
-                      child: Text(
-                        "Hellothere",
-                        style: TextStyle(color: Colors.white, fontSize: 20),
-                      ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(30.0),
-                        shape: BoxShape.rectangle,
-                        border: Border.all(width: 1, color: Colors.white),
-                      ),
-                    ),
+                  FlatBorderButton(
+                    text: "About Me",
+                    onTap: () {},
+                  ),
+                  SizedBox(width: 20),
+                  FlatBorderButton(
+                    text: "My Abilities",
+                    onTap: () {},
+                  ),
+                  SizedBox(width: 20),
+                  FlatBorderButton(
+                    text: "My Projects",
                     onTap: () {},
                   ),
                 ],
