@@ -11,22 +11,21 @@ class _BioState extends State<Bio> with TickerProviderStateMixin {
   @override
   void initState() {
     nameController = AnimationController(
-        vsync: this, duration: const Duration(seconds: 4), value: 0.1);
+      vsync: this,
+      duration: const Duration(seconds: 2),
+    );
 
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     nameController.forward();
 
     return Align(
       alignment: Alignment.topLeft,
-      child: ScaleTransition(
-        scale: CurvedAnimation(
-          parent: nameController,
-          curve: Curves.easeInOutBack,
-        ),
-        alignment: Alignment.center,
+      child: FadeTransition(
+        opacity: Tween(begin: 0.0, end: 1.0).animate(nameController),
         child: Container(
           margin: EdgeInsets.only(top: 100, left: 100),
           child: Container(

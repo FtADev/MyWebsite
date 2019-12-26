@@ -58,7 +58,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          LaptopBG(),
+          MeBG(),
           ...makeStar(
             MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height,
