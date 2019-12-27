@@ -9,7 +9,6 @@ class AbilityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 5,
       child: Container(
         padding: EdgeInsets.all(20),
         child: Column(

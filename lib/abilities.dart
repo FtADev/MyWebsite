@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/painting.dart';
 
 import 'ability_card.dart';
+import 'ability_detail.dart';
+import 'ability_list.dart';
 import 'dynamic_card.dart';
 import 'fade_in_ui.dart';
 
-class Abilities extends StatelessWidget {
+class Abilities extends StatefulWidget {
+  @override
+  _AbilitiesState createState() => _AbilitiesState();
+}
 
+class _AbilitiesState extends State<Abilities> {
+  int index = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -28,60 +36,39 @@ class Abilities extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      FadeIn(2.5, AbilityCard(name: "Android", iconPath: "assets/android.png")),
-                      FadeIn(3, AbilityCard(name: "GNU/Linux", iconPath: "assets/gnulin.png")),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 8),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      FadeIn(3, AbilityCard(name: "Flutter", iconPath: "assets/flutter.png")),
-                      FadeIn(3.5, AbilityCard(name: "Git", iconPath: "assets/git.jpeg")),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 8),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      FadeIn(3.5, AbilityCard(name: "Kotlin", iconPath: "assets/kotlin.png")),
-                      FadeIn(2.5, AbilityCard(name: "Mysql", iconPath: "assets/mysql.png")),
-                    ],
-                  ),
-                ),
-                SizedBox(width: 8),
-                Expanded(
-                  flex: 1,
-                  child: Column(
-                    children: [
-                      FadeIn(2.5, AbilityCard(name: "Java", iconPath: "assets/java.png")),
-                      FadeIn(3, AbilityCard(name: "IoT", iconPath: "assets/iot.png")),
-                    ],
-                  ),
-                ),
-              ],
+            FadeIn(2.5, AbilityDetail(index: index,)),
+            SizedBox(height: 15),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.only(bottom: 20),
+              child: Row(children: [
+                ..._makeCard()
+              ]),
             ),
           ],
         ),
       ),
     );
   }
-}
 
-class AbilityModel {
-  String name;
-  String iconPath;
-
-  AbilityModel({this.name, this.iconPath});
+  _makeCard() {
+    List<Widget> list = [];
+    double delay = 2.5;
+    for (int i = 0; i < abilitiesList.length; i++) {
+      list.add(GestureDetector(
+        child: FadeIn(
+            delay + 0.5,
+            AbilityCard(
+                name: abilitiesList[i].name,
+                iconPath: abilitiesList[i].iconPath)),
+        onTap: () {
+          setState(() {
+            index = i;
+          });
+        },
+      ));
+      list.add(SizedBox(width: 5));
+    }
+    return list;
+  }
 }
