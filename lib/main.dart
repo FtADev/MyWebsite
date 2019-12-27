@@ -117,7 +117,14 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   SizedBox(width: 20),
                   FlatBorderButton(
                     text: "My Abilities",
-                    onTap: () {},
+                    onTap: () {
+                      setState(() {
+                        showBio = false;
+                        showAbout = false;
+                        showAbilities = true;
+                        showProjects = false;
+                      });
+                    },
                   ),
                   SizedBox(width: 20),
                   FlatBorderButton(

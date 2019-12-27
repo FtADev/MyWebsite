@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
+import 'dynamic_card.dart';
+
 class Abilities extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return DynamicCard(child: Container());
   }
 }
