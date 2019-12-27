@@ -79,23 +79,23 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
             MediaQuery.of(context).size.height,
           ),
 //          WaveProgress(180.0, Colors.blue, Colors.blueAccent, 50.0),
-        Align(
-          alignment: Alignment.topLeft,
-          child: Container(
-            margin: EdgeInsets.only(top: 50, left: 50),
-            child: FlatBorderButton(
-              text: "Home",
-              onTap: () {
-                setState(() {
-                  showBio = true;
-                  showAbout = false;
-                  showAbilities = false;
-                  showProjects = false;
-                });
-              },
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.only(top: 50, left: 50),
+              child: FlatBorderButton(
+                text: "Home",
+                onTap: () {
+                  setState(() {
+                    showBio = true;
+                    showAbout = false;
+                    showAbilities = false;
+                    showProjects = false;
+                  });
+                },
+              ),
             ),
           ),
-        ),
           Align(
             alignment: Alignment.topRight,
             child: Container(
