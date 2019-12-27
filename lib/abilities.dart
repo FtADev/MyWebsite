@@ -32,6 +32,7 @@ class _AbilitiesState extends State<Abilities> {
                   fontSize: 30,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'dekko'
                 ),
               ),
             ),

@@ -13,7 +13,7 @@ class FlatBorderButton extends StatelessWidget {
         padding: EdgeInsets.all(7),
         child: Text(
           text,
-          style: TextStyle(color: Colors.white, fontSize: 20),
+          style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'dekko'),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),

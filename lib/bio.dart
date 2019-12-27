@@ -13,6 +13,7 @@ class Bio extends StatelessWidget {
           style: TextStyle(
             color: Colors.white,
             fontSize: 50,
+            fontFamily: 'dekko'
           ),
         ),
         TypewriterText(
@@ -21,13 +22,14 @@ class Bio extends StatelessWidget {
               color: Colors.white,
               fontSize: 70,
               fontWeight: FontWeight.bold,
-              fontFamily: 'font1'),
+              fontFamily: 'dekko'),
         ),
         TypewriterText(
           text: "I Am Developer",
           style: TextStyle(
             color: Colors.white,
             fontSize: 30,
+            fontFamily: 'dekko'
           ),
         )
       ],

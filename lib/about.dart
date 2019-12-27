@@ -22,6 +22,7 @@ class About extends StatelessWidget {
                   fontSize: 30,
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
+                  fontFamily: 'dekko'
                 ),
               ),
             ),
