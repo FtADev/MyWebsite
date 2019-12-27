@@ -30,6 +30,10 @@ class DynamicCard extends StatelessWidget {
               Tween(begin: 2.0, end: MediaQuery.of(context).size.width * 0.7),
           builder: (context, width) {
             return Card(
+              elevation: 5,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(15.0),
+            ),
               child: Container(
                 decoration: boxDecoration,
                 width: width,
