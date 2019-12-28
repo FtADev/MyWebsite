@@ -42,7 +42,10 @@ class _AbilitiesState extends State<Abilities> {
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.only(bottom: 20),
-              child: Row(children: [
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
                 ..._makeCard()
               ]),
             ),
@@ -55,6 +58,7 @@ class _AbilitiesState extends State<Abilities> {
   _makeCard() {
     List<Widget> list = [];
     double delay = 2.5;
+    list.add(SizedBox(width: 5));
     for (int i = 0; i < abilitiesList.length; i++) {
       list.add(GestureDetector(
         child: FadeIn(

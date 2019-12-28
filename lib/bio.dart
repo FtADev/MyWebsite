@@ -9,7 +9,7 @@ class Bio extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         TypewriterText(
-          text: "Hi, It's Me!",
+          text: "Hello, It's Me!",
           style: TextStyle(
             color: Colors.white,
             fontSize: 50,
@@ -25,7 +25,7 @@ class Bio extends StatelessWidget {
               fontFamily: 'dekko'),
         ),
         TypewriterText(
-          text: "I Am Developer",
+          text: "I Am A Developer",
           style: TextStyle(
             color: Colors.white,
             fontSize: 30,

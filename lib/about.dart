@@ -5,10 +5,9 @@ import 'fade_in_ui.dart';
 
 class About extends StatelessWidget {
 
-  final String startingText = "I started programming from 2015 since I went to college. I start with C++! After some .... I tested Java! I learn it's intermidiate rules and program more efficient....";
-  final String middling = "I try a bit C# as a Windows Form, too! And after one year, rolling stone, I found my goal! Mobile Developing!";
-  final String now = "On 2017, with 4 of my friends made a small team and start working together with a lot of Motivation! After a year, we make the team bigger. "
-      "And now I'm in ExceptionalDev Team! The best team that I ever had...";
+  final String startingText = "I started programming from 2015 since I went to college. I start with C++! After some .... I tested Java! I learn it's intermidiate rules and program more efficient! I try a bit C# as a Windows Form, too!";
+  final String middling = "After one year, rolling stone, I found my goal! Mobile Developing! I start android developing with java and after some experiences I switch to Kotlin, my lovely language!";
+  final String now = "On 2017, with 4 of my friends made a small team and start working together with a lot of Motivation! After a year, we make the team bigger. And now I'm in ExceptionalDev Team! The best team that I ever had...";
 
   @override
   Widget build(BuildContext context) {

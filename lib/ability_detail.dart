@@ -25,7 +25,7 @@ class AbilityDetail extends StatelessWidget {
                   2,
                   Image.asset(
                     abilitiesList[index].iconPath,
-                    height: MediaQuery.of(context).size.height * 0.35,
+                    height: MediaQuery.of(context).size.height * 0.3,
                     fit: BoxFit.fitWidth,
                   ),
                 ),
