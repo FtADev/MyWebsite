@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 class AbilityCard extends StatelessWidget {
   final String name;
   final String iconPath;
@@ -9,9 +10,11 @@ class AbilityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      elevation: 7,
       child: Container(
         padding: EdgeInsets.all(20),
         child: Column(
+          mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             Image.asset(
               iconPath,

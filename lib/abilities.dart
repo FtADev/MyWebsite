@@ -17,41 +17,54 @@ class _AbilitiesState extends State<Abilities> {
 
   @override
   Widget build(BuildContext context) {
-    return DynamicCard(
-      child: Container(
-        padding: EdgeInsets.all(50),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            FadeIn(
-              2,
-              Text(
-                "My Abilities",
-                style: TextStyle(
-                  fontSize: 30,
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'dekko'
-                ),
+    return Stack(
+      children: [
+        Align(
+          alignment: Alignment.center,
+          child: DynamicCard(
+            child: Container(
+              padding: EdgeInsets.all(50),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  FadeIn(
+                    2,
+                    Text(
+                      "My Abilities",
+                      style: TextStyle(
+                          fontSize: 30,
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: 'dekko'),
+                    ),
+                  ),
+                  SizedBox(height: 20),
+                  FadeIn(
+                      2.5,
+                      AbilityDetail(
+                        index: index,
+                      )),
+                ],
               ),
             ),
-            SizedBox(height: 20),
-            FadeIn(2.5, AbilityDetail(index: index,)),
-            SizedBox(height: 15),
-            SingleChildScrollView(
+          ),
+        ),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: EdgeInsets.only(bottom: 60),
+            child: SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               padding: EdgeInsets.only(bottom: 20),
               child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisSize: MainAxisSize.min,
-                  children: [
-                ..._makeCard()
-              ]),
+                  children: [..._makeCard()]),
             ),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 
