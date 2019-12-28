@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'ability_list.dart';
 import 'fade_in_ui.dart';
 import 'other_components.dart';
+import 'wave_view.dart';
 
 class AbilityDetail extends StatelessWidget {
   final int index;
@@ -37,7 +38,29 @@ class AbilityDetail extends StatelessWidget {
               child: Column(
                 children: <Widget>[
                   FadeIn(2.5, CardPlaceholder()),
-                  FadeIn(3, CardPlaceholder()),
+                  Padding(
+                    padding:
+                    const EdgeInsets.only(left: 16, right: 8, top: 16),
+                    child: Container(
+                      width: 60,
+                      height: 160,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: const BorderRadius.only(
+                            topLeft: Radius.circular(80.0),
+                            bottomLeft: Radius.circular(80.0),
+                            bottomRight: Radius.circular(80.0),
+                            topRight: Radius.circular(80.0)),
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                              color: Colors.grey.withOpacity(0.4),
+                              offset: const Offset(2, 2),
+                              blurRadius: 4),
+                        ],
+                      ),
+                      child: WaveView(),
+                    ),
+                  )
                 ],
               ),
             ),
