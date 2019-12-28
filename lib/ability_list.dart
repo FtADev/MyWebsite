@@ -5,7 +5,7 @@ final abilitiesList = [
   AbilityModel(name: "Java", iconPath: "assets/java.png"),
   AbilityModel(name: "GNU/Linux", iconPath: "assets/gnulin.png"),
   AbilityModel(name: "Git", iconPath: "assets/git.jpeg"),
-  AbilityModel(name: "Mysql", iconPath: "assets/mysql.png"),
+  AbilityModel(name: "Restful API", iconPath: "assets/api.png"),
   AbilityModel(name: "IoT", iconPath: "assets/iot.png"),
 ];
 
