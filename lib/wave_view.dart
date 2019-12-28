@@ -1,8 +1,13 @@
 import 'dart:math' as math;
+
 import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 
 class WaveView extends StatefulWidget {
+  final bool showRepeatedAnimation;
+
+  const WaveView({Key key, this.showRepeatedAnimation}) : super(key: key);
+
   @override
   _WaveViewState createState() => _WaveViewState();
 }
@@ -17,6 +22,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
   Size bottlesize2 = Size(60, 160);
   Offset bottleOffset2 = Offset(60, 0);
   List<Offset> animList2 = [];
+
   @override
   void initState() {
     animationController = AnimationController(
@@ -25,7 +31,8 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
         duration: Duration(milliseconds: 2000), vsync: this);
     animationController
       ..addStatusListener((status) {
-        if (status == AnimationStatus.completed) {
+        if (widget.showRepeatedAnimation) if (status ==
+            AnimationStatus.completed) {
           animationController.reverse();
         } else if (status == AnimationStatus.dismissed) {
           animationController.forward();
@@ -53,7 +60,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                 60));
       }
     });
-    waveAnimationController.repeat();
+    if (widget.showRepeatedAnimation) waveAnimationController.repeat();
     animationController.forward();
     super.initState();
   }
@@ -108,10 +115,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                     decoration: BoxDecoration(
                       color: Colors.blue,
                       gradient: LinearGradient(
-                        colors: [
-                          Colors.blue.withOpacity(0.4),
-                          Colors.blue
-                        ],
+                        colors: [Colors.blue.withOpacity(0.4), Colors.blue],
                         begin: Alignment.topLeft,
                         end: Alignment.bottomRight,
                       ),
@@ -239,14 +243,14 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                 ),
               ),
             ),
-            Column(
-              children: <Widget>[
-                AspectRatio(
-                  aspectRatio: 1,
-                  child: Image.asset("assets/fitness_app/bottle.png"),
-                ),
-              ],
-            )
+//            Column(
+//              children: <Widget>[
+//                AspectRatio(
+//                  aspectRatio: 1,
+//                  child: Image.asset("assets/fitness_app/bottle.png"),
+//                ),
+//              ],
+//            )
           ],
         ),
       ),

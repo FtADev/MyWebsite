@@ -34,11 +34,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   AnimationController animationController;
   var random = math.Random();
-
+  bool showRepeatedAnimation = true;
   bool showBio = true;
   bool showAbout = false;
   bool showAbilities = false;
   bool showProjects = false;
+  IconData animationIcon;
 
   @override
   void initState() {
@@ -51,11 +52,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           animationController.reverse();
         }
       });
+    animationIcon = showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
     super.initState();
   }
 
   void setAnimation() {
-    animationController.forward();
+    if (showRepeatedAnimation) animationController.forward();
   }
 
   @override
@@ -66,19 +68,23 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       body: Stack(
         children: <Widget>[
           FancyBackgroundApp(
+            showRepeatedAnimation: showRepeatedAnimation,
             child: showBio
-                ? Bio()
+                ? Bio(
+                    showRepeatedAnimation: showRepeatedAnimation,
+                  )
                 : showAbout
                     ? About()
                     : showAbilities
-                        ? Abilities()
+                        ? Abilities(
+                            showRepeatedAnimation: showRepeatedAnimation,
+                          )
                         : showProjects ? Projects() : Container(),
           ),
           ...makeStar(
             MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height,
           ),
-//          WaveProgress(180.0, Colors.blue, Colors.blueAccent, 50.0),
           Align(
             alignment: Alignment.topLeft,
             child: Container(
@@ -94,6 +100,19 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                   });
                 },
               ),
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: FlatButton(
+              child: Icon(animationIcon, color: Colors.white,),
+              onPressed: () {
+                setState(() {
+                  showRepeatedAnimation = !showRepeatedAnimation;
+                  animationIcon =
+                      showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
+                });
+              },
             ),
           ),
           Align(

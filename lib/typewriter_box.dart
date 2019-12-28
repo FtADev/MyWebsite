@@ -4,7 +4,9 @@ import 'package:simple_animations/simple_animations.dart';
 class TypewriterText extends StatelessWidget {
   final String text;
   final TextStyle style;
-  TypewriterText({this.text, this.style});
+  final bool showRepeatedAnimation;
+
+  TypewriterText({this.text, this.style, this.showRepeatedAnimation});
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +20,7 @@ class TypewriterText extends StatelessWidget {
             children: [
               Text(text.substring(0, textLength), style: style),
               ControlledAnimation(
-                playback: Playback.LOOP,
+                playback: showRepeatedAnimation ? Playback.LOOP : Playback.PLAY_FORWARD,
                 duration: Duration(milliseconds: 600),
                 tween: IntTween(begin: 0, end: 1),
                 builder: (context, oneOrZero) {

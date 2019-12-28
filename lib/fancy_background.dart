@@ -3,28 +3,30 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
-import 'bio.dart';
-
 class FancyBackgroundApp extends StatelessWidget {
   final Widget child;
+  final bool showRepeatedAnimation;
 
-  const FancyBackgroundApp({Key key, this.child}) : super(key: key);
+  const FancyBackgroundApp({Key key, this.child, this.showRepeatedAnimation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
-        Positioned.fill(child: AnimatedBackground()),
+        Positioned.fill(child: AnimatedBackground(showRepeatedAnimation: showRepeatedAnimation,)),
         onBottom(AnimatedWave(
+          showRepeatedAnimation: showRepeatedAnimation,
           height: 180,
           speed: 1.0,
         )),
         onBottom(AnimatedWave(
+          showRepeatedAnimation: showRepeatedAnimation,
           height: 120,
           speed: 0.9,
           offset: pi,
         )),
         onBottom(AnimatedWave(
+          showRepeatedAnimation: showRepeatedAnimation,
           height: 220,
           speed: 1.2,
           offset: pi / 2,
@@ -46,8 +48,9 @@ class AnimatedWave extends StatelessWidget {
   final double height;
   final double speed;
   final double offset;
+  final bool showRepeatedAnimation;
 
-  AnimatedWave({this.height, this.speed, this.offset = 0.0});
+  AnimatedWave({this.height, this.speed, this.offset = 0.0, this.showRepeatedAnimation});
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +59,7 @@ class AnimatedWave extends StatelessWidget {
         height: height,
         width: constraints.biggest.width,
         child: ControlledAnimation(
-            playback: Playback.LOOP,
+            playback: showRepeatedAnimation ? Playback.LOOP : Playback.PLAY_FORWARD,
             duration: Duration(milliseconds: (5000 / speed).round()),
             tween: Tween(begin: 0.0, end: 2 * pi),
             builder: (context, value) {
@@ -103,6 +106,10 @@ class CurvePainter extends CustomPainter {
 }
 
 class AnimatedBackground extends StatelessWidget {
+  final bool showRepeatedAnimation;
+
+  const AnimatedBackground({Key key, this.showRepeatedAnimation}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final tween = MultiTrackTween([
@@ -113,7 +120,7 @@ class AnimatedBackground extends StatelessWidget {
     ]);
 
     return ControlledAnimation(
-      playback: Playback.MIRROR,
+      playback: showRepeatedAnimation ? Playback.MIRROR : Playback.PLAY_FORWARD,
       tween: tween,
       duration: tween.duration,
       builder: (context, animation) {

@@ -8,6 +8,10 @@ import 'dynamic_card.dart';
 import 'fade_in_ui.dart';
 
 class Abilities extends StatefulWidget {
+  final bool showRepeatedAnimation;
+
+  const Abilities({Key key, this.showRepeatedAnimation}) : super(key: key);
+
   @override
   _AbilitiesState createState() => _AbilitiesState();
 }
@@ -33,18 +37,21 @@ class _AbilitiesState extends State<Abilities> {
                     Text(
                       "My Abilities",
                       style: TextStyle(
-                          fontSize: 30,
-                          color: Colors.black,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'dekko'),
+                        fontSize: 30,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: 'dekko',
+                      ),
                     ),
                   ),
                   SizedBox(height: 20),
                   FadeIn(
-                      2.5,
-                      AbilityDetail(
-                        index: index,
-                      )),
+                    2.5,
+                    AbilityDetail(
+                      index: index,
+                      showRepeatedAnimation: widget.showRepeatedAnimation,
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -7,8 +7,10 @@ import 'wave_view.dart';
 
 class AbilityDetail extends StatelessWidget {
   final int index;
+  final bool showRepeatedAnimation;
 
-  const AbilityDetail({Key key, this.index}) : super(key: key);
+  const AbilityDetail({Key key, this.index, this.showRepeatedAnimation})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,8 +41,7 @@ class AbilityDetail extends StatelessWidget {
                 children: <Widget>[
                   FadeIn(2.5, CardPlaceholder()),
                   Padding(
-                    padding:
-                    const EdgeInsets.only(left: 16, right: 8, top: 16),
+                    padding: const EdgeInsets.only(left: 16, right: 8, top: 16),
                     child: Container(
                       width: 60,
                       height: 160,
@@ -58,7 +59,9 @@ class AbilityDetail extends StatelessWidget {
                               blurRadius: 4),
                         ],
                       ),
-                      child: WaveView(),
+                      child: WaveView(
+                        showRepeatedAnimation: showRepeatedAnimation,
+                      ),
                     ),
                   )
                 ],
