@@ -37,7 +37,7 @@ class About extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
-                  flex: 3,
+                  flex: 5,
                   child: Column(
                     children: [
                       FadeIn(
