@@ -63,6 +63,24 @@ class About extends StatelessWidget {
                                   ),
                                 ),
                               ),
+                              SizedBox(height: 50,),
+                              FadeIn(
+                                2.5,
+                                Row(
+                                  mainAxisSize: MainAxisSize.min,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: <Widget>[
+                                    Image.asset('assets/github.png', width: 25, height: 25, fit: BoxFit.fitWidth,),
+                                    SizedBox(width: 20,),
+                                    Image.asset('assets/gitlab.png', width: 50, height: 50, fit: BoxFit.fitWidth,),
+                                    SizedBox(width: 20,),
+                                    Image.asset('assets/gmail.png', width: 25, height: 25, fit: BoxFit.fitWidth,),
+                                    SizedBox(width: 20,),
+                                    Image.asset('assets/telegram.png', width: 25, height: 25, fit: BoxFit.fitWidth,),
+                                  ],
+                                ),
+                              ),
+//                              SizedBox(height: 50,)
                             ],
                           ),
                         ),
