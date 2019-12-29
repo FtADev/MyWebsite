@@ -51,11 +51,19 @@ class About extends StatelessWidget {
                     1.0,
                     Stack(
                       children: [
-                        FadeIn(
-                          2,
-                          Image.asset(
-                            'assets/me.png',
-                            fit: BoxFit.fill,
+                          Column(
+                            children: [
+                              FadeIn(
+                                2,
+                                ClipRRect(
+                                  borderRadius: BorderRadius.circular(20),
+                                  child: Image.asset(
+                                    'assets/pishi.png',
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                         Opacity(
