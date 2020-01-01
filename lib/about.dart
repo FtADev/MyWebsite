@@ -38,30 +38,36 @@ class About extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                   flex: 5,
-                  child: Column(
-                    children: [
-                      FadeIn(
-                        2.5,
-                        Sampling(
-                          title: "Starting",
-                          text: startingText,
-                        ),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height * 0.5,
+                    child: SingleChildScrollView(
+                      scrollDirection: Axis.vertical,
+                      child: Column(
+                        children: [
+                          FadeIn(
+                            2.5,
+                            Sampling(
+                              title: "Starting",
+                              text: startingText,
+                            ),
+                          ),
+                          FadeIn(
+                            3,
+                            Sampling(
+                              title: "Middeling",
+                              text: middling,
+                            ),
+                          ),
+                          FadeIn(
+                            3.5,
+                            Sampling(
+                              title: "And Now...",
+                              text: now,
+                            ),
+                          ),
+                        ],
                       ),
-                      FadeIn(
-                        3,
-                        Sampling(
-                          title: "Middeling",
-                          text: middling,
-                        ),
-                      ),
-                      FadeIn(
-                        3.5,
-                        Sampling(
-                          title: "And Now...",
-                          text: now,
-                        ),
-                      ),
-                    ],
+                    ),
                   ),
                 ),
                 SizedBox(width: 10),
