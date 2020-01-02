@@ -40,7 +40,10 @@ class About extends StatelessWidget {
                 Expanded(
                   flex: 5,
                   child: Container(
-                    height: MediaQuery.of(context).size.height * 0.5,
+                    height: MediaQuery
+                        .of(context)
+                        .size
+                        .height * 0.5,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Column(
@@ -90,8 +93,25 @@ class About extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            SizedBox(height: 20,),
+                            Row(
+                              mainAxisSize: MainAxisSize.min,
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Image.asset('assets/gmail.png',
+                                  width: 25,
+                                  height: 25,
+                                  fit: BoxFit.fitWidth,),
+                                SizedBox(width: 10,),
+                                Text(
+                                    'akhlaghi.fatemeh@gmail.com',
+                                    style: TextStyle(
+                                        fontFamily: 'dekko', fontSize: 20),
+                                )
+                              ],
+                            ),
                             SizedBox(
-                              height: 50,
+                              height: 20,
                             ),
                             FadeIn(
                               2.5,
@@ -152,27 +172,27 @@ class About extends StatelessWidget {
   githubLauncher() async {
     const url = 'https://github.com/FtADev/';
     if (await canLaunch(url)) {
-    await launch(url);
+      await launch(url);
     } else {
-    throw 'Could not launch $url';
+      throw 'Could not launch $url';
     }
   }
 
   gitlabLauncher() async {
     const url = 'https://gitlab.com/FtADev';
     if (await canLaunch(url)) {
-    await launch(url);
+      await launch(url);
     } else {
-    throw 'Could not launch $url';
+      throw 'Could not launch $url';
     }
   }
 
   telegramLauncher() async {
     const url = 'https://t.me/ftadev';
     if (await canLaunch(url)) {
-    await launch(url);
+      await launch(url);
     } else {
-    throw 'Could not launch $url';
+      throw 'Could not launch $url';
     }
   }
 
@@ -187,10 +207,10 @@ class Sampling extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 4),
       child: Card(
         child: Padding(
-          padding: const EdgeInsets.all(20.0),
+          padding: const EdgeInsets.all(20),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
