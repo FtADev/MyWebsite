@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import 'dynamic_card.dart';
 import 'fade_in_ui.dart';
@@ -98,51 +99,43 @@ class About extends StatelessWidget {
                                 mainAxisSize: MainAxisSize.min,
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
-                                  Image.asset(
-                                    'assets/github.png',
-                                    width: 25,
-                                    height: 25,
-                                    fit: BoxFit.fitWidth,
+                                  InkWell(
+                                    child: Image.asset(
+                                      'assets/github.png',
+                                      width: 50,
+                                      height: 50,
+//                                    fit: BoxFit.fill,
+                                    ),
+                                    onTap: githubLauncher,
                                   ),
                                   SizedBox(
                                     width: 20,
                                   ),
-                                  Image.asset(
-                                    'assets/gitlab.png',
-                                    width: 50,
-                                    height: 50,
-                                    fit: BoxFit.fitWidth,
+                                  InkWell(
+                                    child: Image.asset(
+                                      'assets/gitlab.png',
+                                      width: 50,
+                                      height: 50,
+//                                    fit: BoxFit.fill,
+                                    ),
+                                    onTap: gitlabLauncher,
                                   ),
                                   SizedBox(
                                     width: 20,
                                   ),
-                                  Image.asset(
-                                    'assets/gmail.png',
-                                    width: 25,
-                                    height: 25,
-                                    fit: BoxFit.fitWidth,
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  Image.asset(
-                                    'assets/telegram.png',
-                                    width: 25,
-                                    height: 25,
-                                    fit: BoxFit.fitWidth,
+                                  InkWell(
+                                    child: Image.asset(
+                                      'assets/telegram.png',
+                                      width: 50,
+                                      height: 50,
+//                                    fit: BoxFit.fill,
+                                    ),
+                                    onTap: telegramLauncher,
                                   ),
                                 ],
                               ),
                             ),
                           ],
-                        ),
-                        Opacity(
-                          opacity: 0.2,
-                          child: Container(
-                            width: MediaQuery.of(context).size.width,
-                            height: MediaQuery.of(context).size.height,
-                            color: Colors.white,
-                          ),
                         ),
                       ],
                     ),
@@ -155,6 +148,34 @@ class About extends StatelessWidget {
       ),
     );
   }
+
+  githubLauncher() async {
+    const url = 'https://github.com/FtADev/';
+    if (await canLaunch(url)) {
+    await launch(url);
+    } else {
+    throw 'Could not launch $url';
+    }
+  }
+
+  gitlabLauncher() async {
+    const url = 'https://gitlab.com/FtADev';
+    if (await canLaunch(url)) {
+    await launch(url);
+    } else {
+    throw 'Could not launch $url';
+    }
+  }
+
+  telegramLauncher() async {
+    const url = 'https://t.me/ftadev';
+    if (await canLaunch(url)) {
+    await launch(url);
+    } else {
+    throw 'Could not launch $url';
+    }
+  }
+
 }
 
 class Sampling extends StatelessWidget {
