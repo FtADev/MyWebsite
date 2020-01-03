@@ -57,27 +57,37 @@ class _About2State extends State<About2> {
             Row(
               mainAxisSize: MainAxisSize.min,
               children: <Widget>[
-                FloatingActionButton(
-                  backgroundColor: page > 0 ? Colors.white : Colors.transparent,
-                  onPressed: () {
-                    setState(() {
-                      if (page > 0) page--;
-                    });
-                  },
-                  child: Icon(Icons.arrow_left, color: Colors.blue),
-                ),
+                page > 0
+                    ? FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            if (page > 0) page--;
+                          });
+                        },
+                        child: Icon(Icons.arrow_left, color: Colors.blue),
+                      )
+                    : Container(
+                        width: 50,
+                        height: 500,
+                      ),
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.67,
                 ),
-                FloatingActionButton(
-                  backgroundColor: page < 2 ? Colors.white : Colors.transparent,
-                  onPressed: () {
-                    setState(() {
-                      if (page < 2) page++;
-                    });
-                  },
-                  child: Icon(Icons.arrow_right, color: Colors.blue),
-                ),
+                page < 2
+                    ? FloatingActionButton(
+                        backgroundColor: Colors.white,
+                        onPressed: () {
+                          setState(() {
+                            if (page < 2) page++;
+                          });
+                        },
+                        child: Icon(Icons.arrow_right, color: Colors.blue),
+                      )
+                    : Container(
+                        width: 50,
+                        height: 500,
+                      ),
               ],
             ),
           ),
