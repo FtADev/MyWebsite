@@ -66,7 +66,7 @@ class AboutNow extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,

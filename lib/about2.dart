@@ -120,13 +120,13 @@ class Sampling extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      title,
-                      style: TextStyle(
-                          fontFamily: 'dekko',
-                          fontWeight: FontWeight.bold,
-                          fontSize: 25),
-                    ),
+//                    Text(
+//                      title,
+//                      style: TextStyle(
+//                          fontFamily: 'dekko',
+//                          fontWeight: FontWeight.bold,
+//                          fontSize: 25),
+//                    ),
                     Padding(
                       padding: const EdgeInsets.only(left: 5.0),
                       child: Text(
