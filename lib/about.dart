@@ -38,12 +38,8 @@ class About extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Expanded(
-                  flex: 5,
+                  flex: 6,
                   child: Container(
-                    height: MediaQuery
-                        .of(context)
-                        .size
-                        .height * 0.5,
                     child: SingleChildScrollView(
                       scrollDirection: Axis.vertical,
                       child: Column(
@@ -79,80 +75,86 @@ class About extends StatelessWidget {
                   flex: 2,
                   child: FadeIn(
                     1.0,
-                    Stack(
+                    Column(
                       children: [
-                        Column(
-                          children: [
-                            FadeIn(
-                              2,
-                              ClipRRect(
-                                borderRadius: BorderRadius.circular(20),
-                                child: Image.asset(
-                                  'assets/pishi.png',
-                                  fit: BoxFit.fill,
+                        FadeIn(
+                          2,
+                          ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              'assets/pishi.png',
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        SizedBox(height: 20),
+                        FadeIn(
+                          3,
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/gmail.png',
+                                width: 25,
+                                height: 25,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                'akhlaghi.fatemeh@gmail.com',
+                                style: TextStyle(
+                                  fontFamily: 'dekko',
+                                  fontSize: 20,
                                 ),
+                              )
+                            ],
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        Row(
+                          mainAxisSize: MainAxisSize.min,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            FadeIn(
+                              3.5,
+                              InkWell(
+                                child: Image.asset(
+                                  'assets/github.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                onTap: githubLauncher,
                               ),
                             ),
-                            SizedBox(height: 20,),
-                            Row(
-                              mainAxisSize: MainAxisSize.min,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Image.asset('assets/gmail.png',
-                                  width: 25,
-                                  height: 25,
-                                  fit: BoxFit.fitWidth,),
-                                SizedBox(width: 10,),
-                                Text(
-                                    'akhlaghi.fatemeh@gmail.com',
-                                    style: TextStyle(
-                                        fontFamily: 'dekko', fontSize: 20),
-                                )
-                              ],
-                            ),
                             SizedBox(
-                              height: 20,
+                              width: 20,
                             ),
                             FadeIn(
-                              2.5,
-                              Row(
-                                mainAxisSize: MainAxisSize.min,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: <Widget>[
-                                  InkWell(
-                                    child: Image.asset(
-                                      'assets/github.png',
-                                      width: 50,
-                                      height: 50,
-//                                    fit: BoxFit.fill,
-                                    ),
-                                    onTap: githubLauncher,
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  InkWell(
-                                    child: Image.asset(
-                                      'assets/gitlab.png',
-                                      width: 50,
-                                      height: 50,
-//                                    fit: BoxFit.fill,
-                                    ),
-                                    onTap: gitlabLauncher,
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  InkWell(
-                                    child: Image.asset(
-                                      'assets/telegram.png',
-                                      width: 50,
-                                      height: 50,
-//                                    fit: BoxFit.fill,
-                                    ),
-                                    onTap: telegramLauncher,
-                                  ),
-                                ],
+                              4,
+                              InkWell(
+                                child: Image.asset(
+                                  'assets/gitlab.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                onTap: gitlabLauncher,
+                              ),
+                            ),
+                            SizedBox(
+                              width: 20,
+                            ),
+                            FadeIn(
+                              4.5,
+                              InkWell(
+                                child: Image.asset(
+                                  'assets/telegram.png',
+                                  width: 50,
+                                  height: 50,
+                                ),
+                                onTap: telegramLauncher,
                               ),
                             ),
                           ],
@@ -195,7 +197,6 @@ class About extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
-
 }
 
 class Sampling extends StatelessWidget {
@@ -209,6 +210,9 @@ class Sampling extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 4),
       child: Card(
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(15.0),
+        ),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Row(
