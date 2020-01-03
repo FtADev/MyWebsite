@@ -6,7 +6,7 @@ import 'fade_in_ui.dart';
 
 class About extends StatelessWidget {
   final String startingText =
-      "I started programming from 2015 since I went to college. I started with C++! After ..., I tested Java! I learn it's intermediate rules and program more efficient! I tried a bit C# as a Windows Form, too";
+      "My programming world was created on 2015 since I went to college! I said \"Hello, World\" with C++, and learnt basics of programming with it. After that I started to learn Java. I practice more and learnt Java Core. And then I tested a bit C# as a Windows Form, too :)";
   final String middling =
       "After one year, rolling stone, I found my way, Android Developing! I started android developing with java and after some experiences I switched to Kotlin, my lovely language!";
   final String now =
@@ -54,7 +54,7 @@ class About extends StatelessWidget {
                           FadeIn(
                             3,
                             Sampling(
-                              title: "Middeling",
+                              title: "Middling",
                               text: middling,
                             ),
                           ),

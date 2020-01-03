@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'Projects.dart';
 import 'abilities.dart';
 import 'about.dart';
+import 'about2.dart';
 import 'bio.dart';
 import 'fancy_background.dart';
 import 'flat_border_button.dart';
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
                     showRepeatedAnimation: showRepeatedAnimation,
                   )
                 : showAbout
-                    ? About()
+                    ? About2()
                     : showAbilities
                         ? Abilities(
                             showRepeatedAnimation: showRepeatedAnimation,
