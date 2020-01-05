@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class FancyBackgroundApp extends StatelessWidget {
-  final Widget child;
   final bool showRepeatedAnimation;
 
-  const FancyBackgroundApp({Key key, this.child, this.showRepeatedAnimation}) : super(key: key);
+  const FancyBackgroundApp({Key key, this.showRepeatedAnimation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +30,6 @@ class FancyBackgroundApp extends StatelessWidget {
           speed: 1.2,
           offset: pi / 2,
         )),
-        Positioned.fill(child: Center(child: child)),
       ],
     );
   }

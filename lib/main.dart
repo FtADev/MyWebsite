@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 
 import 'Projects.dart';
 import 'abilities.dart';
-import 'about.dart';
 import 'about2.dart';
 import 'bio.dart';
 import 'fancy_background.dart';
@@ -70,21 +69,24 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         children: <Widget>[
           FancyBackgroundApp(
             showRepeatedAnimation: showRepeatedAnimation,
-            child: showBio
-                ? Bio(
-                    showRepeatedAnimation: showRepeatedAnimation,
-                  )
-                : showAbout
-                    ? About2()
-                    : showAbilities
-                        ? Abilities(
-                            showRepeatedAnimation: showRepeatedAnimation,
-                          )
-                        : showProjects ? Projects() : Container(),
           ),
           ...makeStar(
             MediaQuery.of(context).size.width,
             MediaQuery.of(context).size.height,
+          ),
+          Align(
+            alignment: Alignment.center,
+            child: showBio
+                ? Bio(
+              showRepeatedAnimation: showRepeatedAnimation,
+            )
+                : showAbout
+                ? About2()
+                : showAbilities
+                ? Abilities(
+              showRepeatedAnimation: showRepeatedAnimation,
+            )
+                : showProjects ? Projects() : Container(),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -106,7 +108,10 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           Align(
             alignment: Alignment.bottomLeft,
             child: FlatButton(
-              child: Icon(animationIcon, color: Colors.white,),
+              child: Icon(
+                animationIcon,
+                color: Colors.white,
+              ),
               onPressed: () {
                 setState(() {
                   showRepeatedAnimation = !showRepeatedAnimation;
