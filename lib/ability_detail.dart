@@ -61,6 +61,7 @@ class AbilityDetail extends StatelessWidget {
                       ),
                       child: WaveView(
                         showRepeatedAnimation: showRepeatedAnimation,
+                        waterSize: 80,
                       ),
                     ),
                   )

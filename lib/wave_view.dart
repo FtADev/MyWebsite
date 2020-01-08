@@ -5,8 +5,9 @@ import 'package:vector_math/vector_math.dart' as vector;
 
 class WaveView extends StatefulWidget {
   final bool showRepeatedAnimation;
+  final int waterSize;
 
-  const WaveView({Key key, this.showRepeatedAnimation}) : super(key: key);
+  const WaveView({Key key, this.showRepeatedAnimation, this.waterSize}) : super(key: key);
 
   @override
   _WaveViewState createState() => _WaveViewState();
@@ -47,7 +48,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                         360 *
                         vector.degrees2Radians) *
                     4 +
-                60));
+                (100-widget.waterSize)));
       }
       animList2.clear();
       for (int i = -2 - bottleOffset2.dx.toInt(); i <= 60 + 2; i++) {
@@ -57,7 +58,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                         360 *
                         vector.degrees2Radians) *
                     4 +
-                60));
+                (100-widget.waterSize)));
       }
     });
     if (widget.showRepeatedAnimation) waveAnimationController.repeat();
@@ -138,7 +139,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Text(
-                      '60',
+                      "${widget.waterSize}",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontFamily: 'dekko',
