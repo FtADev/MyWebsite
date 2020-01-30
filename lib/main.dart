@@ -56,8 +56,9 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.center,
-            child: showBio
-                ? MediaQuery.of(context).size.width > 500
+            child:
+            showBio
+                ? MediaQuery.of(context).size.width > 600
                     ? WebBio(showRepeatedAnimation: showRepeatedAnimation)
                     : MobileBio(showRepeatedAnimation: showRepeatedAnimation)
                 : showAbout
@@ -70,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.topLeft,
             child: Container(
-              margin: MediaQuery.of(context).size.width > 500
+              margin: MediaQuery.of(context).size.width > 600
                   ? EdgeInsets.only(
                       top: WebConst.marginTop,
                       left: WebConst.marginLeft,
@@ -108,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          MediaQuery.of(context).size.width > 500
+          MediaQuery.of(context).size.width > 600
               ? WebTopButtons()
               : MobileTopButtons(),
         ],
