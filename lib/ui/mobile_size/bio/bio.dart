@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import '../../component/typewriter_box.dart';
 import '../const.dart';
 
-class WebBio extends StatelessWidget {
+class MobileBio extends StatelessWidget {
   final bool showRepeatedAnimation;
 
-  const WebBio({Key key, this.showRepeatedAnimation}) : super(key: key);
+  const MobileBio({Key key, this.showRepeatedAnimation}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class WebBio extends StatelessWidget {
           text: "Hello, It's Me!",
           style: TextStyle(
             color: Colors.white,
-            fontSize: WebConst.bioFont1,
+            fontSize: MobileConst.bioFont1,
             fontFamily: 'dekko',
           ),
           showRepeatedAnimation: showRepeatedAnimation,
@@ -26,7 +26,7 @@ class WebBio extends StatelessWidget {
           text: "Fatemeh Akhlaghi",
           style: TextStyle(
             color: Colors.white,
-            fontSize: WebConst.bioFont2,
+            fontSize: MobileConst.bioFont2,
             fontWeight: FontWeight.bold,
             fontFamily: 'dekko',
           ),
@@ -36,7 +36,7 @@ class WebBio extends StatelessWidget {
           text: "I Am A Developer",
           style: TextStyle(
             color: Colors.white,
-            fontSize: WebConst.bioFont3,
+            fontSize: MobileConst.bioFont3,
             fontFamily: 'dekko',
           ),
           showRepeatedAnimation: showRepeatedAnimation,

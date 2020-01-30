@@ -1,11 +1,16 @@
+import 'package:MyWebsite/ui/mobile_size/const.dart';
+import 'package:MyWebsite/ui/web_size/const.dart';
 import 'package:flutter/material.dart';
 
-import 'ui/web_size/project/Projects.dart';
+import 'ui/component/fancy_background.dart';
+import 'ui/component/flat_border_button.dart';
+import 'ui/mobile_size/bio/bio.dart';
+import 'ui/mobile_size/home/top_buttons.dart';
 import 'ui/web_size/ability/abilities.dart';
 import 'ui/web_size/about/about2.dart';
 import 'ui/web_size/bio/bio.dart';
-import 'ui/component/fancy_background.dart';
-import 'ui/component/flat_border_button.dart';
+import 'ui/web_size/home/top_buttons.dart';
+import 'ui/web_size/project/Projects.dart';
 
 void main() => runApp(MyApp());
 
@@ -52,21 +57,28 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.center,
             child: showBio
-                ? Bio(
-                    showRepeatedAnimation: showRepeatedAnimation,
-                  )
+                ? MediaQuery.of(context).size.width > 500
+                    ? WebBio(showRepeatedAnimation: showRepeatedAnimation)
+                    : MobileBio(showRepeatedAnimation: showRepeatedAnimation)
                 : showAbout
                     ? About2()
                     : showAbilities
                         ? Abilities(
-                            showRepeatedAnimation: showRepeatedAnimation,
-                          )
+                            showRepeatedAnimation: showRepeatedAnimation)
                         : showProjects ? Projects() : Container(),
           ),
           Align(
             alignment: Alignment.topLeft,
             child: Container(
-              margin: EdgeInsets.only(top: 50, left: 50),
+              margin: MediaQuery.of(context).size.width > 500
+                  ? EdgeInsets.only(
+                      top: WebConst.marginTop,
+                      left: WebConst.marginLeft,
+                    )
+                  : EdgeInsets.only(
+                      top: MobileConst.marginTop,
+                      left: MobileConst.marginLeft,
+                    ),
               child: FlatBorderButton(
                 text: "Home",
                 onTap: () {
@@ -96,52 +108,9 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              margin: EdgeInsets.only(top: 50, right: 50),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  FlatBorderButton(
-                    text: "About Me",
-                    onTap: () {
-                      setState(() {
-                        showBio = false;
-                        showAbout = true;
-                        showAbilities = false;
-                        showProjects = false;
-                      });
-                    },
-                  ),
-                  SizedBox(width: 20),
-                  FlatBorderButton(
-                    text: "My Abilities",
-                    onTap: () {
-                      setState(() {
-                        showBio = false;
-                        showAbout = false;
-                        showAbilities = true;
-                        showProjects = false;
-                      });
-                    },
-                  ),
-                  SizedBox(width: 20),
-                  FlatBorderButton(
-                    text: "My Projects",
-                    onTap: () {
-                      setState(() {
-                        showBio = false;
-                        showAbout = false;
-                        showAbilities = false;
-                        showProjects = true;
-                      });
-                    },
-                  ),
-                ],
-              ),
-            ),
-          )
+          MediaQuery.of(context).size.width > 500
+              ? WebTopButtons()
+              : MobileTopButtons(),
         ],
       ),
     );
