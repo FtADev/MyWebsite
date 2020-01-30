@@ -33,6 +33,7 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  bool isWeb = true;
   bool showRepeatedAnimation = true;
   bool showBio = true;
   bool showAbout = false;
@@ -48,6 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    isWeb = MediaQuery.of(context).size.width > 600;
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -56,13 +58,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.center,
-            child:
-            showBio
-                ? MediaQuery.of(context).size.width > 600
+            child: showBio
+                ? isWeb
                     ? WebBio(showRepeatedAnimation: showRepeatedAnimation)
                     : MobileBio(showRepeatedAnimation: showRepeatedAnimation)
                 : showAbout
-                    ? About2()
+                    ? New()
                     : showAbilities
                         ? Abilities(
                             showRepeatedAnimation: showRepeatedAnimation)
@@ -71,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.topLeft,
             child: Container(
-              margin: MediaQuery.of(context).size.width > 600
+              margin: isWeb
                   ? EdgeInsets.only(
                       top: WebConst.marginTop,
                       left: WebConst.marginLeft,
@@ -109,9 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          MediaQuery.of(context).size.width > 600
-              ? WebTopButtons()
-              : MobileTopButtons(),
+          isWeb ? WebTopButtons() : MobileTopButtons(),
         ],
       ),
     );
