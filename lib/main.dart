@@ -7,7 +7,7 @@ import 'ui/component/flat_border_button.dart';
 import 'ui/mobile_size/bio/bio.dart';
 import 'ui/mobile_size/home/top_buttons.dart';
 import 'ui/web_size/ability/abilities.dart';
-import 'ui/web_size/about/about2.dart';
+import 'ui/web_size/about/new.dart';
 import 'ui/web_size/bio/bio.dart';
 import 'ui/web_size/home/top_buttons.dart';
 import 'ui/web_size/project/Projects.dart';
