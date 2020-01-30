@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'dynamic_card.dart';
-import 'fade_in_ui.dart';
-import 'other_components.dart';
+import '../../component/dynamic_card.dart';
+import '../../component/fade_in_ui.dart';
+import '../../component/other_components.dart';
 
 class Projects extends StatelessWidget {
   @override

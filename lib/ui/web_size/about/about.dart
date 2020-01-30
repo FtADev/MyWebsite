@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'dynamic_card.dart';
-import 'fade_in_ui.dart';
+import '../../component/dynamic_card.dart';
+import '../../component/fade_in_ui.dart';
 
 class About extends StatelessWidget {
   final String startingText =

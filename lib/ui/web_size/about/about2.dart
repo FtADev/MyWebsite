@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'about_middling.dart';
 import 'about_now.dart';
 import 'about_starting.dart';
-import 'dynamic_card.dart';
-import 'fade_in_ui.dart';
+import '../../component/dynamic_card.dart';
+import '../../component/fade_in_ui.dart';
 
 class About2 extends StatefulWidget {
   @override

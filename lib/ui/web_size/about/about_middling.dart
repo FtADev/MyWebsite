@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'about2.dart';
-import 'fade_in_ui.dart';
+import '../../component/fade_in_ui.dart';
 
 class AboutMiddling extends StatelessWidget {
   final String middling =

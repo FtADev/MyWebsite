@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-import 'Projects.dart';
-import 'abilities.dart';
-import 'about2.dart';
-import 'bio.dart';
-import 'fancy_background.dart';
-import 'flat_border_button.dart';
+import 'ui/web_size/project/Projects.dart';
+import 'ui/web_size/ability/abilities.dart';
+import 'ui/web_size/about/about2.dart';
+import 'ui/web_size/bio/bio.dart';
+import 'ui/component/fancy_background.dart';
+import 'ui/component/flat_border_button.dart';
 
 void main() => runApp(MyApp());
 

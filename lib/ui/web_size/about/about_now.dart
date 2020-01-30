@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'about2.dart';
-import 'fade_in_ui.dart';
+import '../../component/fade_in_ui.dart';
 
 class AboutNow extends StatelessWidget {
   final String now =

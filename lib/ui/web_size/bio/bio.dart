@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'typewriter_box.dart';
+import '../../component/typewriter_box.dart';
 
 class Bio extends StatelessWidget {
   final bool showRepeatedAnimation;
