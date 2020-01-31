@@ -2,7 +2,13 @@ import 'package:MyWebsite/ui/component/flat_border_button.dart';
 import 'package:MyWebsite/ui/mobile_size/const.dart';
 import 'package:flutter/material.dart';
 
+import '../../../main.dart';
+
 class MobileTopButtons extends StatelessWidget {
+  final Function changeState;
+
+  const MobileTopButtons({Key key, this.changeState}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Align(
@@ -17,42 +23,21 @@ class MobileTopButtons extends StatelessWidget {
           children: <Widget>[
             FlatBorderButton(
               text: "About Me",
-//              onTap: () {
-//                setState(() {
-//                  showBio = false;
-//                  showAbout = true;
-//                  showAbilities = false;
-//                  showProjects = false;
-//                });
-//              },
+              onTap: () => changeState(States.ABOUT),
             ),
             SizedBox(
               height: MobileConst.sizedBox,
             ),
             FlatBorderButton(
               text: "My Abilities",
-//              onTap: () {
-//                setState(() {
-//                  showBio = false;
-//                  showAbout = false;
-//                  showAbilities = true;
-//                  showProjects = false;
-//                });
-//              },
+              onTap: () => changeState(States.ABILITY),
             ),
             SizedBox(
               height: MobileConst.sizedBox,
             ),
             FlatBorderButton(
               text: "My Projects",
-//              onTap: () {
-//                setState(() {
-//                  showBio = false;
-//                  showAbout = false;
-//                  showAbilities = false;
-//                  showProjects = true;
-//                });
-//              },
+              onTap: () => changeState(States.PROJECTS),
             ),
           ],
         ),

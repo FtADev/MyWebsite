@@ -7,7 +7,7 @@ import 'ui/component/flat_border_button.dart';
 import 'ui/mobile_size/bio/bio.dart';
 import 'ui/mobile_size/home/top_buttons.dart';
 import 'ui/web_size/ability/abilities.dart';
-import 'ui/web_size/about/new.dart';
+import 'ui/web_size/about/about2.dart';
 import 'ui/web_size/bio/bio.dart';
 import 'ui/web_size/home/top_buttons.dart';
 import 'ui/web_size/project/Projects.dart';
@@ -27,6 +27,8 @@ class MyApp extends StatelessWidget {
   }
 }
 
+enum States { HOME, ABOUT, ABILITY, PROJECTS }
+
 class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -35,11 +37,8 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   bool isWeb = true;
   bool showRepeatedAnimation = true;
-  bool showBio = true;
-  bool showAbout = false;
-  bool showAbilities = false;
-  bool showProjects = false;
   IconData animationIcon;
+  var state = States.HOME;
 
   @override
   void initState() {
@@ -47,9 +46,14 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
+  changeState(States newState) => setState(() {
+        state = newState;
+      });
+
   @override
   Widget build(BuildContext context) {
     isWeb = MediaQuery.of(context).size.width > 600;
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -58,16 +62,16 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.center,
-            child: showBio
+            child: state == States.HOME
                 ? isWeb
                     ? WebBio(showRepeatedAnimation: showRepeatedAnimation)
                     : MobileBio(showRepeatedAnimation: showRepeatedAnimation)
-                : showAbout
-                    ? New()
-                    : showAbilities
+                : state == States.ABOUT
+                    ? About2()
+                    : state == States.ABILITY
                         ? Abilities(
                             showRepeatedAnimation: showRepeatedAnimation)
-                        : showProjects ? Projects() : Container(),
+                        : state == States.PROJECTS ? Projects() : Container(),
           ),
           Align(
             alignment: Alignment.topLeft,
@@ -83,14 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
               child: FlatBorderButton(
                 text: "Home",
-                onTap: () {
-                  setState(() {
-                    showBio = true;
-                    showAbout = false;
-                    showAbilities = false;
-                    showProjects = false;
-                  });
-                },
+                onTap: () => changeState(States.HOME),
               ),
             ),
           ),
@@ -110,7 +107,9 @@ class _MyHomePageState extends State<MyHomePage> {
               },
             ),
           ),
-          isWeb ? WebTopButtons() : MobileTopButtons(),
+          isWeb
+              ? WebTopButtons(changeState: changeState)
+              : MobileTopButtons(changeState: changeState),
         ],
       ),
     );
