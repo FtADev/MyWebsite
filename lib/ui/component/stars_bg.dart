@@ -42,6 +42,8 @@ class _StarsBackgroundState extends State<StarsBackground>
         ? starsInRow * (starsInColumn != 0 ? starsInColumn : starsInRow)
         : starsInColumn;
 
+    Timer.periodic(Duration(seconds: 1), (Timer t) => setAnimation());
+
     super.initState();
   }
 
@@ -51,7 +53,6 @@ class _StarsBackgroundState extends State<StarsBackground>
 
   @override
   Widget build(BuildContext context) {
-    Timer.periodic(Duration(seconds: 1), (Timer t) => setAnimation());
     var random = Random();
 
     return Stack(
