@@ -11,8 +11,21 @@ class About2 extends StatefulWidget {
   _About2State createState() => _About2State();
 }
 
-class _About2State extends State<About2> {
+class _About2State extends State<About2> with TickerProviderStateMixin {
+  AnimationController controller;
+  Animation animation;
   int page = 0;
+
+  @override
+  void initState() {
+    controller = AnimationController(
+      vsync: this,
+      duration: const Duration(milliseconds: 3000),
+    );
+    animation = Tween(begin: 0.0, end: 1.0).animate(controller);
+    controller.forward();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -52,44 +65,44 @@ class _About2State extends State<About2> {
         ),
         Align(
           alignment: Alignment.center,
-          child: FadeIn(
-            4,
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                page > 0
-                    ? FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        onPressed: () {
-                          setState(() {
-                            if (page > 0) page--;
-                          });
-                        },
-                        child: Icon(Icons.arrow_left, color: Colors.blue),
-                      )
-                    : Container(
-                        width: 50,
-                        height: 500,
-                      ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * 0.67,
-                ),
-                page < 2
-                    ? FloatingActionButton(
-                        backgroundColor: Colors.white,
-                        onPressed: () {
-                          setState(() {
-                            if (page < 2) page++;
-                          });
-                        },
-                        child: Icon(Icons.arrow_right, color: Colors.blue),
-                      )
-                    : Container(
-                        width: 50,
-                        height: 500,
-                      ),
-              ],
-            ),
+          child: FadeTransition(
+            opacity: animation,
+            child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  page > 0
+                      ? FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: () {
+                            setState(() {
+                              if (page > 0) page--;
+                            });
+                          },
+                          child: Icon(Icons.arrow_left, color: Colors.blue),
+                        )
+                      : Container(
+                          width: 50,
+                          height: 500,
+                        ),
+                  SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.67,
+                  ),
+                  page < 2
+                      ? FloatingActionButton(
+                          backgroundColor: Colors.white,
+                          onPressed: () {
+                            setState(() {
+                              if (page < 2) page++;
+                            });
+                          },
+                          child: Icon(Icons.arrow_right, color: Colors.blue),
+                        )
+                      : Container(
+                          width: 50,
+                          height: 500,
+                        ),
+                ],
+              ),
           ),
         ),
       ],
