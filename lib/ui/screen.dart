@@ -5,4 +5,5 @@ class Screen {
   final bioFont1 = 0.0;
   final bioFont2 = 0.0;
   final bioFont3 = 0.0;
+  final flatBtnFont = 20.0;
 }

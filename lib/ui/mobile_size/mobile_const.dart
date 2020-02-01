@@ -7,4 +7,5 @@ class MobileConst extends Screen{
   final bioFont1 = 20.0;
   final bioFont2 = 40.0;
   final bioFont3 = 18.0;
+  final flatBtnFont = 16.0;
 }

@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class FlatBorderButton extends StatelessWidget {
   final text;
   final onTap;
+  final screen;
 
-  const FlatBorderButton({Key key, this.text, this.onTap}) : super(key: key);
+  const FlatBorderButton({Key key, this.text, this.onTap, this.screen}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +14,7 @@ class FlatBorderButton extends StatelessWidget {
         padding: EdgeInsets.all(7),
         child: Text(
           text,
-          style: TextStyle(color: Colors.white, fontSize: 20, fontFamily: 'dekko'),
+          style: TextStyle(color: Colors.white, fontSize: screen.flatBtnFont, fontFamily: 'dekko'),
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(30.0),

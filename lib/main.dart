@@ -87,6 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: FlatBorderButton(
                 text: "Home",
                 onTap: () => changeState(States.HOME),
+                screen: screen,
               ),
             ),
           ),

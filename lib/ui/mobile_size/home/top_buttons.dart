@@ -24,6 +24,7 @@ class MobileTopButtons extends StatelessWidget {
             FlatBorderButton(
               text: "About Me",
               onTap: () => changeState(States.ABOUT),
+              screen: screen,
             ),
             SizedBox(
               height: screen.sizedBox,
@@ -31,6 +32,7 @@ class MobileTopButtons extends StatelessWidget {
             FlatBorderButton(
               text: "My Abilities",
               onTap: () => changeState(States.ABILITY),
+              screen: screen,
             ),
             SizedBox(
               height: screen.sizedBox,
@@ -38,6 +40,7 @@ class MobileTopButtons extends StatelessWidget {
             FlatBorderButton(
               text: "My Projects",
               onTap: () => changeState(States.PROJECTS),
+              screen: screen,
             ),
           ],
         ),
