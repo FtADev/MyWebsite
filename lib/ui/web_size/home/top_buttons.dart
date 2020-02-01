@@ -2,12 +2,12 @@ import 'package:MyWebsite/ui/component/flat_border_button.dart';
 import 'package:flutter/material.dart';
 
 import '../../../main.dart';
-import '../const.dart';
 
 class WebTopButtons extends StatelessWidget {
   final Function changeState;
+  final screen;
 
-  const WebTopButtons({Key key, this.changeState}) : super(key: key);
+  const WebTopButtons({Key key, this.changeState, this.screen}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -15,8 +15,8 @@ class WebTopButtons extends StatelessWidget {
       alignment: Alignment.topRight,
       child: Container(
         margin: EdgeInsets.only(
-          top: WebConst.marginTop,
-          right: WebConst.marginLeft,
+          top: screen.marginTop,
+          right: screen.marginLeft,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -26,14 +26,14 @@ class WebTopButtons extends StatelessWidget {
               onTap: () => changeState(States.ABOUT),
             ),
             SizedBox(
-              width: WebConst.sizedBox,
+              width: screen.sizedBox,
             ),
             FlatBorderButton(
               text: "My Abilities",
               onTap: () => changeState(States.ABILITY),
             ),
             SizedBox(
-              width: WebConst.sizedBox,
+              width: screen.sizedBox,
             ),
             FlatBorderButton(
               text: "My Projects",

@@ -1,10 +1,9 @@
-import 'package:MyWebsite/ui/mobile_size/const.dart';
-import 'package:MyWebsite/ui/web_size/const.dart';
+import 'package:MyWebsite/ui/mobile_size/mobile_const.dart';
+import 'package:MyWebsite/ui/web_size/web_const.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/component/fancy_background.dart';
 import 'ui/component/flat_border_button.dart';
-import 'ui/mobile_size/bio/bio.dart';
 import 'ui/mobile_size/home/top_buttons.dart';
 import 'ui/web_size/ability/abilities.dart';
 import 'ui/web_size/about/about2.dart';
@@ -39,6 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   bool showRepeatedAnimation = true;
   IconData animationIcon;
   var state = States.HOME;
+  var screen;
 
   @override
   void initState() {
@@ -52,6 +52,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    screen = (MediaQuery.of(context).size.width > 600) ? WebConst() : MobileConst();
     isWeb = MediaQuery.of(context).size.width > 600;
 
     return Scaffold(
@@ -63,9 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.center,
             child: state == States.HOME
-                ? isWeb
-                    ? WebBio(showRepeatedAnimation: showRepeatedAnimation)
-                    : MobileBio(showRepeatedAnimation: showRepeatedAnimation)
+               ? WebBio(showRepeatedAnimation: showRepeatedAnimation, screen: screen,)
                 : state == States.ABOUT
                     ? About2()
                     : state == States.ABILITY
@@ -78,12 +77,12 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Container(
               margin: isWeb
                   ? EdgeInsets.only(
-                      top: WebConst.marginTop,
-                      left: WebConst.marginLeft,
+                      top: screen.marginTop,
+                      left: screen.marginLeft,
                     )
                   : EdgeInsets.only(
-                      top: MobileConst.marginTop,
-                      left: MobileConst.marginLeft,
+                      top: screen.marginTop,
+                      left: screen.marginLeft,
                     ),
               child: FlatBorderButton(
                 text: "Home",
@@ -108,8 +107,8 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ),
           isWeb
-              ? WebTopButtons(changeState: changeState)
-              : MobileTopButtons(changeState: changeState),
+              ? WebTopButtons(changeState: changeState, screen: screen,)
+              : MobileTopButtons(changeState: changeState, screen: screen,),
         ],
       ),
     );
