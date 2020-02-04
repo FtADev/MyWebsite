@@ -1,3 +1,4 @@
+
 import 'package:MyWebsite/ui/mobile_size/mobile_const.dart';
 import 'package:MyWebsite/ui/web_size/web_const.dart';
 import 'package:flare_flutter/flare_actor.dart';
@@ -99,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: isWeb ? FlatButton(
+            child: FlatButton(
               child: Icon(
                 animationIcon,
                 color: Colors.white,
@@ -111,13 +112,14 @@ class _MyHomePageState extends State<MyHomePage> {
                   showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
                 });
               },
-            ) : GestureDetector(
+            ),
+            /*GestureDetector(
               child: Container(
                 width: 100,
                 height: 100,
                 child: FlareActor(
                   "assets/happy_sad_switch.flr",
-//                  fit: BoxFit.contain,
+                  fit: BoxFit.contain,
                   animation: flareAnimation,
                 ),
               ),
@@ -127,7 +129,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   flareAnimation = flareAnimation == "On" ? "Off" : "On";
                 });
               },
-            ),
+            )*/
           ),
           isWeb
               ? WebTopButtons(
