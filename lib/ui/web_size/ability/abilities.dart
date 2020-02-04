@@ -82,13 +82,19 @@ class _AbilitiesState extends State<Abilities> {
     for (int i = 0; i < abilitiesList.length; i++) {
       list.add(GestureDetector(
         child: FadeIn(
-            delay + 0.5,
-            AbilityCard(
-                name: abilitiesList[i].name,
-                iconPath: abilitiesList[i].iconPath)),
+          delay + 0.5,
+          AbilityCard(
+            name: abilitiesList[i].name,
+            iconPath: abilitiesList[i].iconPath,
+            moveIcon: abilitiesList[i].moveIcon,
+          ),
+        ),
         onTap: () {
           setState(() {
             index = i;
+            for(var ability in abilitiesList)
+              ability.moveIcon = false;
+            abilitiesList[i].moveIcon = true;
           });
         },
       ));

@@ -13,6 +13,7 @@ class AbilityModel {
   String name;
   String iconPath;
   String detail;
+  bool moveIcon = false;
 
-  AbilityModel({this.name, this.iconPath, this.detail});
+  AbilityModel({this.name, this.iconPath, this.detail, this.moveIcon});
 }
