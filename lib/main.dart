@@ -1,5 +1,4 @@
 import 'package:MyWebsite/ui/mobile_size/mobile_const.dart';
-import 'package:MyWebsite/ui/sample.dart';
 import 'package:MyWebsite/ui/web_size/web_const.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +21,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Page1(),
+      home: MyHomePage(),
     );
   }
 }
