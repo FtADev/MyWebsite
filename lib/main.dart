@@ -1,5 +1,6 @@
 import 'package:MyWebsite/ui/mobile_size/mobile_const.dart';
 import 'package:MyWebsite/ui/web_size/web_const.dart';
+import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/component/fancy_background.dart';
@@ -39,6 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   IconData animationIcon;
   var state = States.HOME;
   var screen;
+  var flareAnimation = "On";
 
   @override
   void initState() {
@@ -52,7 +54,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    screen = (MediaQuery.of(context).size.width > 600) ? WebConst() : MobileConst();
+    screen =
+        (MediaQuery.of(context).size.width > 600) ? WebConst() : MobileConst();
     isWeb = MediaQuery.of(context).size.width > 600;
 
     return Scaffold(
@@ -64,7 +67,10 @@ class _MyHomePageState extends State<MyHomePage> {
           Align(
             alignment: Alignment.center,
             child: state == States.HOME
-               ? WebBio(showRepeatedAnimation: showRepeatedAnimation, screen: screen,)
+                ? WebBio(
+                    showRepeatedAnimation: showRepeatedAnimation,
+                    screen: screen,
+                  )
                 : state == States.ABOUT
                     ? About2()
                     : state == States.ABILITY
@@ -93,7 +99,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: FlatButton(
+            child: isWeb ? FlatButton(
               child: Icon(
                 animationIcon,
                 color: Colors.white,
@@ -102,14 +108,36 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   showRepeatedAnimation = !showRepeatedAnimation;
                   animationIcon =
-                      showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
+                  showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
+                });
+              },
+            ) : GestureDetector(
+              child: Container(
+                width: 100,
+                height: 100,
+                child: FlareActor(
+                  "assets/happy_sad_switch.flr",
+//                  fit: BoxFit.contain,
+                  animation: flareAnimation,
+                ),
+              ),
+              onTap: () {
+                setState(() {
+                  showRepeatedAnimation = !showRepeatedAnimation;
+                  flareAnimation = flareAnimation == "On" ? "Off" : "On";
                 });
               },
             ),
           ),
           isWeb
-              ? WebTopButtons(changeState: changeState, screen: screen,)
-              : MobileTopButtons(changeState: changeState, screen: screen,),
+              ? WebTopButtons(
+                  changeState: changeState,
+                  screen: screen,
+                )
+              : MobileTopButtons(
+                  changeState: changeState,
+                  screen: screen,
+                ),
         ],
       ),
     );
