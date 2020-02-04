@@ -11,7 +11,7 @@ class Page2 extends StatelessWidget {
               child: Container(
                 width: 40,
                 height: 40,
-                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
                 child: Image.asset('assets/back.png'),
               ),
               onTap: () => Navigator.of(context).pop(),
