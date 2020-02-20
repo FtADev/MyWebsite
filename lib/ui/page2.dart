@@ -3,6 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import 'component/fade_in_ui.dart';
+import 'my_custom_shape.dart';
 
 enum AboutStates { START, MIDDLE, NOW }
 
@@ -23,203 +24,134 @@ class _Page2State extends State<Page2> {
 
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
+      body: Column(
         children: <Widget>[
-          Image.asset(
-            currentState == AboutStates.START ? 'assets/pishi-s.jpg'
-            : currentState == AboutStates.MIDDLE ? 'assets/pishi-m.jpg'
-            : 'assets/pishi-n.jpg',
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
-            fit: BoxFit.fill,
+          Container(
+              width: MediaQuery.of(context).size.width * 0.8,
+              height: MediaQuery.of(context).size.height * 0.6,
+              child: MyCustomShape()
           ),
-          Opacity(
-            opacity: 0.5,
-            child: Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height,
-              color: Colors.black,
-            ),
-          ),
-          Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              margin: EdgeInsets.symmetric(
-                horizontal: 150,
-                vertical: 150,
-              ),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    currentState == AboutStates.START ? "Starting"
-                        : currentState == AboutStates.MIDDLE ? "Middling"
-                        : "And Now",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 50,
-                      fontFamily: 'dekko',
-                    ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 50),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  currentState == AboutStates.START ? "Starting"
+                      : currentState == AboutStates.MIDDLE ? "Middling"
+                      : "And Now",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                    fontFamily: 'dekko',
                   ),
-                  SizedBox(
-                    height: 30,
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  currentState == AboutStates.START ? startingText
+                      : currentState == AboutStates.MIDDLE ? middling
+                      : now,
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                    fontFamily: 'dekko',
                   ),
-                  Text(
-                    currentState == AboutStates.START ? startingText
-                        : currentState == AboutStates.MIDDLE ? middling
-                        : now,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 30,
-                      fontFamily: 'dekko',
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
-          currentState != AboutStates.NOW ? Align(
-            alignment: Alignment.bottomRight,
-            child: Container(
-              margin: EdgeInsets.only(
-                right: 150,
-                bottom: 150,
-              ),
-              child: FlatButton(
-                child: Icon(Icons.arrow_right, color: Colors.white, size: 50,),
-                onPressed: () {
-                  setState(() {
-                    currentState == AboutStates.START ? currentState = AboutStates.MIDDLE
-                        : currentState = AboutStates.NOW;
-                  });
-                },
-              ),
-            ),
-          ) : Container(),
-          currentState != AboutStates.START ? Align(
-            alignment: Alignment.bottomLeft,
-            child: Container(
-              margin: EdgeInsets.only(
-                left: 150,
-                bottom: 150,
-              ),
-              child: FlatButton(
-                child: Icon(Icons.arrow_left, color: Colors.white, size: 50,),
-                onPressed: () {
-                  setState(() {
-                    currentState == AboutStates.NOW ? currentState = AboutStates.MIDDLE
-                        : currentState = AboutStates.START;
-                  });
-                },
-              ),
-            ),
-          ) : Container(),
+          SizedBox(height: 20),
           currentState == AboutStates.NOW ?
-              Align(
-                alignment: Alignment.bottomCenter,
-                child: Container(
-                  margin: EdgeInsets.only(
-                    bottom: 50,
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: <Widget>[
-                      FadeIn(
-                        3.5,
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/gmail.png',
-                              width: 25,
-                              height: 25,
-                              fit: BoxFit.fitWidth,
-                            ),
-                            SizedBox(width: 10),
-                            Text(
-                              'akhlaghi.fatemeh@gmail.com',
-                              style: TextStyle(
-                                fontFamily: 'dekko',
-                                fontSize: 20,
-                                color: Colors.white
-                              ),
-                            )
-                          ],
-                        ),
-                      ),
-                      SizedBox(
-                        height: 30,
-                      ),
+              Container(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    FadeIn(
+                      3.5,
                       Row(
                         mainAxisSize: MainAxisSize.min,
                         crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          FadeIn(
-                            4,
-                            InkWell(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                                  border: Border.all(width: 1, color: Colors.white,)
-                                ),
-                                child: Image.asset(
-                                  'assets/github.png',
-                                  width: 50,
-                                  height: 50,
-                                ),
-                              ),
-                              onTap: githubLauncher,
+                        children: [
+                          Image.asset(
+                            'assets/gmail.png',
+                            width: 25,
+                            height: 25,
+                            fit: BoxFit.fitWidth,
+                          ),
+                          SizedBox(width: 10),
+                          Text(
+                            'akhlaghi.fatemeh@gmail.com',
+                            style: TextStyle(
+                              fontFamily: 'dekko',
+                              fontSize: 20,
+                              color: Colors.white
                             ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          FadeIn(
-                            4.5,
-                            InkWell(
-                              child: Image.asset(
-                                'assets/gitlab.png',
-                                width: 50,
-                                height: 50,
-                              ),
-                              onTap: gitlabLauncher,
-                            ),
-                          ),
-                          SizedBox(
-                            width: 20,
-                          ),
-                          FadeIn(
-                            5,
-                            InkWell(
-                              child: Image.asset(
-                                'assets/telegram.png',
-                                width: 50,
-                                height: 50,
-                              ),
-                              onTap: telegramLauncher,
-                            ),
-                          ),
+                          )
                         ],
                       ),
-                    ],
-                  ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        FadeIn(
+                          4,
+                          InkWell(
+                            child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                                border: Border.all(width: 1, color: Colors.white,)
+                              ),
+                              child: Image.asset(
+                                'assets/github.png',
+                                width: 50,
+                                height: 50,
+                              ),
+                            ),
+                            onTap: githubLauncher,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        FadeIn(
+                          4.5,
+                          InkWell(
+                            child: Image.asset(
+                              'assets/gitlab.png',
+                              width: 50,
+                              height: 50,
+                            ),
+                            onTap: gitlabLauncher,
+                          ),
+                        ),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        FadeIn(
+                          5,
+                          InkWell(
+                            child: Image.asset(
+                              'assets/telegram.png',
+                              width: 50,
+                              height: 50,
+                            ),
+                            onTap: telegramLauncher,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
               )
           : Container(),
-          Align(
-              alignment: Alignment.topLeft,
-              child: GestureDetector(
-                child: Container(
-                  width: 40,
-                  height: 40,
-                  margin: EdgeInsets.symmetric(horizontal: 10, vertical: 30),
-                  child: Image.asset('assets/back.png'),
-                ),
-                onTap: () => Navigator.of(context).pop(),
-              ))
         ],
       ),
     );

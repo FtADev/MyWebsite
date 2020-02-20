@@ -3,11 +3,8 @@ import 'package:flutter/material.dart';
 class MyCustomShape extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      color: Colors.white,
-      child: CustomPaint(
-        painter: CurvePainter(),
-      ),
+    return CustomPaint(
+      painter: CurvePainter(),
     );
   }
 }
