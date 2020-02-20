@@ -16,43 +16,43 @@ class CurvePainter extends CustomPainter {
   Color colorOne = Colors.purple;
   Color colorTwo = Colors.purple[200];
 
-  Node a = Node(0.29,0.89);
-  Node b = Node(0.17,0.82);
-  Node c = Node(0.12,0.59);
-  Node d = Node(0.09,0.44);
-  Node e = Node(0.15,0.32);
-  Node f = Node(0.15,0.25);
-  Node g = Node(0.3,0.13);
-  Node h = Node(0.45,0.12);
-  Node i = Node(0.52,0.18);
-  Node j = Node(0.61,0.22);
-  Node k = Node(0.79,0.18);
-  Node l = Node(0.88,0.27);
-  Node m = Node(0.89,0.46);
-  Node n = Node(0.86,0.56);
-  Node o = Node(0.91,0.73);
-  Node p = Node(0.81,0.85);
-  Node q = Node(0.59,0.93);
-  Node r = Node(0.48,0.9);
+  Node a = Node(0.29, 0.89);
+  Node b = Node(0.17, 0.82);
+  Node c = Node(0.12, 0.59);
+  Node d = Node(0.09, 0.44);
+  Node e = Node(0.15, 0.32);
+  Node f = Node(0.15, 0.25);
+  Node g = Node(0.3, 0.13);
+  Node h = Node(0.45, 0.12);
+  Node i = Node(0.52, 0.18);
+  Node j = Node(0.61, 0.22);
+  Node k = Node(0.79, 0.18);
+  Node l = Node(0.88, 0.27);
+  Node m = Node(0.89, 0.46);
+  Node n = Node(0.86, 0.56);
+  Node o = Node(0.91, 0.73);
+  Node p = Node(0.81, 0.85);
+  Node q = Node(0.59, 0.93);
+  Node r = Node(0.48, 0.9);
 
-  Node A = Node(0.135,0.97);
-  Node B = Node(0.2,0.66);
+  Node A = Node(0.135, 0.97);
+  Node B = Node(0.2, 0.66);
   Node C = Node(0, 0.5);
-  Node D = Node(0.18,0.38);
+  Node D = Node(0.18, 0.38);
   Node E = Node(0.11, 0.24);
-  Node F = Node(0.19,0.26);
-  Node G = Node(0.42,0);
-  Node H = Node(0.47,0.2);
-  Node I = Node(0.58,0.14);
-  Node J = Node(0.63,0.26);
-  Node K = Node(0.95,0.12);
-  Node L = Node(0.82,0.39);
-  Node M = Node(0.91,0.48);
-  Node N = Node(0.82,0.62);
-  Node O = Node(1,0.85);
-  Node P = Node(0.65,0.86);
-  Node Q = Node(0.53,1);
-  Node R = Node(0.43,0.81);
+  Node F = Node(0.19, 0.26);
+  Node G = Node(0.42, 0);
+  Node H = Node(0.47, 0.2);
+  Node I = Node(0.58, 0.14);
+  Node J = Node(0.63, 0.26);
+  Node K = Node(0.95, 0.12);
+  Node L = Node(0.82, 0.39);
+  Node M = Node(0.91, 0.48);
+  Node N = Node(0.82, 0.62);
+  Node O = Node(1, 0.85);
+  Node P = Node(0.65, 0.86);
+  Node Q = Node(0.53, 1);
+  Node R = Node(0.43, 0.81);
 
   @override
   void paint(Canvas canvas, Size size) {
@@ -62,7 +62,7 @@ class CurvePainter extends CustomPainter {
     paint.color = colorOne;
 //    paint.style = PaintingStyle.fill;
 
-    path.moveTo(size.width * a.w , size.height * a.h);
+    path.moveTo(size.width * a.w, size.height * a.h);
 
     path.quadraticBezierTo(size.width * A.w, size.height * A.h,
         size.width * b.w, size.height * b.h);
@@ -117,7 +117,6 @@ class CurvePainter extends CustomPainter {
 
     path.quadraticBezierTo(size.width * R.w, size.height * R.h,
         size.width * a.w, size.height * a.h);
-
 
     path.close();
     canvas.drawPath(path, paint);
