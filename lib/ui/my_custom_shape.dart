@@ -76,9 +76,10 @@ class CurvePainter extends CustomPainter {
     Path path = Path();
 
     var gradient = LinearGradient(
-        begin: Alignment.topCenter,
-        end: Alignment.bottomCenter,
-        colors: [color1, color2]);
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      colors: [color1, color2],
+    );
 
     var rect = Offset.zero & size;
 
