@@ -51,7 +51,7 @@ class MobileTopButtons extends StatelessWidget {
 
   Route _createRoute() {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => Page2(),
+      pageBuilder: (context, animation, secondaryAnimation) => Page2(screen: screen,),
       transitionDuration: Duration(seconds: 2),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = Offset(0.0, 1.0);

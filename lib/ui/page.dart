@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'my_custom_shape.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import 'screen.dart';
+
 
 final pages = [
   PageViewModel(
@@ -35,9 +37,10 @@ class PageViewModel {
 
 class Page extends StatelessWidget {
   final PageViewModel viewModel;
+  final Screen screen;
 
   Page(
-    this.viewModel,
+    this.viewModel, this.screen,
   );
 
   @override
@@ -45,12 +48,12 @@ class Page extends StatelessWidget {
     return Column(
       children: <Widget>[
         Container(
-            width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.6,
+            width: MediaQuery.of(context).size.width * screen.wSize,
+            height: MediaQuery.of(context).size.height * screen.hSize,
             child: MyCustomShape()
         ),
         Container(
-          margin: EdgeInsets.symmetric(horizontal: 50),
+          margin: EdgeInsets.symmetric(horizontal: screen.hPaddingAbout),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -58,24 +61,24 @@ class Page extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 40,
+                  fontSize: screen.titleAbout,
                   fontFamily: 'dekko',
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: screen.sizedBox15,
               ),
               Text(viewModel.text,
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 25,
+                  fontSize: screen.textAbout,
                   fontFamily: 'dekko',
                 ),
               ),
             ],
           ),
         ),
-        SizedBox(height: 20),
+        SizedBox(height: screen.sizedBox),
         viewModel.isLastPage ?
         Container(
           child: Column(
@@ -87,23 +90,23 @@ class Page extends StatelessWidget {
                   children: [
                     Image.asset(
                       'assets/gmail.png',
-                      width: 25,
-                      height: 25,
+                      width: screen.icon2About,
+                      height: screen.icon2About,
                       fit: BoxFit.fitWidth,
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: screen.sizedBox10),
                     Text(
                       'akhlaghi.fatemeh@gmail.com',
                       style: TextStyle(
                           fontFamily: 'dekko',
-                          fontSize: 20,
+                          fontSize: screen.textAbout,
                           color: Colors.black
                       ),
                     )
                   ],
                 ),
               SizedBox(
-                height: 15,
+                height: screen.sizedBox15,
               ),
               Row(
                 mainAxisSize: MainAxisSize.min,
@@ -118,31 +121,31 @@ class Page extends StatelessWidget {
                         ),
                         child: Image.asset(
                           'assets/github.png',
-                          width: 50,
-                          height: 50,
+                          width: screen.iconAbout,
+                          height: screen.iconAbout,
                         ),
                       ),
                       onTap: githubLauncher,
                   ),
                   SizedBox(
-                    width: 20,
+                    width: screen.sizedBox,
                   ),
                     InkWell(
                       child: Image.asset(
                         'assets/gitlab.png',
-                        width: 50,
-                        height: 50,
+                        width: screen.iconAbout,
+                        height: screen.iconAbout,
                       ),
                       onTap: gitlabLauncher,
                     ),
                   SizedBox(
-                    width: 20,
+                    width: screen.sizedBox,
                   ),
                     InkWell(
                       child: Image.asset(
                         'assets/telegram.png',
-                        width: 50,
-                        height: 50,
+                        width: screen.iconAbout,
+                        height: screen.iconAbout,
                       ),
                       onTap: telegramLauncher,
                   ),
