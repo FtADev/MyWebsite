@@ -1,17 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 class MyCustomShape extends StatelessWidget {
+  final tween = MultiTrackTween([
+    Track("color1").add(Duration(seconds: 3),
+        ColorTween(begin: Color(0xffD38312), end: Colors.lightBlue.shade900)),
+    Track("color2").add(Duration(seconds: 3),
+        ColorTween(begin: Color(0xffA83279), end: Colors.blue.shade600))
+  ]);
+
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(
-      painter: CurvePainter(),
+    return ControlledAnimation(
+      playback: Playback.MIRROR,
+      tween: tween,
+      duration: tween.duration,
+      builder: (context, animation) {
+        return Container(
+          child: CustomPaint(
+            painter: CurvePainter(animation["color1"], animation["color2"]),
+          ),
+        );
+      },
     );
   }
 }
 
 class CurvePainter extends CustomPainter {
-  Color colorOne = Colors.purple;
-  Color colorTwo = Colors.purple[200];
+  final color1;
+  final color2;
+
+  CurvePainter(this.color1, this.color2);
 
   Node a = Node(0.29, 0.89);
   Node b = Node(0.17, 0.82);
@@ -56,8 +75,15 @@ class CurvePainter extends CustomPainter {
     Paint paint = Paint();
     Path path = Path();
 
-    paint.color = colorOne;
-//    paint.style = PaintingStyle.fill;
+    var gradient = LinearGradient(
+        begin: Alignment.topCenter,
+        end: Alignment.bottomCenter,
+        colors: [color1, color2]);
+
+    var rect = Offset.zero & size;
+
+    paint.color = color1;
+    paint.shader = gradient.createShader(rect);
 
     path.moveTo(size.width * a.w, size.height * a.h);
 
@@ -117,31 +143,6 @@ class CurvePainter extends CustomPainter {
 
     path.close();
     canvas.drawPath(path, paint);
-//
-//    path = Path();
-//    paint.color = colorOne;
-//
-//    path.moveTo(size.width * a.w , size.height * a.h);
-//    path.quadraticBezierTo(size.width * b.w, size.height * b.h,
-//        size.width * c.w, size.height * c.h);
-//
-//    path.quadraticBezierTo(size.width * d.w, size.height * d.h,
-//        size.width * e.w, size.height * e.h);
-//
-//    path.quadraticBezierTo(size.width * f.w, size.height * f.h,
-//        size.width * g.w, size.height * g.h);
-//
-//    path.quadraticBezierTo(size.width * h.w, size.height * h.h,
-//        size.width * i.w, size.height * i.h);
-//
-//    path.quadraticBezierTo(size.width * j.w, size.height * j.h,
-//        size.width * k.w, size.height * k.h);
-//
-//    path.quadraticBezierTo(size.width * l.w, size.height * l.h,
-//        size.width * a.w, size.height * a.h);
-//
-//    path.close();
-//    canvas.drawPath(path, paint);
   }
 
   @override
