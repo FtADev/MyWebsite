@@ -24,15 +24,7 @@ class WebTopButtons extends StatelessWidget {
           children: <Widget>[
             FlatBorderButton(
               text: "About Me",
-              onTap: () => Navigator.of(context).push(_createRoute()),
-              screen: screen,
-            ),
-            SizedBox(
-              width: screen.sizedBox,
-            ),
-            FlatBorderButton(
-              text: "My Abilities",
-              onTap: () => changeState(States.ABILITY),
+              onTap: () => changeState(States.ABOUT),
               screen: screen,
             ),
             SizedBox(
