@@ -1,8 +1,6 @@
 # My Website
 
-Look it at [My Website] (https://ftadev.github.io/)
-
-A new Flutter project.
+You can see the output on [My Website](https://ftadev.github.io/)
 
 ## Getting Started
 
