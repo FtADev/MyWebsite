@@ -3,6 +3,7 @@ import 'package:MyWebsite/ui/page2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../main.dart';
+import '../project/Projects.dart';
 
 class MobileTopButtons extends StatelessWidget {
   final Function changeState;
@@ -24,15 +25,7 @@ class MobileTopButtons extends StatelessWidget {
           children: <Widget>[
             FlatBorderButton(
               text: "About Me",
-              onTap: () => Navigator.of(context).push(_createRoute()),
-              screen: screen,
-            ),
-            SizedBox(
-              height: screen.sizedBox,
-            ),
-            FlatBorderButton(
-              text: "My Abilities",
-              onTap: () => changeState(States.ABILITY),
+              onTap: () => Navigator.of(context).push(_createRoute(Page2(screen: screen,),)),
               screen: screen,
             ),
             SizedBox(
@@ -48,7 +41,7 @@ class MobileTopButtons extends StatelessWidget {
 //            ),
             FlatBorderButton(
               text: "My Projects",
-              onTap: () => changeState(States.PROJECTS),
+              onTap: () => Navigator.of(context).push(_createRoute(Projects(),)),
               screen: screen,
             ),
           ],
@@ -57,9 +50,9 @@ class MobileTopButtons extends StatelessWidget {
     );
   }
 
-  Route _createRoute() {
+  Route _createRoute(Widget page) {
     return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => Page2(screen: screen,),
+      pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionDuration: Duration(seconds: 2),
       transitionsBuilder: (context, animation, secondaryAnimation, child) {
         var begin = Offset(0.0, 1.0);
