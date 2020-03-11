@@ -38,6 +38,14 @@ class MobileTopButtons extends StatelessWidget {
             SizedBox(
               height: screen.sizedBox,
             ),
+//            FlatBorderButton(
+//              text: "My Abilities",
+//              onTap: () => changeState(States.ABILITY),
+//              screen: screen,
+//            ),
+//            SizedBox(
+//              height: screen.sizedBox,
+//            ),
             FlatBorderButton(
               text: "My Projects",
               onTap: () => changeState(States.PROJECTS),
