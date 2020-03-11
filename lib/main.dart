@@ -9,6 +9,7 @@ import 'ui/component/flat_border_button.dart';
 import 'ui/mobile_size/home/top_buttons.dart';
 import 'ui/page2.dart';
 import 'ui/web_size/ability/abilities.dart';
+import 'ui/web_size/about/about1.dart';
 import 'ui/web_size/about/about2.dart';
 import 'ui/web_size/bio/bio.dart';
 import 'ui/web_size/home/top_buttons.dart';
@@ -74,7 +75,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     screen: screen,
                   )
                 : state == States.ABOUT
-                    ? Page2(screen: screen)
+                    ? About1(screen: screen)
                     : state == States.ABILITY
                         ? Abilities(
                             showRepeatedAnimation: showRepeatedAnimation)
