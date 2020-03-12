@@ -25,7 +25,7 @@ final projectList = [
     lang: "Kotlin",
     colorLang: Colors.red,
     image: "./assets/present.png",
-    detail: "An android app that we use to set our enter/exit at work!",
+    detail: "An android app that we use to set our enter/exit to/from office!",
     url: "https://gitlab.com/exceptionaldev-pub/mobileexception/present",
   ),
   ProjectModel(
@@ -43,7 +43,7 @@ final projectList = [
     lang: "Flutter",
     colorLang: Colors.blue,
     image: "./assets/waka.png",
-    detail: "Show track of your coding time based on watatime.com",
+    detail: "Show track of your coding time based on wakatime.com",
     url: "https://github.com/FtADev/WakaTime",
   ),
   ProjectModel(
