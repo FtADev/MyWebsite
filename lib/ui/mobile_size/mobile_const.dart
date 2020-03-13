@@ -1,7 +1,7 @@
 import 'package:MyWebsite/ui/screen.dart';
 
 class MobileConst extends Screen{
-  final marginTop = 46.0;
+  final marginTop = 26.0;
  final marginLeft = 16.0;
   final sizedBox = 10.0;
   final sizedBox15 = 5.0;
