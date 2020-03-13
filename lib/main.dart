@@ -81,15 +81,10 @@ class _MyHomePageState extends State<MyHomePage> {
                             showRepeatedAnimation: showRepeatedAnimation)
                         : state == States.PROJECTS ? Projects() : Container(),
           ),
-          Align(
+          isWeb ? Align(
             alignment: Alignment.topLeft,
             child: Container(
-              margin: isWeb
-                  ? EdgeInsets.only(
-                      top: screen.marginTop,
-                      left: screen.marginLeft,
-                    )
-                  : EdgeInsets.only(
+              margin: EdgeInsets.only(
                       top: screen.marginTop,
                       left: screen.marginLeft,
                     ),
@@ -99,7 +94,20 @@ class _MyHomePageState extends State<MyHomePage> {
                 screen: screen,
               ),
             ),
-          ),
+          ) : Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.only(
+                top: screen.marginTop,
+                left: screen.marginLeft,
+              ),
+              child: FlatBorderButton(
+                text: "About Me",
+                onTap: () => Navigator.of(context).push(createRoute(Page2(screen: screen,),)),
+                screen: screen,
+              ),
+            ),
+          ) ,
           Align(
             alignment: Alignment.bottomLeft,
             child: FlatButton(
