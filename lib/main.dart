@@ -1,7 +1,5 @@
-
 import 'package:MyWebsite/ui/mobile_size/mobile_const.dart';
 import 'package:MyWebsite/ui/web_size/web_const.dart';
-import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/component/fancy_background.dart';
@@ -10,10 +8,11 @@ import 'ui/mobile_size/home/top_buttons.dart';
 import 'ui/page2.dart';
 import 'ui/web_size/ability/abilities.dart';
 import 'ui/web_size/about/about1.dart';
-import 'ui/web_size/about/about2.dart';
 import 'ui/web_size/bio/bio.dart';
 import 'ui/web_size/home/top_buttons.dart';
-import 'ui/web_size/project/Projects.dart';
+import 'ui/web_size/project/progect_size1.dart';
+import 'ui/web_size/project/project_size2.dart';
+import 'ui/web_size/project/project_size3.dart';
 
 void main() => runApp(MyApp());
 
@@ -44,6 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
   var state = States.HOME;
   var screen;
   var flareAnimation = "On";
+  double size = 0.0;
 
   @override
   void initState() {
@@ -60,6 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
     screen =
         (MediaQuery.of(context).size.width > 600) ? WebConst() : MobileConst();
     isWeb = MediaQuery.of(context).size.width > 600;
+    size = MediaQuery.of(context).size.width;
 
     return Scaffold(
       body: Stack(
@@ -79,35 +80,47 @@ class _MyHomePageState extends State<MyHomePage> {
                     : state == States.ABILITY
                         ? Abilities(
                             showRepeatedAnimation: showRepeatedAnimation)
-                        : state == States.PROJECTS ? Projects() : Container(),
+                        : state == States.PROJECTS
+                            ? (size < 1000
+                                ? ProjectsSize1()
+                                : size < 1600
+                                    ? ProjectsSize2()
+                                    : ProjectsSize3())
+                            : Container(),
           ),
-          isWeb ? Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              margin: EdgeInsets.only(
+          isWeb
+              ? Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    margin: EdgeInsets.only(
                       top: screen.marginTop,
                       left: screen.marginLeft,
                     ),
-              child: FlatBorderButton(
-                text: "Home",
-                onTap: () => changeState(States.HOME),
-                screen: screen,
-              ),
-            ),
-          ) : Align(
-            alignment: Alignment.topLeft,
-            child: Container(
-              margin: EdgeInsets.only(
-                top: screen.marginTop,
-                left: screen.marginLeft,
-              ),
-              child: FlatBorderButton(
-                text: "About Me",
-                onTap: () => Navigator.of(context).push(createRoute(Page2(screen: screen,),)),
-                screen: screen,
-              ),
-            ),
-          ) ,
+                    child: FlatBorderButton(
+                      text: "Home",
+                      onTap: () => changeState(States.HOME),
+                      screen: screen,
+                    ),
+                  ),
+                )
+              : Align(
+                  alignment: Alignment.topLeft,
+                  child: Container(
+                    margin: EdgeInsets.only(
+                      top: screen.marginTop,
+                      left: screen.marginLeft,
+                    ),
+                    child: FlatBorderButton(
+                      text: "About Me",
+                      onTap: () => Navigator.of(context).push(createRoute(
+                        Page2(
+                          screen: screen,
+                        ),
+                      )),
+                      screen: screen,
+                    ),
+                  ),
+                ),
           Align(
             alignment: Alignment.bottomLeft,
             child: FlatButton(
@@ -119,7 +132,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 setState(() {
                   showRepeatedAnimation = !showRepeatedAnimation;
                   animationIcon =
-                  showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
+                      showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
                 });
               },
             ),

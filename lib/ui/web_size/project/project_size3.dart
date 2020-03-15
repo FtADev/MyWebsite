@@ -5,7 +5,7 @@ import '../../component/fade_in_ui.dart';
 import '../../component/project_item.dart';
 import 'project_list.dart';
 
-class Projects extends StatelessWidget {
+class ProjectsSize3 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DynamicCard(
