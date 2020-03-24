@@ -21,7 +21,7 @@ class DynamicCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return ControlledAnimation(
       duration: Duration(milliseconds: 400),
-      tween: Tween(begin: 0.0, end: MediaQuery.of(context).size.height * 0.7),
+      tween: Tween(begin: 0.0, end: MediaQuery.of(context).size.height * 0.8),
       builder: (context, height) {
         return ControlledAnimation(
           duration: Duration(milliseconds: 1200),
