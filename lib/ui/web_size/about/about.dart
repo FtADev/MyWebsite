@@ -4,16 +4,16 @@ import 'package:page_indicator/page_indicator.dart';
 import '../../component/dynamic_card.dart';
 import 'page-web.dart';
 
-class About1 extends StatefulWidget {
+class About extends StatefulWidget {
   final screen;
 
-  const About1({Key key, this.screen}) : super(key: key);
+  const About({Key key, this.screen}) : super(key: key);
 
   @override
   _AboutState createState() => _AboutState();
 }
 
-class _AboutState extends State<About1> {
+class _AboutState extends State<About> {
   PageController _pageController;
 
   @override

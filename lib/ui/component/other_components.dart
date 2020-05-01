@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
 
-
-
-
-
 class CardPlaceholder extends StatelessWidget {
   const CardPlaceholder({
     Key key,

@@ -5,14 +5,15 @@ import 'package:flutter/material.dart';
 import 'ui/component/fancy_background.dart';
 import 'ui/component/flat_border_button.dart';
 import 'ui/mobile_size/home/top_buttons.dart';
-import 'ui/page2.dart';
 import 'ui/web_size/ability/abilities.dart';
-import 'ui/web_size/about/about1.dart';
+import 'ui/web_size/about/about.dart';
 import 'ui/web_size/bio/bio.dart';
 import 'ui/web_size/home/top_buttons.dart';
 import 'ui/web_size/project/progect_size1.dart';
 import 'ui/web_size/project/project_size2.dart';
 import 'ui/web_size/project/project_size3.dart';
+import 'ui/mobile_size/project/Projects.dart';
+import 'ui/page2.dart';
 
 void main() => runApp(MyApp());
 
@@ -51,9 +52,13 @@ class _MyHomePageState extends State<MyHomePage> {
     super.initState();
   }
 
-  changeState(States newState) => setState(() {
+  webChangeState(States newState) => setState(() {
         state = newState;
       });
+
+  mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
+        newState,
+      ));
 
   @override
   Widget build(BuildContext context) {
@@ -76,10 +81,11 @@ class _MyHomePageState extends State<MyHomePage> {
                     screen: screen,
                   )
                 : state == States.ABOUT
-                    ? About1(screen: screen)
+                    ? About(screen: screen)
                     : state == States.ABILITY
                         ? Abilities(
-                            showRepeatedAnimation: showRepeatedAnimation)
+                            showRepeatedAnimation: showRepeatedAnimation,
+                          )
                         : state == States.PROJECTS
                             ? (size < 1000
                                 ? ProjectsSize1()
@@ -98,7 +104,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: FlatBorderButton(
                       text: "Home",
-                      onTap: () => changeState(States.HOME),
+                      onTap: () => webChangeState(States.HOME),
                       screen: screen,
                     ),
                   ),
@@ -112,11 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                     child: FlatBorderButton(
                       text: "About Me",
-                      onTap: () => Navigator.of(context).push(createRoute(
-                        Page2(
-                          screen: screen,
-                        ),
-                      )),
+                      onTap: () => mobileChangeState(States.ABOUT),
                       screen: screen,
                     ),
                   ),
@@ -156,15 +158,38 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           isWeb
               ? WebTopButtons(
-                  changeState: changeState,
+                  changeState: webChangeState,
                   screen: screen,
                 )
               : MobileTopButtons(
-                  changeState: changeState,
+                  changeState: mobileChangeState,
                   screen: screen,
                 ),
         ],
       ),
+    );
+  }
+
+
+  Route createRoute(States state) {
+    Widget page;
+    if (state == States.PROJECTS) page = Projects();
+    else if (state == States.ABOUT) page = Page2(screen: MobileConst(),);
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => page,
+      transitionDuration: Duration(seconds: 2),
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(0.0, 1.0);
+        var end = Offset.zero;
+        var curve = Curves.fastOutSlowIn;
+
+        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
     );
   }
 }
