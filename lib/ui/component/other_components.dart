@@ -1,37 +1,8 @@
 import 'package:flutter/material.dart';
 
-class HeaderPlaceholder extends StatelessWidget {
-  const HeaderPlaceholder({
-    Key key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      height: 80.0,
-      decoration: BoxDecoration(
-          color: Colors.grey.shade400,
-          borderRadius: BorderRadius.all(Radius.circular(5))),
-    );
-  }
-}
 
-class CirclePlaceholder extends StatelessWidget {
-  const CirclePlaceholder({
-    Key key,
-  }) : super(key: key);
 
-  @override
-  Widget build(BuildContext context) {
-    return ClipOval(
-      child: Container(
-        width: 50,
-        height: 50,
-        color: Colors.grey.shade300,
-      ),
-    );
-  }
-}
 
 class CardPlaceholder extends StatelessWidget {
   const CardPlaceholder({
