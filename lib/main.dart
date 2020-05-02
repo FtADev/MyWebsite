@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'ui/component/fancy_background.dart';
 import 'ui/component/flat_border_button.dart';
 import 'ui/mobile_size/home/top_buttons.dart';
+import 'ui/page2.dart';
 import 'ui/web_size/ability/abilities.dart';
 import 'ui/web_size/about/about.dart';
 import 'ui/web_size/bio/bio.dart';
@@ -13,7 +14,6 @@ import 'ui/web_size/project/progect_size1.dart';
 import 'ui/web_size/project/project_size2.dart';
 import 'ui/web_size/project/project_size3.dart';
 import 'ui/mobile_size/project/Projects.dart';
-import 'ui/page2.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-enum States { HOME, ABOUT, ABILITY, PROJECTS }
+enum States { HOME, ABOUT, ABILITY, PROJECTS, WEB, MOBILE }
 
 class MyHomePage extends StatefulWidget {
   @override
@@ -173,8 +173,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   Route createRoute(States state) {
     Widget page;
-    if (state == States.PROJECTS) page = Projects();
-    else if (state == States.ABOUT) page = Page2(screen: MobileConst(),);
+    if (state == States.PROJECTS) page = Projects(screen: MobileConst(),);
+    else if (state == States.ABOUT) page = MobileAbout(screen: MobileConst(),);
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionDuration: Duration(seconds: 2),

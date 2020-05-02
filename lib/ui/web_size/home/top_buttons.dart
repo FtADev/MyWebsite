@@ -1,5 +1,4 @@
 import 'package:MyWebsite/ui/component/flat_border_button.dart';
-import 'package:MyWebsite/ui/page2.dart';
 import 'package:flutter/material.dart';
 
 import '../../../main.dart';

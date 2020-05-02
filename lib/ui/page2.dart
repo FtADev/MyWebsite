@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:page_indicator/page_indicator.dart';
+import '../main.dart';
 import 'page.dart';
+import 'web_size/about/about_list.dart';
 
-class Page2 extends StatefulWidget {
+class MobileAbout extends StatefulWidget {
   final screen;
 
-  const Page2({Key key, @required this.screen}) : super(key: key);
+  const MobileAbout({Key key, @required this.screen}) : super(key: key);
 
   @override
-  _Page2State createState() => _Page2State();
+  _MobileAboutState createState() => _MobileAboutState();
 }
 
-class _Page2State extends State<Page2> {
+class _MobileAboutState extends State<MobileAbout> {
   PageController _pageController;
 
   @override
@@ -50,7 +52,7 @@ class _Page2State extends State<Page2> {
                   itemCount: pages.length,
                   controller: _pageController,
                   itemBuilder: (BuildContext context, index) {
-                    return Page(pages[index], widget.screen);
+                    return Page(pages[index], widget.screen, States.MOBILE);
                   }),
               align: IndicatorAlign.bottom,
               length: pages.length,
