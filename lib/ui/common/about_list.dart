@@ -1,4 +1,4 @@
-import '../about_page.dart';
+import 'about_page.dart';
 
 final pages = [
   PageViewModel(

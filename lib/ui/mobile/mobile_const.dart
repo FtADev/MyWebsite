@@ -1,4 +1,4 @@
-import 'package:MyWebsite/ui/screen.dart';
+import 'package:MyWebsite/ui/common/screen.dart';
 
 class MobileConst extends Screen{
   final marginTop = 26.0;

@@ -1,8 +1,8 @@
+import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
 
 import '../../../main.dart';
-import '../../about_page.dart';
 import '../../component/dynamic_card.dart';
 import '../../common/about_list.dart';
 
