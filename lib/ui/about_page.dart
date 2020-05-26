@@ -18,12 +18,12 @@ class PageViewModel {
   );
 }
 
-class Page extends StatelessWidget {
+class AboutPage extends StatelessWidget {
   final PageViewModel viewModel;
   final Screen screen;
   final States state;
 
-  Page(
+  AboutPage(
     this.viewModel,
     this.screen,
       this.state,

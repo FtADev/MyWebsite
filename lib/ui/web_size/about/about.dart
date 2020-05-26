@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:page_indicator/page_indicator.dart';
 
 import '../../../main.dart';
+import '../../about_page.dart';
 import '../../component/dynamic_card.dart';
-import '../../page.dart';
 import 'about_list.dart';
 
 class About extends StatefulWidget {
@@ -45,7 +45,7 @@ class _AboutState extends State<About> {
                     itemCount: pages.length,
                     controller: _pageController,
                     itemBuilder: (BuildContext context, index) {
-                      return Page(pages[index], widget.screen, States.WEB);
+                      return AboutPage(pages[index], widget.screen, States.WEB);
                     }),
                 align: IndicatorAlign.bottom,
                 length: pages.length,

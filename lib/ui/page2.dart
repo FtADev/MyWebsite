@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:page_indicator/page_indicator.dart';
 import '../main.dart';
-import 'page.dart';
+import 'about_page.dart';
 import 'web_size/about/about_list.dart';
 
 class MobileAbout extends StatefulWidget {
@@ -52,7 +52,7 @@ class _MobileAboutState extends State<MobileAbout> {
                   itemCount: pages.length,
                   controller: _pageController,
                   itemBuilder: (BuildContext context, index) {
-                    return Page(pages[index], widget.screen, States.MOBILE);
+                    return AboutPage(pages[index], widget.screen, States.MOBILE);
                   }),
               align: IndicatorAlign.bottom,
               length: pages.length,
