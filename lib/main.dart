@@ -1,19 +1,19 @@
-import 'package:MyWebsite/ui/mobile_size/mobile_const.dart';
-import 'package:MyWebsite/ui/web_size/web_const.dart';
+import 'package:MyWebsite/ui/mobile/mobile_const.dart';
+import 'package:MyWebsite/ui/mobile/about/mobile_about.dart';
+import 'package:MyWebsite/ui/web/project/progect_size1.dart';
+import 'package:MyWebsite/ui/web/project/project_size2.dart';
+import 'package:MyWebsite/ui/web/project/project_size3.dart';
+import 'package:MyWebsite/ui/web/web_const.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/component/fancy_background.dart';
 import 'ui/component/flat_border_button.dart';
-import 'ui/mobile_size/home/top_buttons.dart';
-import 'ui/page2.dart';
-import 'ui/web_size/ability/abilities.dart';
-import 'ui/web_size/about/about.dart';
-import 'ui/web_size/bio/bio.dart';
-import 'ui/web_size/home/top_buttons.dart';
-import 'ui/web_size/project/progect_size1.dart';
-import 'ui/web_size/project/project_size2.dart';
-import 'ui/web_size/project/project_size3.dart';
-import 'ui/mobile_size/project/Projects.dart';
+import 'ui/mobile/home/top_buttons.dart';
+import 'ui/web/ability/abilities.dart';
+import 'ui/web/about/about.dart';
+import 'ui/common/bio.dart';
+import 'ui/web/home/top_buttons.dart';
+import 'ui/mobile/project/Projects.dart';
 
 void main() => runApp(MyApp());
 

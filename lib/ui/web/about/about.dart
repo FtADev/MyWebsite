@@ -4,7 +4,7 @@ import 'package:page_indicator/page_indicator.dart';
 import '../../../main.dart';
 import '../../about_page.dart';
 import '../../component/dynamic_card.dart';
-import 'about_list.dart';
+import '../../common/about_list.dart';
 
 class About extends StatefulWidget {
   final screen;

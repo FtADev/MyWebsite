@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:page_indicator/page_indicator.dart';
-import '../main.dart';
-import 'about_page.dart';
-import 'web_size/about/about_list.dart';
+import '../../../main.dart';
+import '../../about_page.dart';
+import '../../common/about_list.dart';
 
 class MobileAbout extends StatefulWidget {
   final screen;
