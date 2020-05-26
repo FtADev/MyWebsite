@@ -3,7 +3,7 @@ import 'package:flutter/painting.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
-import 'about_icons.dart';
+import 'my_custom_shape.dart';
 import 'screen.dart';
 
 class PageViewModel {
@@ -26,244 +26,254 @@ class AboutPage extends StatelessWidget {
   AboutPage(
     this.viewModel,
     this.screen,
-      this.state,
+    this.state,
   );
 
   @override
   Widget build(BuildContext context) {
-    return (state == States.MOBILE) ?
-      Column(
-      children: <Widget>[
-        AboutTop(screen: screen,),
-        Container(
-          margin: EdgeInsets.symmetric(horizontal: screen.hPaddingAbout),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                viewModel.title,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                  fontSize: screen.titleAbout,
-                  fontFamily: 'dekko',
-                ),
+    return (state == States.MOBILE)
+        ? Column(
+            children: <Widget>[
+              Container(
+                width: MediaQuery.of(context).size.width * screen.wSize,
+                height: MediaQuery.of(context).size.height * screen.hSize,
+                child: MyCustomShape(),
               ),
-              SizedBox(
-                height: screen.sizedBox15,
-              ),
-              Text(
-                viewModel.text,
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: screen.textAbout,
-                  fontFamily: 'dekko',
-                ),
-              ),
-            ],
-          ),
-        ),
-        SizedBox(height: screen.sizedBox),
-        viewModel.isLastPage
-            ? Container(
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: screen.hPaddingAbout),
                 child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Image.asset(
-                          'assets/gmail.png',
-                          width: screen.icon2About,
-                          height: screen.icon2About,
-                          fit: BoxFit.fitWidth,
-                        ),
-                        SizedBox(width: screen.sizedBox10),
-                        Text(
-                          'akhlaghi.fatemeh@gmail.com',
-                          style: TextStyle(
-                              fontFamily: 'dekko',
-                              fontSize: screen.textAbout,
-                              color: Colors.black),
-                        )
-                      ],
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      viewModel.title,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                        fontSize: screen.titleAbout,
+                        fontFamily: 'dekko',
+                      ),
                     ),
                     SizedBox(
                       height: screen.sizedBox15,
                     ),
-                    Row(
-                      mainAxisSize: MainAxisSize.min,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: <Widget>[
-                        InkWell(
-                          child: Container(
-                            decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(50.0)),
-                                border: Border.all(
-                                  width: 1,
-                                  color: Colors.white,
-                                )),
-                            child: Image.asset(
-                              'assets/github.png',
-                              width: screen.iconAbout,
-                              height: screen.iconAbout,
-                            ),
-                          ),
-                          onTap: githubLauncher,
-                        ),
-                        SizedBox(
-                          width: screen.sizedBox,
-                        ),
-                        InkWell(
-                          child: Image.asset(
-                            'assets/gitlab.png',
-                            width: screen.iconAbout,
-                            height: screen.iconAbout,
-                          ),
-                          onTap: gitlabLauncher,
-                        ),
-                        SizedBox(
-                          width: screen.sizedBox,
-                        ),
-                        InkWell(
-                          child: Image.asset(
-                            'assets/telegram.png',
-                            width: screen.iconAbout,
-                            height: screen.iconAbout,
-                          ),
-                          onTap: telegramLauncher,
-                        ),
-                      ],
+                    Text(
+                      viewModel.text,
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: screen.textAbout,
+                        fontFamily: 'dekko',
+                      ),
                     ),
                   ],
                 ),
-              )
-            : Container(),
-      ],
-    )
-    : Row(
-      children: <Widget>[
-        Expanded(
-            flex: 1,
-            child: AboutTop(screen: screen,)),
-        Expanded(
-          flex: 1,
-          child: Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  viewModel.title,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontWeight: FontWeight.bold,
-                    fontSize: screen.titleAbout,
-                    fontFamily: 'dekko',
-                  ),
-                ),
-                SizedBox(
-                  height: screen.sizedBox15,
-                ),
-                Text(
-                  viewModel.text,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: screen.textAbout,
-                    fontFamily: 'dekko',
-                  ),
-                ),
-                SizedBox(height: screen.sizedBox),
-                viewModel.isLastPage
-                    ? Center(
-                  child: Container(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: <Widget>[
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Image.asset(
-                              'assets/gmail.png',
-                              width: screen.icon2About,
-                              height: screen.icon2About,
-                              fit: BoxFit.fitWidth,
-                            ),
-                            SizedBox(width: screen.sizedBox10),
-                            Text(
-                              'akhlaghi.fatemeh@gmail.com',
-                              style: TextStyle(
-                                  fontFamily: 'dekko',
-                                  fontSize: screen.textAbout,
-                                  color: Colors.black),
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          height: screen.sizedBox15,
-                        ),
-                        Row(
-                          mainAxisSize: MainAxisSize.min,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: <Widget>[
-                            InkWell(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius:
-                                    BorderRadius.all(Radius.circular(50.0)),
-                                    border: Border.all(
-                                      width: 1,
+              ),
+              SizedBox(height: screen.sizedBox),
+              viewModel.isLastPage
+                  ? Container(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/gmail.png',
+                                width: screen.icon2About,
+                                height: screen.icon2About,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              SizedBox(width: screen.sizedBox10),
+                              Text(
+                                'akhlaghi.fatemeh@gmail.com',
+                                style: TextStyle(
+                                    fontFamily: 'dekko',
+                                    fontSize: screen.textAbout,
+                                    color: Colors.black),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: screen.sizedBox15,
+                          ),
+                          Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              InkWell(
+                                child: Container(
+                                  decoration: BoxDecoration(
                                       color: Colors.white,
-                                    )),
+                                      borderRadius: BorderRadius.all(
+                                          Radius.circular(50.0)),
+                                      border: Border.all(
+                                        width: 1,
+                                        color: Colors.white,
+                                      )),
+                                  child: Image.asset(
+                                    'assets/github.png',
+                                    width: screen.iconAbout,
+                                    height: screen.iconAbout,
+                                  ),
+                                ),
+                                onTap: githubLauncher,
+                              ),
+                              SizedBox(
+                                width: screen.sizedBox,
+                              ),
+                              InkWell(
                                 child: Image.asset(
-                                  'assets/github.png',
+                                  'assets/gitlab.png',
                                   width: screen.iconAbout,
                                   height: screen.iconAbout,
                                 ),
+                                onTap: gitlabLauncher,
                               ),
-                              onTap: githubLauncher,
-                            ),
-                            SizedBox(
-                              width: screen.sizedBox,
-                            ),
-                            InkWell(
-                              child: Image.asset(
-                                'assets/gitlab.png',
-                                width: screen.iconAbout,
-                                height: screen.iconAbout,
+                              SizedBox(
+                                width: screen.sizedBox,
                               ),
-                              onTap: gitlabLauncher,
-                            ),
-                            SizedBox(
-                              width: screen.sizedBox,
-                            ),
-                            InkWell(
-                              child: Image.asset(
-                                'assets/telegram.png',
-                                width: screen.iconAbout,
-                                height: screen.iconAbout,
+                              InkWell(
+                                child: Image.asset(
+                                  'assets/telegram.png',
+                                  width: screen.iconAbout,
+                                  height: screen.iconAbout,
+                                ),
+                                onTap: telegramLauncher,
                               ),
-                              onTap: telegramLauncher,
-                            ),
-                          ],
+                            ],
+                          ),
+                        ],
+                      ),
+                    )
+                  : Container(),
+            ],
+          )
+        : Row(
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                  width: MediaQuery.of(context).size.width * screen.wSize,
+                  height: MediaQuery.of(context).size.height * screen.hSize,
+                  child: MyCustomShape(),
+                ),
+              ),
+              Expanded(
+                flex: 1,
+                child: Container(
+                  margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        viewModel.title,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                          fontSize: screen.titleAbout,
+                          fontFamily: 'dekko',
                         ),
-                      ],
-                    ),
+                      ),
+                      SizedBox(
+                        height: screen.sizedBox15,
+                      ),
+                      Text(
+                        viewModel.text,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: screen.textAbout,
+                          fontFamily: 'dekko',
+                        ),
+                      ),
+                      SizedBox(height: screen.sizedBox),
+                      viewModel.isLastPage
+                          ? Center(
+                              child: Container(
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: <Widget>[
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: [
+                                        Image.asset(
+                                          'assets/gmail.png',
+                                          width: screen.icon2About,
+                                          height: screen.icon2About,
+                                          fit: BoxFit.fitWidth,
+                                        ),
+                                        SizedBox(width: screen.sizedBox10),
+                                        Text(
+                                          'akhlaghi.fatemeh@gmail.com',
+                                          style: TextStyle(
+                                              fontFamily: 'dekko',
+                                              fontSize: screen.textAbout,
+                                              color: Colors.black),
+                                        )
+                                      ],
+                                    ),
+                                    SizedBox(
+                                      height: screen.sizedBox15,
+                                    ),
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.center,
+                                      children: <Widget>[
+                                        InkWell(
+                                          child: Container(
+                                            decoration: BoxDecoration(
+                                                color: Colors.white,
+                                                borderRadius: BorderRadius.all(
+                                                    Radius.circular(50.0)),
+                                                border: Border.all(
+                                                  width: 1,
+                                                  color: Colors.white,
+                                                )),
+                                            child: Image.asset(
+                                              'assets/github.png',
+                                              width: screen.iconAbout,
+                                              height: screen.iconAbout,
+                                            ),
+                                          ),
+                                          onTap: githubLauncher,
+                                        ),
+                                        SizedBox(
+                                          width: screen.sizedBox,
+                                        ),
+                                        InkWell(
+                                          child: Image.asset(
+                                            'assets/gitlab.png',
+                                            width: screen.iconAbout,
+                                            height: screen.iconAbout,
+                                          ),
+                                          onTap: gitlabLauncher,
+                                        ),
+                                        SizedBox(
+                                          width: screen.sizedBox,
+                                        ),
+                                        InkWell(
+                                          child: Image.asset(
+                                            'assets/telegram.png',
+                                            width: screen.iconAbout,
+                                            height: screen.iconAbout,
+                                          ),
+                                          onTap: telegramLauncher,
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            )
+                          : Container(),
+                    ],
                   ),
-                )
-                    : Container(),
-              ],
-            ),
-          ),
-        ),
-      ],
-    )
-    ;
+                ),
+              ),
+            ],
+          );
   }
 
   githubLauncher() async {
