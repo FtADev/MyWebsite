@@ -43,7 +43,6 @@ class _MyHomePageState extends State<MyHomePage> {
   IconData animationIcon;
   var state = States.HOME;
   var screen;
-  var flareAnimation = "On";
   double size = 0.0;
 
   @override
@@ -138,23 +137,6 @@ class _MyHomePageState extends State<MyHomePage> {
                 });
               },
             ),
-            /*GestureDetector(
-              child: Container(
-                width: 100,
-                height: 100,
-                child: FlareActor(
-                  "assets/happy_sad_switch.flr",
-                  fit: BoxFit.contain,
-                  animation: flareAnimation,
-                ),
-              ),
-              onTap: () {
-                setState(() {
-                  showRepeatedAnimation = !showRepeatedAnimation;
-                  flareAnimation = flareAnimation == "On" ? "Off" : "On";
-                });
-              },
-            )*/
           ),
           isWeb
               ? WebTopButtons(
