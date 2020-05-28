@@ -115,11 +115,11 @@ class WebAboutPage extends StatelessWidget {
                                   ),
                                   InkWell(
                                     child: Image.asset(
-                                      'assets/telegram.png',
+                                      'assets/linkedin.png',
                                       width: 50,
                                       height: 50,
                                     ),
-                                    onTap: telegramLauncher,
+                                    onTap: linkedInLauncher,
                                   ),
                                 ],
                               ),

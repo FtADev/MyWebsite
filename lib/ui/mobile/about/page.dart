@@ -111,11 +111,11 @@ class MobileAboutPage extends StatelessWidget {
                   ),
                   InkWell(
                     child: Image.asset(
-                      'assets/telegram.png',
+                      'assets/linkedin.png',
                       width: 25,
                       height: 25,
                     ),
-                    onTap: telegramLauncher,
+                    onTap: linkedInLauncher,
                   ),
                 ],
               ),

@@ -64,8 +64,8 @@ gitlabLauncher() async {
   }
 }
 
-telegramLauncher() async {
-  const url = 'https://t.me/ftadev';
+linkedInLauncher() async {
+  const url = 'https://www.linkedin.com/in/fatemeh-akhlaghi-6a211615b';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
