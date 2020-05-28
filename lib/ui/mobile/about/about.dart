@@ -1,9 +1,9 @@
-import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:flutter/material.dart';
+import 'package:MyWebsite/main.dart';
+import 'package:MyWebsite/ui/common/about_list.dart';
+import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:flutter/painting.dart';
 import 'package:page_indicator/page_indicator.dart';
-import '../../../main.dart';
-import '../../common/about_list.dart';
 
 class MobileAbout extends StatefulWidget {
   final screen;

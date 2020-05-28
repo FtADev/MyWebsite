@@ -1,7 +1,6 @@
-import 'package:MyWebsite/main.dart';
+import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:MyWebsite/ui/common/my_custom_shape.dart';
-import 'package:flutter/material.dart';
 
 class MobileAboutPage extends StatelessWidget {
   final PageViewModel viewModel;

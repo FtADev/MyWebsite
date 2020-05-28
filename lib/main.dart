@@ -1,19 +1,18 @@
-import 'package:MyWebsite/ui/mobile/mobile_const.dart';
+import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/mobile/about/about.dart';
+import 'package:MyWebsite/ui/mobile/mobile_const.dart';
 import 'package:MyWebsite/ui/web/project/progect_size1.dart';
 import 'package:MyWebsite/ui/web/project/project_size2.dart';
 import 'package:MyWebsite/ui/web/project/project_size3.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
-import 'package:flutter/material.dart';
 
+import 'ui/common/bio.dart';
 import 'ui/component/fancy_background.dart';
 import 'ui/component/flat_border_button.dart';
 import 'ui/mobile/home/top_buttons.dart';
-import 'ui/web/ability/abilities.dart';
-import 'ui/web/about/about.dart';
-import 'ui/common/bio.dart';
-import 'ui/web/home/top_buttons.dart';
 import 'ui/mobile/project/Projects.dart';
+import 'ui/web/about/about.dart';
+import 'ui/web/home/top_buttons.dart';
 
 void main() => runApp(MyApp());
 
@@ -41,9 +40,9 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isWeb = true;
   bool showRepeatedAnimation = true;
   IconData animationIcon;
-  var state = States.HOME;
+  double screenSize = 0.0;
+  var currentState = States.HOME;
   var screen;
-  double size = 0.0;
 
   @override
   void initState() {
@@ -52,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   webChangeState(States newState) => setState(() {
-        state = newState;
+        currentState = newState;
       });
 
   mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
@@ -61,10 +60,9 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    screen =
-        (MediaQuery.of(context).size.width > 600) ? WebConst() : MobileConst();
-    isWeb = MediaQuery.of(context).size.width > 600;
-    size = MediaQuery.of(context).size.width;
+    screenSize = MediaQuery.of(context).size.width;
+    isWeb = screenSize > 600;
+    screen = isWeb ? WebConst() : MobileConst();
 
     return Scaffold(
       body: Stack(
@@ -74,54 +72,39 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           Align(
             alignment: Alignment.center,
-            child: state == States.HOME
-                ? WebBio(
+            child: currentState == States.HOME
+                ? Bio(
                     showRepeatedAnimation: showRepeatedAnimation,
                     screen: screen,
                   )
-                : state == States.ABOUT
-                    ? About(screen: screen)
-                    : state == States.ABILITY
-                        ? Abilities(
-                            showRepeatedAnimation: showRepeatedAnimation,
-                          )
-                        : state == States.PROJECTS
-                            ? (size < 1000
+                : isWeb
+                    ? currentState == States.ABOUT
+                        ? WebAbout(screen: screen)
+                        : currentState == States.PROJECTS
+                            ? (screenSize < 1000
                                 ? ProjectsSize1()
-                                : size < 1600
+                                : screenSize < 1600
                                     ? ProjectsSize2()
                                     : ProjectsSize3())
-                            : Container(),
+                            : Container()
+                    : Container(),
           ),
-          isWeb
-              ? Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: screen.marginTop,
-                      left: screen.marginLeft,
-                    ),
-                    child: FlatBorderButton(
-                      text: "Home",
-                      onTap: () => webChangeState(States.HOME),
-                      screen: screen,
-                    ),
-                  ),
-                )
-              : Align(
-                  alignment: Alignment.topLeft,
-                  child: Container(
-                    margin: EdgeInsets.only(
-                      top: screen.marginTop,
-                      left: screen.marginLeft,
-                    ),
-                    child: FlatBorderButton(
-                      text: "About Me",
-                      onTap: () => mobileChangeState(States.ABOUT),
-                      screen: screen,
-                    ),
-                  ),
-                ),
+          Align(
+            alignment: Alignment.topLeft,
+            child: Container(
+              margin: EdgeInsets.only(
+                top: screen.marginTop,
+                left: screen.marginLeft,
+              ),
+              child: FlatBorderButton(
+                text: isWeb ? "Home" : "About Me",
+                onTap: () => isWeb
+                    ? webChangeState(States.HOME)
+                    : mobileChangeState(States.ABOUT),
+                screen: screen,
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.bottomLeft,
             child: FlatButton(
@@ -152,11 +135,16 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-
   Route createRoute(States state) {
     Widget page;
-    if (state == States.PROJECTS) page = Projects(screen: MobileConst(),);
-    else if (state == States.ABOUT) page = MobileAbout(screen: MobileConst(),);
+    if (state == States.PROJECTS)
+      page = Projects(
+        screen: MobileConst(),
+      );
+    else if (state == States.ABOUT)
+      page = MobileAbout(
+        screen: MobileConst(),
+      );
     return PageRouteBuilder(
       pageBuilder: (context, animation, secondaryAnimation) => page,
       transitionDuration: Duration(seconds: 2),
@@ -165,7 +153,8 @@ class _MyHomePageState extends State<MyHomePage> {
         var end = Offset.zero;
         var curve = Curves.fastOutSlowIn;
 
-        var tween = Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),

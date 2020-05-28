@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:MyWebsite/ui/component/typewriter_box.dart';
 
-import '../component/typewriter_box.dart';
 
-class WebBio extends StatelessWidget {
+class Bio extends StatelessWidget {
   final bool showRepeatedAnimation;
   final screen;
 
-  const WebBio({Key key, this.showRepeatedAnimation, this.screen}) : super(key: key);
+  const Bio({Key key, this.showRepeatedAnimation, this.screen}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

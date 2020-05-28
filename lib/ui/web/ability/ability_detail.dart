@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:MyWebsite/ui/component/fade_in_ui.dart';
+import 'package:MyWebsite/ui/component/other_components.dart';
+import 'package:MyWebsite/ui/component/wave_view.dart';
 
 import 'ability_list.dart';
-import '../../component/fade_in_ui.dart';
-import '../../component/other_components.dart';
-import '../../component/wave_view.dart';
 
 class AbilityDetail extends StatelessWidget {
   final int index;

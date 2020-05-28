@@ -1,7 +1,7 @@
-import 'package:MyWebsite/ui/component/flat_border_button.dart';
 import 'package:flutter/material.dart';
+import 'package:MyWebsite/main.dart';
+import 'package:MyWebsite/ui/component/flat_border_button.dart';
 
-import '../../../main.dart';
 
 class MobileTopButtons extends StatelessWidget {
   final Function changeState;

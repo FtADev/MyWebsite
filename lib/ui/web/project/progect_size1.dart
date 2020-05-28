@@ -1,9 +1,8 @@
-import 'package:MyWebsite/ui/common/project_list.dart';
 import 'package:flutter/material.dart';
-
-import '../../component/dynamic_card.dart';
-import '../../component/fade_in_ui.dart';
-import '../../component/project_item_mob.dart';
+import 'package:MyWebsite/ui/common/project_list.dart';
+import 'package:MyWebsite/ui/component/dynamic_card.dart';
+import 'package:MyWebsite/ui/component/fade_in_ui.dart';
+import 'package:MyWebsite/ui/component/project_item_mob.dart';
 
 class ProjectsSize1 extends StatelessWidget {
   @override

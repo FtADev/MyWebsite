@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:MyWebsite/ui/component/dynamic_card.dart';
+import 'package:MyWebsite/ui/component/fade_in_ui.dart';
 
 import 'ability_card.dart';
 import 'ability_detail.dart';
 import 'ability_list.dart';
-import '../../component/dynamic_card.dart';
-import '../../component/fade_in_ui.dart';
 
 class Abilities extends StatefulWidget {
   final bool showRepeatedAnimation;

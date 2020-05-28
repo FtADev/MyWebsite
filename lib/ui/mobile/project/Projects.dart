@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
-import '../../component/fade_in_ui.dart';
-import '../../component/project_item_mob.dart';
-import '../../common/screen.dart';
-import '../../common/project_list.dart';
+import 'package:MyWebsite/ui/common/project_list.dart';
+import 'package:MyWebsite/ui/component/fade_in_ui.dart';
+import 'package:MyWebsite/ui/component/project_item_mob.dart';
 
 class Projects extends StatelessWidget {
   final screen;
