@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:MyWebsite/main.dart';
 import 'package:MyWebsite/ui/mobile/about/page.dart';
 import 'package:MyWebsite/ui/web/about/page.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import '../../main.dart';
-import 'screen.dart';
 
 class PageViewModel {
   final String title;
