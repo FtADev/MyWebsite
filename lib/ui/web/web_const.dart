@@ -12,8 +12,8 @@ class WebConst extends Screen {
   final flatBtnFont = 20.0;
   final wSize = 0.8;
   final hSize = 0.6;
-  final titleAbout = 40.0;
-  final textAbout = 25.0;
+  final titleAbout = 30.0;
+  final textAbout = 20.0;
   final iconAbout = 50.0;
   final icon2About = 25.0;
   final hPaddingAbout = 50.0;
