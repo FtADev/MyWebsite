@@ -11,6 +11,6 @@ final pages = [
       false),
   PageViewModel(
       'And Now...',
-      'On 2017, with 4 of my friends, made a small team and started working together with a lot of Motivation! After a year, we make the team bigger. And until these days I were in ExceptionalDev Team! But now I\'m looking for a new place to work!',
+      'On 2017, with 4 of my friends, made a small team and started working together with a lot of Motivation! After a year, we make the team bigger. And now I\'m in ExceptionalDev Team!',
       true),
 ];
