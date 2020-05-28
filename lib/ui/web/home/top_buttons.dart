@@ -15,8 +15,8 @@ class WebTopButtons extends StatelessWidget {
       alignment: Alignment.topRight,
       child: Container(
         margin: EdgeInsets.only(
-          top: screen.marginTop,
-          right: screen.marginLeft,
+          top: 50,
+          right: 50,
         ),
         child: Row(
           mainAxisSize: MainAxisSize.min,
@@ -27,7 +27,7 @@ class WebTopButtons extends StatelessWidget {
               screen: screen,
             ),
             SizedBox(
-              width: screen.sizedBox,
+              width: 20,
             ),
 //            FlatBorderButton(
 //              text: "My Abilities",

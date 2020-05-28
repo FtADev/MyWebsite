@@ -15,8 +15,8 @@ class MobileTopButtons extends StatelessWidget {
       alignment: Alignment.topRight,
       child: Container(
         margin: EdgeInsets.only(
-          top: screen.marginTop,
-          right: screen.marginLeft,
+          top: 26,
+          right: 16,
         ),
         child: Column(
           mainAxisSize: MainAxisSize.min,
