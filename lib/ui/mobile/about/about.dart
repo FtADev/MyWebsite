@@ -52,7 +52,7 @@ class _MobileAboutState extends State<MobileAbout> {
                   itemCount: pages.length,
                   controller: _pageController,
                   itemBuilder: (BuildContext context, index) {
-                    return AboutPage(pages[index], widget.screen, States.MOBILE);
+                    return AboutPage(pages[index], States.MOBILE);
                   }),
               align: IndicatorAlign.bottom,
               length: pages.length,

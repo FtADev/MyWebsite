@@ -45,7 +45,7 @@ class _AboutState extends State<About> {
                     itemCount: pages.length,
                     controller: _pageController,
                     itemBuilder: (BuildContext context, index) {
-                      return AboutPage(pages[index], widget.screen, States.WEB);
+                      return AboutPage(pages[index], States.WEB);
                     }),
                 align: IndicatorAlign.bottom,
                 length: pages.length,

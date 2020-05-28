@@ -1,5 +1,5 @@
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
-import 'package:MyWebsite/ui/mobile/about/mobile_about.dart';
+import 'package:MyWebsite/ui/mobile/about/about.dart';
 import 'package:MyWebsite/ui/web/project/progect_size1.dart';
 import 'package:MyWebsite/ui/web/project/project_size2.dart';
 import 'package:MyWebsite/ui/web/project/project_size3.dart';
