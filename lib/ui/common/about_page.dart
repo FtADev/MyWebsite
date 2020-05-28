@@ -101,6 +101,14 @@ class AboutPage extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.center,
                             children: <Widget>[
                               InkWell(
+                                child: Image.asset(
+                                  'assets/expteam.png',
+                                  width: 150,
+                                  height: 150,
+                                ),
+                                onTap: siteLauncher,
+                              ),
+                              InkWell(
                                 child: Container(
                                   decoration: BoxDecoration(
                                       color: Colors.white,
@@ -222,6 +230,17 @@ class AboutPage extends StatelessWidget {
                                           CrossAxisAlignment.center,
                                       children: <Widget>[
                                         InkWell(
+                                          child: Image.asset(
+                                            'assets/expteam.png',
+                                            width: screen.iconAbout,
+                                            height: screen.iconAbout,
+                                          ),
+                                          onTap: siteLauncher,
+                                        ),
+                                        SizedBox(
+                                          width: screen.sizedBox,
+                                        ),
+                                        InkWell(
                                           child: Container(
                                             decoration: BoxDecoration(
                                                 color: Colors.white,
@@ -274,6 +293,15 @@ class AboutPage extends StatelessWidget {
               ),
             ],
           );
+  }
+
+  siteLauncher() async {
+    const url = 'https://expteam.ir/';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   githubLauncher() async {
