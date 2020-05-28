@@ -112,17 +112,6 @@ class MobileAboutPage extends StatelessWidget {
                   ),
                   InkWell(
                     child: Image.asset(
-                      'assets/gitlab.png',
-                      width: 25,
-                      height: 25,
-                    ),
-                    onTap: gitlabLauncher,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
-                    child: Image.asset(
                       'assets/telegram.png',
                       width: 25,
                       height: 25,

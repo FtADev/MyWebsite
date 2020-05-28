@@ -115,17 +115,6 @@ class WebAboutPage extends StatelessWidget {
                                   ),
                                   InkWell(
                                     child: Image.asset(
-                                      'assets/gitlab.png',
-                                      width: 50,
-                                      height: 50,
-                                    ),
-                                    onTap: gitlabLauncher,
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  InkWell(
-                                    child: Image.asset(
                                       'assets/telegram.png',
                                       width: 50,
                                       height: 50,
