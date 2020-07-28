@@ -1,5 +1,5 @@
+import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
-import 'package:MyWebsite/main.dart';
 import 'package:MyWebsite/ui/common/about_list.dart';
 import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:MyWebsite/ui/component/dynamic_card.dart';

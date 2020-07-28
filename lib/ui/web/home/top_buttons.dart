@@ -1,13 +1,13 @@
-import 'package:flutter/material.dart';
-import 'package:MyWebsite/main.dart';
+import 'package:MyWebsite/ui/common/states.dart';
 import 'package:MyWebsite/ui/component/flat_border_button.dart';
-
+import 'package:flutter/material.dart';
 
 class WebTopButtons extends StatelessWidget {
   final Function changeState;
   final screen;
 
-  const WebTopButtons({Key key, this.changeState, this.screen}) : super(key: key);
+  const WebTopButtons({Key key, this.changeState, this.screen})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

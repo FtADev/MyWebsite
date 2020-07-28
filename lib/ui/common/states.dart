@@ -1,0 +1,1 @@
+enum States { HOME, ABOUT, ABILITY, PROJECTS, WEB, MOBILE }

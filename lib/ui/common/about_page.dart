@@ -1,5 +1,5 @@
+import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
-import 'package:MyWebsite/main.dart';
 import 'package:MyWebsite/ui/mobile/about/page.dart';
 import 'package:MyWebsite/ui/web/about/page.dart';
 import 'package:url_launcher/url_launcher.dart';
