@@ -1,17 +1,33 @@
+import 'package:MyWebsite/ui/config/application.dart';
+import 'package:MyWebsite/ui/config/routes.dart';
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
-import 'package:MyWebsite/ui/home_page.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  @override
+  State createState() {
+    return MyAppState();
+  }
+}
+
+class MyAppState extends State<MyApp> {
+  MyAppState() {
+    final router = Router();
+    Routes.configureRoutes(router);
+    Application.router = router;
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'FtaDev',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      onGenerateRoute: Application.router.generator,
     );
   }
 }
