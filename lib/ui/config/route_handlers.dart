@@ -1,6 +1,7 @@
 import 'package:MyWebsite/ui/home_page.dart';
 import 'package:MyWebsite/ui/mobile/about/about.dart';
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
+import 'package:MyWebsite/ui/other_projects.dart';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -17,3 +18,7 @@ var aboutHandler = Handler(
       );
     });
 
+var projectHandler = Handler(handlerFunc: (BuildContext context, Map<String, dynamic> params) {
+  final int id = int.parse(params["id"][0]);
+  return OtherProjects(id: id);
+});
