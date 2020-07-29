@@ -1,7 +1,7 @@
 import 'package:MyWebsite/ui/home_page.dart';
 import 'package:MyWebsite/ui/mobile/about/about.dart';
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
-import 'package:MyWebsite/ui/other_projects.dart';
+import 'package:MyWebsite/ui/common/other_projects.dart';
 
 import 'package:fluro_fork/fluro_fork.dart';
 import 'package:flutter/material.dart';

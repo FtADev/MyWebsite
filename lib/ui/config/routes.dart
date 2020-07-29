@@ -13,7 +13,7 @@ class Routes {
           print("ROUTE WAS NOT FOUND !!!");
         });
     router.define(root, handler: rootHandler);
-    router.define(about, handler: aboutHandler);
+//    router.define(about, handler: aboutHandler);
     router.define(projects, handler: projectHandler);
   }
 }
