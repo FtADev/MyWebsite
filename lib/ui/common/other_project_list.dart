@@ -24,7 +24,6 @@ final otherProjectList = [
       image: [
         './assets/therappy/1.jpg',
             './assets/therappy/2.jpg',
-            './assets/therappy/3.jpg',
             './assets/therappy/4.jpg',
             './assets/therappy/5.jpg',
             './assets/therappy/7.jpg',
