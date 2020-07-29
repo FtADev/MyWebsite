@@ -10,6 +10,8 @@ class OtherProjects extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+    print(width);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
@@ -24,7 +26,7 @@ class OtherProjects extends StatelessWidget {
                       otherProjectList[id].title,
                       style: TextStyle(
                         fontFamily: 'dekko',
-                        fontSize: 50,
+                        fontSize: 40,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -32,23 +34,23 @@ class OtherProjects extends StatelessWidget {
                       otherProjectList[id].detail,
                       style: TextStyle(
                         fontFamily: 'dekko',
-                        fontSize: 30,
+                        fontSize: 20,
                       ),
                     ),
                   ]),
             ),
             Container(
-              height: MediaQuery.of(context).size.height * 0.5,
+              height: width > 1000 ? MediaQuery.of(context).size.height * 0.8 : MediaQuery.of(context).size.height * 0.5,
               child: Swiper(
                 fade: 0.1,
                 itemCount: otherProjectList[id].image.length,
                 loop: true,
-                viewportFraction: 0.3,
+                viewportFraction: width > 600 ? 0.2 : 0.5,
                 scale: 0.5,
                 itemBuilder: (BuildContext context, int index) {
                   return Image.asset(
                     otherProjectList[id].image[index],
-                    fit: BoxFit.fitHeight,
+                    fit: BoxFit.fitWidth,
                   );
                 },
               ),
