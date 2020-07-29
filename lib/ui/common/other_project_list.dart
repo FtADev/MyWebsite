@@ -2,7 +2,7 @@ final otherProjectList = [
   OtherProjectModel(
     id: 0,
     title: "Yas",
-    detail: "Yechi",
+    detail: "A charity application that collect money, equipments, ... from person who want to help others.",
     image: [
       './assets/yas/1.png',
       './assets/yas/2.png',
