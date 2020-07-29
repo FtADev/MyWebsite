@@ -1,6 +1,6 @@
 import 'package:MyWebsite/ui/config/application.dart';
 import 'package:MyWebsite/ui/config/routes.dart';
-import 'package:fluro/fluro.dart';
+import 'package:fluro_fork/fluro_fork.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());

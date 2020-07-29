@@ -1,5 +1,5 @@
 import 'package:MyWebsite/ui/config/route_handlers.dart';
-import 'package:fluro/fluro.dart';
+import 'package:fluro_fork/fluro_fork.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
