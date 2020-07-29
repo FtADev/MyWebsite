@@ -33,10 +33,24 @@ final otherProjectList = [
   ),
   OtherProjectModel(
       id: 2,
-      title: "Payatam",
-      detail: "",
+      title: "Payatam (PartnerYab)",
+      detail: "An application to find a teammate in sports, class, ...",
       image: [
-        ''
+        './assets/payatam/1.png',
+        './assets/payatam/2.png',
+        './assets/payatam/3.png',
+        './assets/payatam/4.png',
+        './assets/payatam/5.png',
+        './assets/payatam/7.png',
+        './assets/payatam/8.png',
+        './assets/payatam/9.png',
+        './assets/payatam/10.png',
+        './assets/payatam/11.png',
+        './assets/payatam/12.png',
+        './assets/payatam/13.png',
+        './assets/payatam/14.png',
+        './assets/payatam/15.png',
+        './assets/payatam/16.png',
       ]
   ),
 ];
