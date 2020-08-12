@@ -2,7 +2,7 @@ final otherProjectList = [
   OtherProjectModel(
     id: 0,
     title: "Yas",
-    detail: "A charity application that collect money, equipments, ... from person who want to help others.",
+    detail: "A charity application that collect money, equipments, ... from a person who wants to help others.",
     image: [
       './assets/yas/1.png',
       './assets/yas/2.png',
@@ -20,7 +20,7 @@ final otherProjectList = [
   OtherProjectModel(
       id: 1,
       title: "Therappy",
-      detail: "An application that has a physiological post, multiple test, useful books and ...  ",
+      detail: "A psychology application that has multiple personality tests, related posts, useful books, and ...",
       image: [
         './assets/therappy/1.jpg',
             './assets/therappy/2.jpg',
