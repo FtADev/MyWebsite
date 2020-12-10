@@ -91,6 +91,15 @@ final projectList = [
     detail: "This website! I made it with flutter web!",
     url: "https://github.com/FtADev/MyWebsite",
   ),
+  ProjectModel(
+    title: "Behinsource",
+    isTeamWork: false,
+    lang: "Flutter",
+    colorLang: Colors.blue,
+    image: "./assets/behin/behin-logo.png",
+    detail: "A website for B2B shopping with seller and buyer mode",
+    url: "https://ftadev.github.io/#/projects/0",
+  ),
 ];
 
 class ProjectModel {

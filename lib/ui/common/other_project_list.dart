@@ -55,6 +55,21 @@ final otherProjectList = [
         './assets/payatam/16.png',
       ]
   ),
+  OtherProjectModel(
+      id: 2,
+      title: "BehinSource",
+      detail: "A website for B2B shopping with seller and buyer mode",
+      isHorizontal: true,
+      image: [
+        './assets/behin/1.png',
+        './assets/behin/2.png',
+        './assets/behin/3.png',
+        './assets/behin/4.png',
+        './assets/behin/5.png',
+        './assets/behin/6.png',
+        './assets/behin/7.png',
+      ]
+  ),
 ];
 
 class OtherProjectModel {
