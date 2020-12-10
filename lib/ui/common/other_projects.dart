@@ -45,7 +45,7 @@ class OtherProjects extends StatelessWidget {
                 fade: 0.1,
                 itemCount: otherProjectList[id].image.length,
                 loop: true,
-                viewportFraction: width > 600 ? 0.2 : 0.5,
+                viewportFraction: otherProjectList[id].isHorizontal ? 0.6 : width > 600 ? 0.2 : 0.5,
                 scale: 0.5,
                 itemBuilder: (BuildContext context, int index) {
                   return Image.asset(

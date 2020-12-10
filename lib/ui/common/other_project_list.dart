@@ -3,6 +3,7 @@ final otherProjectList = [
     id: 0,
     title: "Yas",
     detail: "A charity application that collect money, equipments, ... from a person who wants to help others.",
+    isHorizontal: false,
     image: [
       './assets/yas/1.png',
       './assets/yas/2.png',
@@ -21,6 +22,7 @@ final otherProjectList = [
       id: 1,
       title: "Therappy",
       detail: "A psychology application that has multiple personality tests, related posts, useful books, and ...",
+      isHorizontal: false,
       image: [
         './assets/therappy/1.jpg',
             './assets/therappy/2.jpg',
@@ -34,6 +36,7 @@ final otherProjectList = [
       id: 2,
       title: "Payatam (PartnerYab)",
       detail: "An application to find a teammate in sports, class, ...",
+      isHorizontal: false,
       image: [
         './assets/payatam/1.png',
         './assets/payatam/2.png',
@@ -59,11 +62,13 @@ class OtherProjectModel {
   String title;
   String detail;
   List<String> image;
+  bool isHorizontal = false;
 
   OtherProjectModel({
     this.id,
     this.title,
     this.detail,
     this.image,
+    this.isHorizontal,
   });
 }
