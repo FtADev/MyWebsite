@@ -1,6 +1,6 @@
 import 'package:MyWebsite/ui/config/application.dart';
 import 'package:MyWebsite/ui/config/routes.dart';
-import 'package:fluro_fork/fluro_fork.dart';
+import 'package:fluro_fork/fluro_fork.dart' as fluro;
 import 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
@@ -14,7 +14,7 @@ class MyApp extends StatefulWidget {
 
 class MyAppState extends State<MyApp> {
   MyAppState() {
-    final router = Router();
+    final router = fluro.Router();
     Routes.configureRoutes(router);
     Application.router = router;
   }
