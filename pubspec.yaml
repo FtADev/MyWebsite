@@ -13,18 +13,19 @@ name: MyWebsite
 version: 0.0.9+009
 
 environment:
-  sdk: ">=2.2.2 <3.0.0"
+  sdk: ">=2.10.5 <3.0.0"
+  flutter: ">=1.26.0-17.6.pre"
 
 dependencies:
   flutter:
     sdk: flutter
-  simple_animations: ^2.2.1
+  simple_animations: ^2.5.1
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
-  cupertino_icons: ^0.1.3
-  url_launcher: ^5.5.0
+  cupertino_icons: ^1.0.2
+  url_launcher: ^5.7.10
   page_indicator: ^0.3.0
-  flutter_staggered_grid_view: ^0.3.2
+  flutter_staggered_grid_view: ^0.3.4
   fluro_fork: ^0.0.1
   flutter_swiper: ^1.1.6
 
