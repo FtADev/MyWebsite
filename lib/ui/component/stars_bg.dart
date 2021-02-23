@@ -16,24 +16,13 @@ class StarsBackground extends StatefulWidget {
   _StarsBackgroundState createState() => _StarsBackgroundState();
 }
 
-class _StarsBackgroundState extends State<StarsBackground>
-    with TickerProviderStateMixin {
-  AnimationController animationController;
+class _StarsBackgroundState extends State<StarsBackground> {
   double starsNum;
   List<Widget> stars = [];
+  var random = Random();
 
   @override
   void initState() {
-    animationController = AnimationController(
-      vsync: this,
-      duration: const Duration(milliseconds: 1000),
-    )..addStatusListener((AnimationStatus status) {
-        if (status == AnimationStatus.completed) {
-          if (!mounted) return;
-          animationController.reverse();
-        }
-      });
-
     double starsInRow = widget.width / 50;
     double starsInColumn = widget.height / 50;
 
@@ -41,27 +30,16 @@ class _StarsBackgroundState extends State<StarsBackground>
         ? starsInRow * (starsInColumn != 0 ? starsInColumn : starsInRow)
         : starsInColumn;
 
-    Timer.periodic(Duration(seconds: 1), (Timer t) => setAnimation());
-
     super.initState();
-  }
-
-  void setAnimation() {
-    animationController.forward();
   }
 
   @override
   Widget build(BuildContext context) {
-    var random = Random();
-
     return Stack(
-      children: List.generate(starsNum.floor(), (index) {
-        return Star(
+      children: List.generate(starsNum.floor(), (index) => Star(
           top: random.nextInt(widget.height.floor()).toDouble(),
           right: random.nextInt(widget.width.floor()).toDouble(),
-          animationController: animationController,
-        );
-      }),
+        )),
     );
   }
 }

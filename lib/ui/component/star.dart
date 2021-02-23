@@ -1,39 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:simple_animations/simple_animations.dart';
 
-class Star extends StatefulWidget {
+class Star extends StatelessWidget {
   final top;
   final right;
-  final animationController;
 
-  const Star({Key key, this.top, this.right, this.animationController}) : super(key: key);
-
-  @override
-  _StarState createState() => _StarState();
-}
-
-class _StarState extends State<Star> with TickerProviderStateMixin {
+  const Star({Key key, this.top, this.right,}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      top: widget.top,
-      right: widget.right,
-      child: ScaleTransition(
-        alignment: Alignment.center,
-        scale: Tween<double>(begin: 0.5, end: 1.0).animate(
-          CurvedAnimation(
-            parent: widget.animationController,
-            curve: Interval(0.1, 1.0, curve: Curves.fastOutSlowIn),
-          ),
-        ),
-        child: Container(
-          width: 3,
-          height: 3,
-          decoration: BoxDecoration(
-            color: Colors.white,
-            shape: BoxShape.circle,
-          ),
-        ),
+      top: top,
+      right: right,
+      child: CustomAnimation<double>(
+        control: CustomAnimationControl.MIRROR,
+        tween: Tween(begin: 1.5, end: 3.0),
+        duration: Duration(milliseconds: 1000),
+        curve: Curves.fastOutSlowIn,
+        animationStatusListener: (status) {},
+        builder: (context, child, value) {
+          return Container(
+                  width: value,
+                  height: value,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    shape: BoxShape.circle,
+                  ),
+                );
+        },
       ),
     );
   }
