@@ -7,8 +7,10 @@ class HomeViewModel extends ChangeNotifier {
   States get currentState => _currentState;
 
   set currentState(States value) {
-    _currentState = value;
-    notifyListeners();
+    if (value != _currentState) {
+      _currentState = value;
+      notifyListeners();
+    }
   }
 
   void changeState(States state) => currentState = state;
