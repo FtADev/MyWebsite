@@ -3,10 +3,9 @@ import 'package:MyWebsite/ui/component/typewriter_box.dart';
 
 
 class Bio extends StatelessWidget {
-  final bool showRepeatedAnimation;
   final screen;
 
-  const Bio({Key key, this.showRepeatedAnimation, this.screen}) : super(key: key);
+  const Bio({Key key, this.screen}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +19,6 @@ class Bio extends StatelessWidget {
             fontSize: screen.bioFont1,
             fontFamily: 'dekko',
           ),
-          showRepeatedAnimation: showRepeatedAnimation,
         ),
         TypewriterText(
           text: "Fatemeh Akhlaghi",
@@ -30,7 +28,6 @@ class Bio extends StatelessWidget {
             fontWeight: FontWeight.bold,
             fontFamily: 'dekko',
           ),
-          showRepeatedAnimation: showRepeatedAnimation,
         ),
         TypewriterText(
           text: "I Am A Developer",
@@ -39,7 +36,6 @@ class Bio extends StatelessWidget {
             fontSize: screen.bioFont3,
             fontFamily: 'dekko',
           ),
-          showRepeatedAnimation: showRepeatedAnimation,
         )
       ],
     );

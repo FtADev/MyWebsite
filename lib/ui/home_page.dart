@@ -23,16 +23,8 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool isWeb = true;
-  bool showRepeatedAnimation = true;
-  IconData animationIcon;
   double screenSize = 0.0;
   var screen;
-
-  @override
-  void initState() {
-    animationIcon = showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
-    super.initState();
-  }
 
   mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
     newState,
@@ -51,13 +43,11 @@ class _MyHomePageState extends State<MyHomePage> {
           builder: (BuildContext context, model, Widget child) => Stack(
             children: <Widget>[
               FancyBackgroundApp(
-                showRepeatedAnimation: showRepeatedAnimation,
               ),
               Align(
                 alignment: Alignment.center,
                 child: model.currentState == States.HOME
                     ? Bio(
-                  showRepeatedAnimation: showRepeatedAnimation,
                   screen: screen,
                 )
                     : isWeb
@@ -86,22 +76,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         : mobileChangeState(States.ABOUT),
                     screen: screen,
                   ),
-                ),
-              ),
-              Align(
-                alignment: Alignment.bottomLeft,
-                child: FlatButton(
-                  child: Icon(
-                    animationIcon,
-                    color: Colors.white,
-                  ),
-                  onPressed: () {
-                    setState(() {
-                      showRepeatedAnimation = !showRepeatedAnimation;
-                      animationIcon =
-                      showRepeatedAnimation ? Icons.pause : Icons.play_arrow;
-                    });
-                  },
                 ),
               ),
               isWeb

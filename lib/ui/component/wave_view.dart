@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 
 class WaveView extends StatefulWidget {
-  final bool showRepeatedAnimation;
   final int waterSize;
 
-  const WaveView({Key key, this.showRepeatedAnimation, this.waterSize}) : super(key: key);
+  const WaveView({Key key, this.waterSize}) : super(key: key);
 
   @override
   _WaveViewState createState() => _WaveViewState();
@@ -32,7 +31,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
         duration: Duration(milliseconds: 2000), vsync: this);
     animationController
       ..addStatusListener((status) {
-        if (widget.showRepeatedAnimation) if (status ==
+        if (status ==
             AnimationStatus.completed) {
           animationController.reverse();
         } else if (status == AnimationStatus.dismissed) {
@@ -61,7 +60,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                 (100-widget.waterSize)));
       }
     });
-    if (widget.showRepeatedAnimation) waveAnimationController.repeat();
+    waveAnimationController.repeat();
     animationController.forward();
     super.initState();
   }

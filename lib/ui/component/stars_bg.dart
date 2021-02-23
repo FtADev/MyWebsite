@@ -6,11 +6,10 @@ import 'package:flutter/material.dart';
 import 'star.dart';
 
 class StarsBackground extends StatefulWidget {
-  final bool showRepeatedAnimation;
   final width, height;
 
   const StarsBackground(
-      {Key key, this.showRepeatedAnimation, this.width, this.height})
+      {Key key, this.width, this.height})
       : super(key: key);
 
   @override
@@ -48,7 +47,7 @@ class _StarsBackgroundState extends State<StarsBackground>
   }
 
   void setAnimation() {
-    if (widget.showRepeatedAnimation) animationController.forward();
+    animationController.forward();
   }
 
   @override

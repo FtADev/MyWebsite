@@ -7,9 +7,8 @@ import 'ability_list.dart';
 
 class AbilityDetail extends StatelessWidget {
   final int index;
-  final bool showRepeatedAnimation;
 
-  const AbilityDetail({Key key, this.index, this.showRepeatedAnimation})
+  const AbilityDetail({Key key, this.index,})
       : super(key: key);
 
   @override
@@ -60,7 +59,6 @@ class AbilityDetail extends StatelessWidget {
                         ],
                       ),
                       child: WaveView(
-                        showRepeatedAnimation: showRepeatedAnimation,
                         waterSize: 80,
                       ),
                     ),

@@ -8,9 +8,6 @@ import 'ability_detail.dart';
 import 'ability_list.dart';
 
 class Abilities extends StatefulWidget {
-  final bool showRepeatedAnimation;
-
-  const Abilities({Key key, this.showRepeatedAnimation}) : super(key: key);
 
   @override
   _AbilitiesState createState() => _AbilitiesState();
@@ -49,7 +46,6 @@ class _AbilitiesState extends State<Abilities> {
                     2.5,
                     AbilityDetail(
                       index: index,
-                      showRepeatedAnimation: widget.showRepeatedAnimation,
                     ),
                   ),
                 ],
@@ -90,12 +86,12 @@ class _AbilitiesState extends State<Abilities> {
           ),
         ),
         onTap: () {
-          setState(() {
-            index = i;
-            for(var ability in abilitiesList)
-              ability.moveIcon = false;
-            abilitiesList[i].moveIcon = true;
-          });
+          // setState(() {
+          //   index = i;
+          //   for(var ability in abilitiesList)
+          //     ability.moveIcon = false;
+          //   abilitiesList[i].moveIcon = true;
+          // });
         },
       ));
       list.add(SizedBox(width: 5));
