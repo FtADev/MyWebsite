@@ -11,26 +11,32 @@ class FancyBackgroundApp extends StatelessWidget {
     return Stack(
       children: <Widget>[
         Positioned.fill(
-            child: AnimatedBackground(
-        )),
-        onBottom(AnimatedWave(
-          height: 180,
-          speed: 1.0,
-        )),
-        onBottom(AnimatedWave(
-          height: 120,
-          speed: 0.9,
-          offset: pi,
-        )),
-        onBottom(AnimatedWave(
-          height: 220,
-          speed: 1.2,
-          offset: pi / 2,
-        )),
+          child: AnimatedBackground(),
+        ),
+        onBottom(
+          AnimatedWave(
+            height: 180,
+            speed: 1.0,
+          ),
+        ),
+        onBottom(
+          AnimatedWave(
+            height: 120,
+            speed: 0.9,
+            offset: pi,
+          ),
+        ),
+        onBottom(
+          AnimatedWave(
+            height: 220,
+            speed: 1.2,
+            offset: pi / 2,
+          ),
+        ),
         StarsBackground(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,
-        )
+        ),
       ],
     );
   }
@@ -48,8 +54,11 @@ class AnimatedWave extends StatelessWidget {
   final double speed;
   final double offset;
 
-  AnimatedWave(
-      {this.height, this.speed, this.offset = 0.0,});
+  AnimatedWave({
+    this.height,
+    this.speed,
+    this.offset = 0.0,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -57,16 +66,13 @@ class AnimatedWave extends StatelessWidget {
       return Container(
         height: height,
         width: constraints.biggest.width,
-        child: ControlledAnimation(
-            playback:
-                Playback.LOOP,
-            duration: Duration(milliseconds: (5000 / speed).round()),
-            tween: Tween(begin: 0.0, end: 2 * pi),
-            builder: (context, value) {
-              return CustomPaint(
-                foregroundPainter: CurvePainter(value + offset),
-              );
-            }),
+        child: LoopAnimation<double>(
+          tween: Tween(begin: 0.0, end: 2 * pi),
+          duration: Duration(milliseconds: (5000 / speed).round()),
+          builder: (context, child, value) => CustomPaint(
+            foregroundPainter: CurvePainter(value + offset),
+          ),
+        ),
       );
     });
   }
@@ -106,29 +112,36 @@ class CurvePainter extends CustomPainter {
 }
 
 class AnimatedBackground extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
-    final tween = MultiTrackTween([
-      Track("color1").add(Duration(seconds: 3),
-          ColorTween(begin: Color(0xffD38312), end: Colors.lightBlue.shade900)),
-      Track("color2").add(Duration(seconds: 3),
-          ColorTween(begin: Color(0xffA83279), end: Colors.blue.shade600))
-    ]);
+    final tween = MultiTween<DefaultAnimationProperties>()
+      ..add(
+        DefaultAnimationProperties.color1,
+        ColorTween(begin: Color(0xffD38312), end: Colors.lightBlue.shade900),
+        Duration(seconds: 3),
+      )
+      ..add(
+        DefaultAnimationProperties.color2,
+        ColorTween(begin: Color(0xffA83279), end: Colors.blue.shade600),
+        Duration(seconds: 3),
+      );
 
-    return ControlledAnimation(
-      playback: Playback.MIRROR,
+    return MirrorAnimation(
       tween: tween,
       duration: tween.duration,
-      builder: (context, animation) {
-        return Container(
-          decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: [animation["color1"], animation["color2"]])),
-        );
-      },
+      curve: Curves.easeInOutSine,
+      builder: (context, child, MultiTweenValues value) => Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [
+              value.get(DefaultAnimationProperties.color1),
+              value.get(DefaultAnimationProperties.color2)
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
