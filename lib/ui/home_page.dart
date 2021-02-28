@@ -2,18 +2,18 @@ import 'package:MyWebsite/ui/common/bio.dart';
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:MyWebsite/ui/component/fancy_background.dart';
 import 'package:MyWebsite/ui/component/flat_border_button.dart';
+import 'package:MyWebsite/ui/mobile/about/about.dart';
 import 'package:MyWebsite/ui/mobile/home/top_buttons.dart';
+import 'package:MyWebsite/ui/mobile/mobile_const.dart';
 import 'package:MyWebsite/ui/mobile/project/Projects.dart';
 import 'package:MyWebsite/ui/provider/home_view_model.dart';
 import 'package:MyWebsite/ui/web/about/about.dart';
 import 'package:MyWebsite/ui/web/home/top_buttons.dart';
 import 'package:MyWebsite/ui/web/project/project_size1.dart';
-import 'package:flutter/material.dart';
-import 'package:MyWebsite/ui/mobile/about/about.dart';
-import 'package:MyWebsite/ui/mobile/mobile_const.dart';
 import 'package:MyWebsite/ui/web/project/project_size2.dart';
 import 'package:MyWebsite/ui/web/project/project_size3.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
+import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -27,8 +27,8 @@ class _MyHomePageState extends State<MyHomePage> {
   var screen;
 
   mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
-    newState,
-  ));
+        newState,
+      ));
 
   @override
   Widget build(BuildContext context) {
@@ -37,59 +37,62 @@ class _MyHomePageState extends State<MyHomePage> {
     screen = isWeb ? WebConst() : MobileConst();
 
     return Scaffold(
-      body: ChangeNotifierProvider<HomeViewModel>(
-        create: (context) => HomeViewModel(),
-        child: Consumer<HomeViewModel>(
-          builder: (BuildContext context, model, Widget child) => Stack(
-            children: <Widget>[
-              FancyBackgroundApp(
-              ),
-              Align(
-                alignment: Alignment.center,
-                child: model.currentState == States.HOME
-                    ? Bio(
-                  screen: screen,
-                )
-                    : isWeb
-                    ? model.currentState == States.ABOUT
-                    ? WebAbout(screen: screen)
-                    : model.currentState == States.PROJECTS
-                    ? (screenSize < 1000
-                    ? ProjectsSize1()
-                    : screenSize < 1600
-                    ? ProjectsSize2()
-                    : ProjectsSize3())
-                    : Container()
-                    : Container(),
-              ),
-              Align(
-                alignment: Alignment.topLeft,
-                child: Container(
-                  margin: EdgeInsets.only(
-                    top: screen.marginTop,
-                    left: screen.marginLeft,
+      body: Stack(
+        children: <Widget>[
+          FancyBackgroundApp(),
+          ChangeNotifierProvider<HomeViewModel>(
+            create: (context) => HomeViewModel(),
+            child: Consumer<HomeViewModel>(
+              builder: (BuildContext context, model, Widget child) => Stack(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.center,
+                    child: model.currentState == States.HOME
+                        ? Bio(
+                            screen: screen,
+                          )
+                        : isWeb
+                            ? model.currentState == States.ABOUT
+                                ? WebAbout(screen: screen)
+                                : model.currentState == States.PROJECTS
+                                    ? (screenSize < 1000
+                                        ? ProjectsSize1()
+                                        : screenSize < 1600
+                                            ? ProjectsSize2()
+                                            : ProjectsSize3())
+                                    : Container()
+                            : Container(),
                   ),
-                  child: FlatBorderButton(
-                    text: isWeb ? "Home" : "About Me",
-                    onTap: () => isWeb
-                        ? model.changeState(States.HOME)
-                        : mobileChangeState(States.ABOUT),
-                    screen: screen,
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        top: screen.marginTop,
+                        left: screen.marginLeft,
+                      ),
+                      child: FlatBorderButton(
+                        text: isWeb ? "Home" : "About Me",
+                        onTap: () => isWeb
+                            ? model.changeState(States.HOME)
+                            : mobileChangeState(States.ABOUT),
+                        screen: screen,
+                      ),
+                    ),
                   ),
-                ),
+                  isWeb
+                      ? WebTopButtons(
+                          changeState: model.changeState,
+                          screen: screen,
+                        )
+                      : MobileTopButtons(
+                          changeState: mobileChangeState,
+                          screen: screen,
+                        ),
+                ],
               ),
-              isWeb
-                  ? WebTopButtons(
-                changeState: model.changeState,
-                screen: screen,
-              )
-                  : MobileTopButtons(
-                changeState: mobileChangeState,
-                screen: screen,
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -113,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
         var curve = Curves.fastOutSlowIn;
 
         var tween =
-        Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
 
         return SlideTransition(
           position: animation.drive(tween),
