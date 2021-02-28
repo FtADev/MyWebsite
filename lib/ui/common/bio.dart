@@ -30,7 +30,7 @@ class Bio extends StatelessWidget {
           ),
         ),
         TypewriterText(
-          text: "I Am A Developer",
+          text: "I Am A Mobile Application Developer",
           style: TextStyle(
             color: Colors.white,
             fontSize: screen.bioFont3,
