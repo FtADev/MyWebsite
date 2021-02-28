@@ -37,15 +37,6 @@ class AboutPage extends StatelessWidget {
   }
 }
 
-siteLauncher() async {
-  const url = 'https://expteam.ir/';
-  if (await canLaunch(url)) {
-    await launch(url);
-  } else {
-    throw 'Could not launch $url';
-  }
-}
-
 githubLauncher() async {
   const url = 'https://github.com/FtADev/';
   if (await canLaunch(url)) {
@@ -55,8 +46,8 @@ githubLauncher() async {
   }
 }
 
-gitlabLauncher() async {
-  const url = 'https://gitlab.com/FtADev';
+telegramLauncher() async {
+  const url = 'https://t.me/ftadev';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
