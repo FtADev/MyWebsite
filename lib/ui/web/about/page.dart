@@ -58,9 +58,9 @@ class WebAboutPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: [
                                   Image.asset(
-                                    'assets/gmail.png',
-                                    width: 25,
-                                    height: 25,
+                                    'assets/network/email.png',
+                                    width: 40,
+                                    height: 40,
                                     fit: BoxFit.fitWidth,
                                   ),
                                   SizedBox(width: 10),
@@ -82,16 +82,6 @@ class WebAboutPage extends StatelessWidget {
                                 crossAxisAlignment: CrossAxisAlignment.center,
                                 children: <Widget>[
                                   InkWell(
-                                    child: Image.asset(
-                                      'assets/expteam.png',
-                                      height: 40,
-                                    ),
-                                    onTap: siteLauncher,
-                                  ),
-                                  SizedBox(
-                                    width: 20,
-                                  ),
-                                  InkWell(
                                     child: Container(
                                       decoration: BoxDecoration(
                                           color: Colors.white,
@@ -103,7 +93,7 @@ class WebAboutPage extends StatelessWidget {
                                             color: Colors.white,
                                           )),
                                       child: Image.asset(
-                                        'assets/github.png',
+                                        'assets/network/github.png',
                                         width: 50,
                                         height: 50,
                                       ),
@@ -115,11 +105,22 @@ class WebAboutPage extends StatelessWidget {
                                   ),
                                   InkWell(
                                     child: Image.asset(
-                                      'assets/linkedin.png',
+                                      'assets/network/linkedin.png',
                                       width: 50,
                                       height: 50,
                                     ),
                                     onTap: linkedInLauncher,
+                                  ),
+                                  SizedBox(
+                                    width: 20,
+                                  ),
+                                  InkWell(
+                                    child: Image.asset(
+                                      'assets/network/telegram.png',
+                                      width: 50,
+                                      height: 50,
+                                    ),
+                                    onTap: telegramLauncher,
                                   ),
                                 ],
                               ),

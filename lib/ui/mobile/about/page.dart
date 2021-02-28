@@ -55,9 +55,9 @@ class MobileAboutPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Image.asset(
-                    'assets/gmail.png',
-                    width: 15,
-                    height: 15,
+                    'assets/network/email.png',
+                    width: 25,
+                    height: 25,
                     fit: BoxFit.fitWidth,
                   ),
                   SizedBox(width: 3),
@@ -78,16 +78,6 @@ class MobileAboutPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
                   InkWell(
-                    child: Image.asset(
-                      'assets/expteam.png',
-                      height: 20,
-                    ),
-                    onTap: siteLauncher,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  InkWell(
                     child: Container(
                       decoration: BoxDecoration(
                           color: Colors.white,
@@ -99,7 +89,7 @@ class MobileAboutPage extends StatelessWidget {
                             color: Colors.white,
                           )),
                       child: Image.asset(
-                        'assets/github.png',
+                        'assets/network/github.png',
                         width: 25,
                         height: 25,
                       ),
@@ -111,11 +101,22 @@ class MobileAboutPage extends StatelessWidget {
                   ),
                   InkWell(
                     child: Image.asset(
-                      'assets/linkedin.png',
+                      'assets/network/linkedin.png',
                       width: 25,
                       height: 25,
                     ),
                     onTap: linkedInLauncher,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  InkWell(
+                    child: Image.asset(
+                      'assets/network/telegram.png',
+                      width: 25,
+                      height: 25,
+                    ),
+                    onTap: telegramLauncher,
                   ),
                 ],
               ),
