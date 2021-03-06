@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 class FlatBorderButton extends StatelessWidget {
   final text;
@@ -9,20 +10,23 @@ class FlatBorderButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      child: Container(
-        padding: EdgeInsets.all(7),
-        child: Text(
-          text,
-          style: TextStyle(color: Colors.white, fontSize: screen.flatBtnFont, fontFamily: 'dekko'),
+    return MouseRegion(
+      cursor: SystemMouseCursors.click,
+      child: GestureDetector(
+        child: Container(
+          padding: EdgeInsets.all(7),
+          child: Text(
+            text,
+            style: TextStyle(color: Colors.white, fontSize: screen.flatBtnFont, fontFamily: 'dekko'),
+          ),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(30.0),
+            shape: BoxShape.rectangle,
+            border: Border.all(width: 1, color: Colors.white),
+          ),
         ),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0),
-          shape: BoxShape.rectangle,
-          border: Border.all(width: 1, color: Colors.white),
-        ),
+        onTap: onTap,
       ),
-      onTap: onTap,
     );
   }
 }
