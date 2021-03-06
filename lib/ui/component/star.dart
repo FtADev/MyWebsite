@@ -39,31 +39,26 @@ class Star extends StatelessWidget {
       tween: tween,
       duration: tween.duration,
       curve: Curves.easeInOutSine,
-      builder: (context, child, MultiTweenValues positionValue) =>
-          CustomAnimation<double>(
-        control: CustomAnimationControl.MIRROR,
+      builder: (context, child, MultiTweenValues positionValue) => MirrorAnimation(
         tween: Tween(begin: 1.5, end: 3.0),
         duration: Duration(milliseconds: 1000),
         curve: Curves.fastOutSlowIn,
-        animationStatusListener: (status) {},
-        builder: (context, child, value) {
-          return Positioned(
-            top: top % 2 == 0
-                ? top + positionValue.get(DefaultAnimationProperties.y)
-                : top,
-            right: right % 2 == 0
-                ? right + positionValue.get(DefaultAnimationProperties.x)
-                : right,
-            child: Container(
-              width: value,
-              height: value,
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
+        builder: (context, child, value) => Positioned(
+          top: top % 2 == 0
+              ? top + positionValue.get(DefaultAnimationProperties.y)
+              : top,
+          right: right % 2 == 0
+              ? right + positionValue.get(DefaultAnimationProperties.x)
+              : right,
+          child: Container(
+            width: value,
+            height: value,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.circle,
             ),
-          );
-        },
+          ),
+        ),
       ),
     );
   }
