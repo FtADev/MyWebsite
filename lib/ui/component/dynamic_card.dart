@@ -19,31 +19,26 @@ class DynamicCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ControlledAnimation(
+    return CustomAnimation(
       duration: Duration(milliseconds: 400),
       tween: Tween(begin: 0.0, end: MediaQuery.of(context).size.height * 0.8),
-      builder: (context, height) {
-        return ControlledAnimation(
-          duration: Duration(milliseconds: 1200),
-          delay: Duration(milliseconds: 500),
-          tween:
-              Tween(begin: 2.0, end: MediaQuery.of(context).size.width * 0.7),
-          builder: (context, width) {
-            return Card(
-              elevation: 5,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15.0),
-            ),
-              child: Container(
-                decoration: boxDecoration,
-                width: width,
-                height: height,
-                child: child,
-              ),
-            );
-          },
-        );
-      },
+      builder: (context, animationChild, height) => CustomAnimation(
+        duration: Duration(milliseconds: 1200),
+        delay: Duration(milliseconds: 500),
+        tween: Tween(begin: 2.0, end: MediaQuery.of(context).size.width * 0.7),
+        builder: (context, animationChild, width) => Card(
+          elevation: 5,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(15.0),
+          ),
+          child: Container(
+            decoration: boxDecoration,
+            width: width,
+            height: height,
+            child: child,
+          ),
+        ),
+      ),
     );
   }
 }
