@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ChangeNotifierProvider<HomeViewModel>(
             create: (context) => HomeViewModel(),
             child: Consumer<HomeViewModel>(
-              builder: (BuildContext context, model, Widget child) => Stack(
+              builder: (BuildContext context, model, Widget? child) => Stack(
                 children: <Widget>[
                   Align(
                     alignment: Alignment.center,
@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Route createRoute(States state) {
-    Widget page;
+    late Widget page;
     if (state == States.PROJECTS)
       page = Projects(
         screen: MobileConst(),

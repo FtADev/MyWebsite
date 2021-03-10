@@ -1,5 +1,5 @@
 import 'package:MyWebsite/ui/config/route_handlers.dart';
-import 'package:fluro_fork/fluro_fork.dart' as fluro;
+import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 
 class Routes {
@@ -7,9 +7,9 @@ class Routes {
   static String about = "/about";
   static String projects = "/projects/:id";
 
-  static void configureRoutes(fluro.Router router) {
-    router.notFoundHandler = fluro.Handler(
-        handlerFunc: (BuildContext context, Map<String, List<String>> params) {
+  static void configureRoutes(FluroRouter  router) {
+    router.notFoundHandler = Handler(
+        handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
       print("ROUTE WAS NOT FOUND !!!");
     });
     router.define(root, handler: rootHandler);

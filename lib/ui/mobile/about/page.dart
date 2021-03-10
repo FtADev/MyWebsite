@@ -3,9 +3,9 @@ import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:MyWebsite/ui/common/my_custom_shape.dart';
 
 class MobileAboutPage extends StatelessWidget {
-  final PageViewModel viewModel;
+  final PageViewModel? viewModel;
 
-  const MobileAboutPage({Key key, this.viewModel}) : super(key: key);
+  const MobileAboutPage({Key? key, this.viewModel}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class MobileAboutPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                viewModel.title,
+                viewModel!.title,
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
@@ -34,7 +34,7 @@ class MobileAboutPage extends StatelessWidget {
                 height: 5,
               ),
               Text(
-                viewModel.text,
+                viewModel!.text,
                 style: TextStyle(
                   color: Colors.black,
                   fontSize: 18,
@@ -45,7 +45,7 @@ class MobileAboutPage extends StatelessWidget {
           ),
         ),
         SizedBox(height: 10),
-        viewModel.isLastPage
+        viewModel!.isLastPage
             ? Container(
           child: Column(
             mainAxisSize: MainAxisSize.min,

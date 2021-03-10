@@ -6,7 +6,7 @@ import 'package:flutter_swiper/flutter_swiper.dart';
 class OtherProjects extends StatelessWidget {
   final id;
 
-  const OtherProjects({Key key, @required this.id}) : super(key: key);
+  const OtherProjects({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class OtherProjects extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      otherProjectList[id].title,
+                      otherProjectList[id].title!,
                       style: TextStyle(
                         fontFamily: 'dekko',
                         fontSize: 40,
@@ -31,7 +31,7 @@ class OtherProjects extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      otherProjectList[id].detail,
+                      otherProjectList[id].detail!,
                       style: TextStyle(
                         fontFamily: 'dekko',
                         fontSize: 20,
@@ -43,13 +43,13 @@ class OtherProjects extends StatelessWidget {
               height: width > 1000 ? MediaQuery.of(context).size.height * 0.8 : MediaQuery.of(context).size.height * 0.5,
               child: Swiper(
                 fade: 0.1,
-                itemCount: otherProjectList[id].image.length,
+                itemCount: otherProjectList[id].image!.length,
                 loop: true,
-                viewportFraction: otherProjectList[id].isHorizontal ? 0.6 : width > 600 ? 0.2 : 0.5,
+                viewportFraction: otherProjectList[id].isHorizontal! ? 0.6 : width > 600 ? 0.2 : 0.5,
                 scale: 0.5,
                 itemBuilder: (BuildContext context, int index) {
                   return Image.asset(
-                    otherProjectList[id].image[index],
+                    otherProjectList[id].image![index],
                     fit: BoxFit.fitWidth,
                   );
                 },

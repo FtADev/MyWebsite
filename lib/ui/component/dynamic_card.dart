@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class DynamicCard extends StatelessWidget {
-  final Widget child;
+  final Widget? child;
 
-  const DynamicCard({Key key, this.child}) : super(key: key);
+  const DynamicCard({Key? key, this.child}) : super(key: key);
 
   static final boxDecoration = BoxDecoration(
       color: Colors.white,
@@ -22,11 +22,11 @@ class DynamicCard extends StatelessWidget {
     return CustomAnimation(
       duration: Duration(milliseconds: 400),
       tween: Tween(begin: 0.0, end: MediaQuery.of(context).size.height * 0.8),
-      builder: (context, animationChild, height) => CustomAnimation(
+      builder: (context, animationChild, dynamic height) => CustomAnimation(
         duration: Duration(milliseconds: 1200),
         delay: Duration(milliseconds: 500),
         tween: Tween(begin: 2.0, end: MediaQuery.of(context).size.width * 0.7),
-        builder: (context, animationChild, width) => Card(
+        builder: (context, animationChild, dynamic width) => Card(
           elevation: 5,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(15.0),

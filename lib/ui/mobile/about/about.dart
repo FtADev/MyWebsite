@@ -8,14 +8,14 @@ import 'package:page_indicator/page_indicator.dart';
 class MobileAbout extends StatefulWidget {
   final screen;
 
-  const MobileAbout({Key key, @required this.screen}) : super(key: key);
+  const MobileAbout({Key? key, required this.screen}) : super(key: key);
 
   @override
   _MobileAboutState createState() => _MobileAboutState();
 }
 
 class _MobileAboutState extends State<MobileAbout> {
-  PageController _pageController;
+  PageController? _pageController;
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _MobileAboutState extends State<MobileAbout> {
 
   @override
   void dispose() {
-    _pageController.dispose();
+    _pageController!.dispose();
     super.dispose();
   }
 
@@ -56,7 +56,7 @@ class _MobileAboutState extends State<MobileAbout> {
                   }),
               align: IndicatorAlign.bottom,
               length: pages.length,
-              indicatorColor: Colors.grey[300],
+              indicatorColor: Colors.grey[300]!,
               indicatorSelectorColor: Colors.grey,
               padding: const EdgeInsets.only(bottom: 36.0),
               shape: IndicatorShape.circle(size: 15.0),

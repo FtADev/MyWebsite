@@ -1,5 +1,5 @@
-import 'package:fluro_fork/fluro_fork.dart';
+import 'package:fluro/fluro.dart';
 
 class Application {
-  static Router router;
+  static late FluroRouter router;
 }

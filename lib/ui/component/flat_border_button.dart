@@ -6,7 +6,7 @@ class FlatBorderButton extends StatelessWidget {
   final onTap;
   final screen;
 
-  const FlatBorderButton({Key key, this.text, this.onTap, this.screen}) : super(key: key);
+  const FlatBorderButton({Key? key, this.text, this.onTap, this.screen}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
