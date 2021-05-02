@@ -12,20 +12,20 @@ class WebAboutPage extends StatefulWidget {
 }
 
 class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  AnimationController? _controller;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
         duration: const Duration(milliseconds: 5000), vsync: this);
-    _controller.forward(from: 0);
+    _controller!.forward(from: 0);
 
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller!.dispose();
     super.dispose();
   }
 
@@ -64,7 +64,7 @@ class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderSt
                 widget.viewModel!.text,
                   CurvedAnimation(
                     curve: Interval(0.45, 0.7),
-                    parent: _controller,
+                    parent: _controller!,
                   ),
                   textAlign: TextAlign.center,
                   style:  TextStyle(
@@ -174,15 +174,15 @@ class TrackedOutText extends StatefulWidget {
 
   final Animation<double> progress;
 
-  final TextAlign textAlign;
-  final TextStyle style;
+  final TextAlign? textAlign;
+  final TextStyle? style;
 
   TrackedOutText(
       this.text,
       this.progress, {
         this.textAlign,
         this.style,
-      })  : _slices = _generateSlices(text, style, false).toList(growable: false),
+      })  : _slices = _generateSlices(text, style!, false).toList(growable: false),
         _slicesTransparent =
         _generateSlices(text, style, true).toList(growable: false);
 
@@ -211,7 +211,7 @@ class _TrackedOutTextState extends State<TrackedOutText> {
   Widget build(BuildContext context) {
     return AnimatedBuilder(
       animation: widget.progress,
-      builder: (BuildContext context, Widget child) {
+      builder: (BuildContext context, Widget? child) {
         return Text.rich(
           TextSpan(
             children: [
