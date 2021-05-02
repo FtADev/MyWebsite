@@ -3,16 +3,16 @@ import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectItem extends StatelessWidget {
-  final String image;
-  final String title;
-  final String detail;
-  final Color colorLang;
-  final String lang;
-  final bool isTeamWork;
-  final String url;
+  final String? image;
+  final String? title;
+  final String? detail;
+  final Color? colorLang;
+  final String? lang;
+  final bool? isTeamWork;
+  final String? url;
 
   const ProjectItem(
-      {Key key,
+      {Key? key,
       this.image,
       this.title,
       this.detail,
@@ -29,7 +29,7 @@ class ProjectItem extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: () => urlLauncher(url),
+          onTap: () => urlLauncher(url!),
           child: Card(
             child: Padding(
               padding: const EdgeInsets.all(20.0),
@@ -43,7 +43,7 @@ class ProjectItem extends StatelessWidget {
                         color: (image == null) ? Colors.grey.shade300 : Colors.white,
                         width: 100,
                         height: 100,
-                        child: (image != null) ? Image.asset(image) : Container(),
+                        child: (image != null) ? Image.asset(image!) : Container(),
                       ),
                     ),
                   ),
@@ -51,7 +51,7 @@ class ProjectItem extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text((title != null) ? title : "Project Title",
+                        Text((title != null) ? title! : "Project Title",
                             style: TextStyle(
                               fontSize: 25,
                               fontWeight: FontWeight.bold,
@@ -62,7 +62,7 @@ class ProjectItem extends StatelessWidget {
                         ),
                         Text(
                           (detail != null)
-                              ? detail
+                              ? detail!
                               : "Lorem Ipsum is simply dummy text of remaining of all.",
                           style: TextStyle(fontSize: 20, fontFamily: 'dekko'),
                         ),
@@ -85,13 +85,13 @@ class ProjectItem extends StatelessWidget {
                               width: 5,
                             ),
                             Text(
-                              (lang != null) ? lang : "Language",
+                              (lang != null) ? lang! : "Language",
                               style: TextStyle(fontSize: 16, fontFamily: 'dekko'),
                             ),
                             SizedBox(
                               width: 20,
                             ),
-                            (isTeamWork != null && isTeamWork)
+                            (isTeamWork != null && isTeamWork!)
                                 ? Container(
                                     width: 10,
                                     height: 10,
@@ -104,7 +104,7 @@ class ProjectItem extends StatelessWidget {
                             SizedBox(
                               width: 5,
                             ),
-                            (isTeamWork != null && isTeamWork)
+                            (isTeamWork != null && isTeamWork!)
                                 ? Text(
                                     "Team Work",
                                     style: TextStyle(

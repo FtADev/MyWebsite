@@ -4,10 +4,10 @@ import 'package:MyWebsite/ui/component/flat_border_button.dart';
 
 
 class MobileTopButtons extends StatelessWidget {
-  final Function changeState;
+  final Function? changeState;
   final screen;
 
-  const MobileTopButtons({Key key, this.screen, this.changeState}) : super(key: key);
+  const MobileTopButtons({Key? key, this.screen, this.changeState}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +31,7 @@ class MobileTopButtons extends StatelessWidget {
 //            ),
             FlatBorderButton(
               text: "My Projects",
-              onTap: () => changeState(States.PROJECTS),
+              onTap: () => changeState!(States.PROJECTS),
               screen: screen,
             ),
           ],

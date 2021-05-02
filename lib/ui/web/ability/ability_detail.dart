@@ -6,9 +6,9 @@ import 'package:MyWebsite/ui/component/wave_view.dart';
 import 'ability_list.dart';
 
 class AbilityDetail extends StatelessWidget {
-  final int index;
+  final int? index;
 
-  const AbilityDetail({Key key, this.index,})
+  const AbilityDetail({Key? key, this.index,})
       : super(key: key);
 
   @override
@@ -26,7 +26,7 @@ class AbilityDetail extends StatelessWidget {
                 FadeIn(
                   2,
                   Image.asset(
-                    abilitiesList[index].iconPath,
+                    abilitiesList[index!].iconPath!,
                     height: MediaQuery.of(context).size.height * 0.4,
                     fit: BoxFit.fitWidth,
                   ),

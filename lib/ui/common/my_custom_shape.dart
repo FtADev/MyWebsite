@@ -2,23 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 class MyCustomShape extends StatelessWidget {
-  final tween = MultiTrackTween([
-    Track("color1").add(Duration(seconds: 3),
-        ColorTween(begin: Color(0xffD38312), end: Colors.lightBlue.shade900)),
-    Track("color2").add(Duration(seconds: 3),
-        ColorTween(begin: Color(0xffA83279), end: Colors.blue.shade600))
-  ]);
+  final tween = MultiTween<DefaultAnimationProperties>()
+    ..add(
+        DefaultAnimationProperties.color1,
+        ColorTween(begin: Color(0xffD38312), end: Colors.lightBlue.shade900),
+        Duration(seconds: 3))
+    ..add(
+        DefaultAnimationProperties.color2,
+        ColorTween(begin: Color(0xffA83279), end: Colors.blue.shade600),
+        Duration(seconds: 3));
 
   @override
   Widget build(BuildContext context) {
-    return ControlledAnimation(
-      playback: Playback.MIRROR,
+    return MirrorAnimation(
       tween: tween,
       duration: tween.duration,
-      builder: (context, animation) {
+      builder: (context, child, MultiTweenValues value) {
         return Container(
           child: CustomPaint(
-            painter: CurvePainter(animation["color1"], animation["color2"]),
+            painter: CurvePainter(value.get(DefaultAnimationProperties.color1),
+                value.get(DefaultAnimationProperties.color2)),
           ),
         );
       },

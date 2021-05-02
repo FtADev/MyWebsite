@@ -5,7 +5,7 @@ import 'package:MyWebsite/ui/component/typewriter_box.dart';
 class Bio extends StatelessWidget {
   final screen;
 
-  const Bio({Key key, this.screen}) : super(key: key);
+  const Bio({Key? key, this.screen}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

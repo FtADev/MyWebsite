@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 class CardPlaceholder extends StatelessWidget {
   const CardPlaceholder({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

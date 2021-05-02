@@ -4,17 +4,17 @@ import 'package:flutter/material.dart';
 import 'package:vector_math/vector_math.dart' as vector;
 
 class WaveView extends StatefulWidget {
-  final int waterSize;
+  final int? waterSize;
 
-  const WaveView({Key key, this.waterSize}) : super(key: key);
+  const WaveView({Key? key, this.waterSize}) : super(key: key);
 
   @override
   _WaveViewState createState() => _WaveViewState();
 }
 
 class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
-  AnimationController animationController;
-  AnimationController waveAnimationController;
+  late AnimationController animationController;
+  late AnimationController waveAnimationController;
   Size bottlesize1 = Size(60, 160);
   Offset bottleOffset1 = Offset(0, 0);
   List<Offset> animList1 = [];
@@ -47,7 +47,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                         360 *
                         vector.degrees2Radians) *
                     4 +
-                (100-widget.waterSize)));
+                (100-widget.waterSize!)));
       }
       animList2.clear();
       for (int i = -2 - bottleOffset2.dx.toInt(); i <= 60 + 2; i++) {
@@ -57,7 +57,7 @@ class _WaveViewState extends State<WaveView> with TickerProviderStateMixin {
                         360 *
                         vector.degrees2Radians) *
                     4 +
-                (100-widget.waterSize)));
+                (100-widget.waterSize!)));
       }
     });
     waveAnimationController.repeat();

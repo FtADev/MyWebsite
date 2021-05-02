@@ -50,8 +50,8 @@ class FancyBackgroundApp extends StatelessWidget {
 }
 
 class AnimatedWave extends StatelessWidget {
-  final double height;
-  final double speed;
+  final double? height;
+  final double? speed;
   final double offset;
 
   AnimatedWave({
@@ -68,7 +68,7 @@ class AnimatedWave extends StatelessWidget {
         width: constraints.biggest.width,
         child: LoopAnimation<double>(
           tween: Tween(begin: 0.0, end: 2 * pi),
-          duration: Duration(milliseconds: (5000 / speed).round()),
+          duration: Duration(milliseconds: (5000 / speed!).round()),
           builder: (context, child, value) => CustomPaint(
             foregroundPainter: CurvePainter(value + offset),
           ),

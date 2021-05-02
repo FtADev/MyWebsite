@@ -8,7 +8,7 @@ import 'package:skeleton_loader/skeleton_loader.dart';
 class Projects extends StatefulWidget {
   final screen;
 
-  Projects({Key key, @required this.screen}) : super(key: key);
+  Projects({Key? key, required this.screen}) : super(key: key);
 
   @override
   _ProjectsState createState() => _ProjectsState();
@@ -52,10 +52,10 @@ class _ProjectsState extends State<Projects> {
         create: (context) => viewModel,
         child: Consumer<ProjectViewModel>(
           builder:
-              (BuildContext context, ProjectViewModel model, Widget child) =>
+              (BuildContext context, ProjectViewModel model, Widget? child) =>
                   Container(
             padding: EdgeInsets.symmetric(horizontal: 5),
-            child: model.loading
+            child: model.loading!
                 ? SingleChildScrollView(
                     child: SkeletonLoader(
                       builder: Container(
@@ -90,7 +90,7 @@ class _ProjectsState extends State<Projects> {
                       ),
                       items: projectList.length,
                       period: Duration(seconds: 2),
-                      highlightColor: Colors.lightBlue[300],
+                      highlightColor: Colors.lightBlue[300]!,
                       direction: SkeletonDirection.ltr,
                     ),
                   )

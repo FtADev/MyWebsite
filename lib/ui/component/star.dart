@@ -6,7 +6,7 @@ class Star extends StatelessWidget {
   final right;
 
   const Star({
-    Key key,
+    Key? key,
     this.top,
     this.right,
   }) : super(key: key);
@@ -43,7 +43,7 @@ class Star extends StatelessWidget {
         tween: Tween(begin: 1.5, end: 3.0),
         duration: Duration(milliseconds: 1000),
         curve: Curves.fastOutSlowIn,
-        builder: (context, child, value) => Positioned(
+        builder: (context, child, dynamic value) => Positioned(
           top: top % 2 == 0
               ? top + positionValue.get(DefaultAnimationProperties.y)
               : top,

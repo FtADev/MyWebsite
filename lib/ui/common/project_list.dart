@@ -103,13 +103,13 @@ final projectList = [
 ];
 
 class ProjectModel {
-  String title;
-  String image;
-  String detail;
-  String lang;
-  Color colorLang;
-  bool isTeamWork;
-  String url;
+  String? title;
+  String? image;
+  String? detail;
+  String? lang;
+  Color? colorLang;
+  bool? isTeamWork;
+  String? url;
 
   ProjectModel(
       {this.title,

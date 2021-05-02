@@ -57,13 +57,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
-  fluro_fork:
+  fluro:
     dependency: "direct main"
     description:
-      name: fluro_fork
+      name: fluro
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1"
+    version: "2.0.3"
   flutter:
     dependency: "direct main"
     description: flutter
@@ -72,9 +72,11 @@ packages:
   flutter_page_indicator:
     dependency: transitive
     description:
-      name: flutter_page_indicator
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: b81be943ea1ee9bb0b6eda78794ac0696b95b199
+      url: "https://github.com/HrBDev/flutter_page_indicator"
+    source: git
     version: "0.0.3"
   flutter_staggered_grid_view:
     dependency: "direct main"
@@ -82,13 +84,15 @@ packages:
       name: flutter_staggered_grid_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.3.4"
+    version: "0.4.0-nullsafety.3"
   flutter_swiper:
     dependency: "direct main"
     description:
-      name: flutter_swiper
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: f32c8b3f4b91727d6af48c7b350f4e9dfc9347c4
+      url: "https://github.com/HrBDev/flutter_swiper"
+    source: git
     version: "1.1.6"
   flutter_test:
     dependency: "direct dev"
@@ -131,10 +135,12 @@ packages:
   page_indicator:
     dependency: "direct main"
     description:
-      name: page_indicator
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "0.3.0"
+      path: "."
+      ref: HEAD
+      resolved-ref: "50d9e30673e451dcfda9e228800afc03dbd06d39"
+      url: "https://github.com/MillerAdulu/flutter_page_indicator"
+    source: git
+    version: "0.3.1"
   path:
     dependency: transitive
     description:
@@ -148,49 +154,44 @@ packages:
       name: pedantic
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.10.0"
+    version: "1.11.0"
   plugin_platform_interface:
     dependency: transitive
     description:
       name: plugin_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.2"
+    version: "2.0.0"
   provider:
     dependency: "direct main"
     description:
       name: provider
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "4.3.3"
-  sa_v1_migration:
-    dependency: transitive
-    description:
-      name: sa_v1_migration
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.1.2"
+    version: "5.0.0"
   shimmer:
     dependency: transitive
     description:
       name: shimmer
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.1.2"
+    version: "2.0.0-nullsafety.0"
   simple_animations:
     dependency: "direct main"
     description:
       name: simple_animations
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "2.5.1"
+    version: "3.0.1"
   skeleton_loader:
     dependency: "direct main"
     description:
-      name: skeleton_loader
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "1.0.2+2"
+      path: "."
+      ref: HEAD
+      resolved-ref: d5af9f9555125c66e7d337c2116b55355ddec0c4
+      url: "https://github.com/HrBDev/skeleton_loader"
+    source: git
+    version: "1.0.2+3"
   sky_engine:
     dependency: transitive
     description: flutter
@@ -230,14 +231,14 @@ packages:
       name: supercharged
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.12.0"
+    version: "2.0.0"
   supercharged_dart:
     dependency: transitive
     description:
       name: supercharged_dart
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.4.0"
+    version: "2.0.0"
   term_glyph:
     dependency: transitive
     description:
@@ -255,9 +256,11 @@ packages:
   transformer_page_view:
     dependency: transitive
     description:
-      name: transformer_page_view
-      url: "https://pub.dartlang.org"
-    source: hosted
+      path: "."
+      ref: HEAD
+      resolved-ref: "4bb8486114368b0351c8efdd9600191c778ed43b"
+      url: "https://github.com/HrBDev/transformer_page_view"
+    source: git
     version: "0.1.6"
   typed_data:
     dependency: transitive
@@ -272,42 +275,42 @@ packages:
       name: url_launcher
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "5.7.10"
+    version: "6.0.2"
   url_launcher_linux:
     dependency: transitive
     description:
       name: url_launcher_linux
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1+1"
+    version: "2.0.0"
   url_launcher_macos:
     dependency: transitive
     description:
       name: url_launcher_macos
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1+4"
+    version: "2.0.0"
   url_launcher_platform_interface:
     dependency: transitive
     description:
       name: url_launcher_platform_interface
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "1.0.9"
+    version: "2.0.2"
   url_launcher_web:
     dependency: transitive
     description:
       name: url_launcher_web
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.1.5+3"
+    version: "2.0.0"
   url_launcher_windows:
     dependency: transitive
     description:
       name: url_launcher_windows
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.0.1+3"
+    version: "2.0.0"
   vector_math:
     dependency: transitive
     description:
@@ -316,5 +319,5 @@ packages:
     source: hosted
     version: "2.1.0"
 sdks:
-  dart: ">=2.12.0-0.0 <3.0.0"
-  flutter: ">=1.26.0-17.6.pre"
+  dart: ">=2.12.0 <3.0.0"
+  flutter: ">=2.0.0"

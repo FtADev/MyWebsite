@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 class AbilityCard extends StatefulWidget {
-  final String name;
-  final String iconPath;
-  final bool moveIcon;
+  final String? name;
+  final String? iconPath;
+  final bool? moveIcon;
 
   AbilityCard({this.name, this.iconPath, this.moveIcon});
 
@@ -13,8 +13,8 @@ class AbilityCard extends StatefulWidget {
 
 class _AbilityCardState extends State<AbilityCard>
     with TickerProviderStateMixin {
-  AnimationController _animationController;
-  Animation _animation;
+  late AnimationController _animationController;
+  late Animation _animation;
 
   @override
   void initState() {
@@ -28,7 +28,7 @@ class _AbilityCardState extends State<AbilityCard>
 
   @override
   Widget build(BuildContext context) {
-    if (widget.moveIcon != null && widget.moveIcon)
+    if (widget.moveIcon != null && widget.moveIcon!)
       _animationController.repeat(reverse: true);
     else
       _animationController.stop();
@@ -41,16 +41,16 @@ class _AbilityCardState extends State<AbilityCard>
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
             SlideTransition(
-              position: _animation,
+              position: _animation as Animation<Offset>,
               child: Image.asset(
-                widget.iconPath,
+                widget.iconPath!,
                 width: 100,
                 height: 100,
               ),
             ),
             SizedBox(height: 10),
             Text(
-              widget.name,
+              widget.name!,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 20,
