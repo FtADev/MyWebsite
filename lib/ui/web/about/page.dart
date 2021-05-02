@@ -2,10 +2,32 @@ import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:MyWebsite/ui/common/my_custom_shape.dart';
 
-class WebAboutPage extends StatelessWidget {
+class WebAboutPage extends StatefulWidget {
   final PageViewModel? viewModel;
 
   const WebAboutPage({Key? key, this.viewModel}) : super(key: key);
+
+  @override
+  _WebAboutPageState createState() => _WebAboutPageState();
+}
+
+class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderStateMixin {
+  AnimationController _controller;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+        duration: const Duration(milliseconds: 5000), vsync: this);
+    _controller.forward(from: 0);
+
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +49,7 @@ class WebAboutPage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  viewModel!.title,
+                  widget.viewModel!.title,
                   style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.bold,
@@ -38,16 +60,21 @@ class WebAboutPage extends StatelessWidget {
                 SizedBox(
                   height: 15,
                 ),
-                Text(
-                  viewModel!.text,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontFamily: 'dekko',
+                TrackedOutText(
+                widget.viewModel!.text,
+                  CurvedAnimation(
+                    curve: Interval(0.45, 0.7),
+                    parent: _controller,
                   ),
+                  textAlign: TextAlign.center,
+                  style:  TextStyle(
+    color: Colors.black,
+    fontSize: 20,
+    fontFamily: 'dekko',
+    ),
                 ),
                 SizedBox(height: 20),
-                viewModel!.isLastPage
+                widget.viewModel!.isLastPage
                     ? Center(
                         child: Container(
                           child: Column(
@@ -134,6 +161,70 @@ class WebAboutPage extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+
+class TrackedOutText extends StatefulWidget {
+  final String text;
+
+  final List<TextSpan> _slices;
+  final List<TextSpan> _slicesTransparent;
+
+  final Animation<double> progress;
+
+  final TextAlign textAlign;
+  final TextStyle style;
+
+  TrackedOutText(
+      this.text,
+      this.progress, {
+        this.textAlign,
+        this.style,
+      })  : _slices = _generateSlices(text, style, false).toList(growable: false),
+        _slicesTransparent =
+        _generateSlices(text, style, true).toList(growable: false);
+
+  static Iterable<TextSpan> _generateSlices(
+      String text, TextStyle style, bool transparent) sync* {
+    const step = 3;
+    var i = 0;
+    for (; i < text.length - step; i += step) {
+      yield TextSpan(
+        text: text.substring(i, i + step),
+        style: transparent ? style.apply(color: Colors.transparent) : null,
+      );
+    }
+    yield TextSpan(
+      text: text.substring(i),
+      style: transparent ? style.apply(color: Colors.transparent) : null,
+    );
+  }
+
+  @override
+  _TrackedOutTextState createState() => _TrackedOutTextState();
+}
+
+class _TrackedOutTextState extends State<TrackedOutText> {
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: widget.progress,
+      builder: (BuildContext context, Widget child) {
+        return Text.rich(
+          TextSpan(
+            children: [
+              for (var i = 0; i < widget._slices.length; i++)
+                (i / widget._slices.length < widget.progress.value)
+                    ? widget._slices[i]
+                    : widget._slicesTransparent[i],
+            ],
+          ),
+          textAlign: widget.textAlign,
+          style: widget.style,
+        );
+      },
     );
   }
 }
