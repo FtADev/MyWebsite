@@ -69,31 +69,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
-  flutter_page_indicator:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: b81be943ea1ee9bb0b6eda78794ac0696b95b199
-      url: "https://github.com/HrBDev/flutter_page_indicator"
-    source: git
-    version: "0.0.3"
   flutter_staggered_grid_view:
     dependency: "direct main"
     description:
       name: flutter_staggered_grid_view
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "0.4.0-nullsafety.3"
+    version: "0.4.0"
   flutter_swiper:
     dependency: "direct main"
     description:
       path: "."
       ref: HEAD
-      resolved-ref: f32c8b3f4b91727d6af48c7b350f4e9dfc9347c4
-      url: "https://github.com/HrBDev/flutter_swiper"
+      resolved-ref: d82a8baefaf10749228e42e6806ce4ffa83d7e0c
+      url: "https://github.com/Arkangel12/flutter_swiper"
     source: git
-    version: "1.1.6"
+    version: "2.0.0"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -135,12 +126,10 @@ packages:
   page_indicator:
     dependency: "direct main"
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "50d9e30673e451dcfda9e228800afc03dbd06d39"
-      url: "https://github.com/MillerAdulu/flutter_page_indicator"
-    source: git
-    version: "0.3.1"
+      name: page_indicator
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.4.1"
   path:
     dependency: transitive
     description:
@@ -182,7 +171,7 @@ packages:
       name: simple_animations
       url: "https://pub.dartlang.org"
     source: hosted
-    version: "3.0.1"
+    version: "3.1.1"
   skeleton_loader:
     dependency: "direct main"
     description:
@@ -253,15 +242,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.2.19"
-  transformer_page_view:
-    dependency: transitive
-    description:
-      path: "."
-      ref: HEAD
-      resolved-ref: "4bb8486114368b0351c8efdd9600191c778ed43b"
-      url: "https://github.com/HrBDev/transformer_page_view"
-    source: git
-    version: "0.1.6"
   typed_data:
     dependency: transitive
     description:
