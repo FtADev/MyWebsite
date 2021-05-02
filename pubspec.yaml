@@ -24,9 +24,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   url_launcher: ^6.0.2
-  page_indicator:
-    git:
-      url: https://github.com/MillerAdulu/flutter_page_indicator
+  page_indicator: ^0.4.1
   flutter_staggered_grid_view: ^0.4.0
   fluro: ^2.0.3
   flutter_swiper:
