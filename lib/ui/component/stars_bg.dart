@@ -38,6 +38,7 @@ class _StarsBackgroundState extends State<StarsBackground> {
       children: List.generate(starsNum!.floor(), (index) => Star(
           top: random.nextInt(widget.height.floor()).toDouble(),
           right: random.nextInt(widget.width.floor()).toDouble(),
+          size: random.nextInt(3).toDouble(),
         )),
     );
   }

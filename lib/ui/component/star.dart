@@ -4,16 +4,18 @@ import 'package:simple_animations/simple_animations.dart';
 class Star extends StatelessWidget {
   final top;
   final right;
+  final size;
 
   const Star({
     Key? key,
     this.top,
     this.right,
+    this.size,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final tween = MultiTween<DefaultAnimationProperties>()
+    final movingTween = MultiTween<DefaultAnimationProperties>()
       ..add(
         DefaultAnimationProperties.y,
         Tween(begin: 0.0, end: 10.0),
@@ -34,16 +36,37 @@ class Star extends StatelessWidget {
         Tween(begin: 10.0, end: 0.0),
         Duration(seconds: 5),
       );
+    final sizedTween = MultiTween<DefaultAnimationProperties>()
+      ..add(
+        DefaultAnimationProperties.x,
+        Tween(begin: 1.0, end: 2.0),
+        Duration(milliseconds: 1000),
+      )
+      ..add(
+        DefaultAnimationProperties.x,
+        Tween(begin: 2.0, end: 1.0),
+        Duration(milliseconds: 2000),
+      )
+      ..add(
+        DefaultAnimationProperties.x,
+        Tween(begin: 1.0, end: 2.0),
+        Duration(milliseconds: 3000),
+      )
+      ..add(
+        DefaultAnimationProperties.x,
+        Tween(begin: 2.0, end: 1.0),
+        Duration(milliseconds: 4000),
+      );
 
     return MirrorAnimation(
-      tween: tween,
-      duration: tween.duration,
+      tween: movingTween,
+      duration: movingTween.duration,
       curve: Curves.easeInOutSine,
       builder: (context, child, MultiTweenValues positionValue) => MirrorAnimation(
-        tween: Tween(begin: 1.5, end: 3.0),
-        duration: Duration(milliseconds: 1000),
+        tween: sizedTween,
+        duration: sizedTween.duration,
         curve: Curves.fastOutSlowIn,
-        builder: (context, child, dynamic value) => Positioned(
+        builder: (context, child, MultiTweenValues value) => Positioned(
           top: top % 2 == 0
               ? top + positionValue.get(DefaultAnimationProperties.y)
               : top,
@@ -51,8 +74,8 @@ class Star extends StatelessWidget {
               ? right + positionValue.get(DefaultAnimationProperties.x)
               : right,
           child: Container(
-            width: value,
-            height: value,
+            width: value.get(DefaultAnimationProperties.x) + size * 0.5,
+            height: value.get(DefaultAnimationProperties.x) + size * 0.5,
             decoration: BoxDecoration(
               color: Colors.white,
               shape: BoxShape.circle,
