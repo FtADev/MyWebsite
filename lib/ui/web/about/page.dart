@@ -62,13 +62,8 @@ class _WebAboutPageState extends State<WebAboutPage>
                 SizedBox(
                   height: 15,
                 ),
-                TrackedOutText(
+                Text(
                   widget.viewModel!.text,
-                  CurvedAnimation(
-                    curve: Interval(0.45, 0.7),
-                    parent: _controller!,
-                  ),
-                  textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 20,
