@@ -13,8 +13,8 @@ class MobileAboutPage extends StatelessWidget {
       children: <Widget>[
         GifPartWidget(
           viewModel: viewModel,
-          widthPercent: 0.9,
-          heightPercent: 0.5,
+          widthPercent: 0.8,
+          heightPercent: 0.4,
         ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 24),
