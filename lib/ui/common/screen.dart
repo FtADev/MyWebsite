@@ -5,4 +5,7 @@ class Screen {
   final bioFont2 = 0.0;
   final bioFont3 = 0.0;
   final flatBtnFont = 0.0;
+  final boxSizeMedium = 0.0;
+  final boxSizeLarge = 0.0;
+  final iconSize = 0.0;
 }

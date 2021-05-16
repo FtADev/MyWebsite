@@ -8,4 +8,7 @@ class WebConst extends Screen {
   final bioFont2 = 70.0;
   final bioFont3 = 30.0;
   final flatBtnFont = 20.0;
+  final boxSizeMedium = 15.0;
+  final boxSizeLarge = 20.0;
+  final iconSize = 50.0;
 }
