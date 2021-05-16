@@ -80,32 +80,25 @@ class AboutPageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        Align(
-          alignment: Alignment.topCenter,
-          child: Directionality(
-            child: FadeIn(
-              3,
-              PageIndicatorContainer(
-                child: PageView.builder(
-                    onPageChanged: (pos) {},
-                    itemCount: pages.length,
-                    controller: pageController,
-                    itemBuilder: (BuildContext context, index) =>
-                        AboutPage(pages[index], state!)),
-                align: IndicatorAlign.bottom,
-                length: pages.length,
-                indicatorColor: Colors.purple[100]!,
-                indicatorSelectorColor: Colors.purple[200]!,
-                // padding: const EdgeInsets.only(bottom: 15.0),
-                shape: IndicatorShape.circle(size: 10.0),
-              ),
-            ),
-            textDirection: TextDirection.ltr,
-          ),
+    return Directionality(
+      child: FadeIn(
+        3,
+        PageIndicatorContainer(
+          child: PageView.builder(
+              onPageChanged: (pos) {},
+              itemCount: pages.length,
+              controller: pageController,
+              itemBuilder: (BuildContext context, index) =>
+                  AboutPage(pages[index], state!)),
+          align: IndicatorAlign.bottom,
+          length: pages.length,
+          indicatorColor: Colors.purple[100]!,
+          indicatorSelectorColor: Colors.purple[200]!,
+          // padding: const EdgeInsets.only(bottom: 15.0),
+          shape: IndicatorShape.circle(size: 10.0),
         ),
-      ],
+      ),
+      textDirection: TextDirection.ltr,
     );
   }
 }
