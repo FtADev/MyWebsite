@@ -18,20 +18,20 @@ class _WebAboutPageState extends State<WebAboutPage> {
       children: <Widget>[
         Expanded(
           flex: 1,
-          child: GifPartWidget(
-            viewModel: widget.viewModel,
-            widthPercent: 0.8,
-            heightPercent: 0.6,
-          ),
-        ),
-        Expanded(
-          flex: 1,
           child: Container(
             margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
             child: TextPartWidget(
               viewModel: widget.viewModel,
               screen: WebConst(),
             ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: GifPartWidget(
+            viewModel: widget.viewModel,
+            widthPercent: 0.8,
+            heightPercent: 0.6,
           ),
         ),
       ],
