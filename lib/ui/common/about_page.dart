@@ -229,24 +229,30 @@ class TextPartWidget extends StatelessWidget {
                           SizedBox(
                             width: 20,
                           ),
-                          InkWell(
-                            child: Image.asset(
-                              'assets/network/linkedin.png',
-                              width: screen?.iconSize,
-                              height: screen?.iconSize,
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              child: Image.asset(
+                                'assets/network/linkedin.png',
+                                width: screen?.iconSize,
+                                height: screen?.iconSize,
+                              ),
+                              onTap: linkedInLauncher,
                             ),
-                            onTap: linkedInLauncher,
                           ),
                           SizedBox(
                             width: screen?.boxSizeLarge,
                           ),
-                          InkWell(
-                            child: Image.asset(
-                              'assets/network/telegram.png',
-                              width: screen?.iconSize,
-                              height: screen?.iconSize,
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              child: Image.asset(
+                                'assets/network/telegram.png',
+                                width: screen?.iconSize,
+                                height: screen?.iconSize,
+                              ),
+                              onTap: telegramLauncher,
                             ),
-                            onTap: telegramLauncher,
                           ),
                         ],
                       ),
