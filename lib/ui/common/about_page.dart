@@ -165,7 +165,7 @@ class TextPartWidget extends StatelessWidget {
           viewModel!.text,
           style: TextStyle(
             color: Colors.black,
-            fontSize: screen?.bioFont3,
+            fontSize: screen?.flatBtnFont,
             fontFamily: 'dekko',
           ),
         ),
@@ -227,7 +227,7 @@ class TextPartWidget extends StatelessWidget {
                             ),
                           ),
                           SizedBox(
-                            width: 20,
+                            width: screen?.boxSizeLarge,
                           ),
                           MouseRegion(
                             cursor: SystemMouseCursors.click,
