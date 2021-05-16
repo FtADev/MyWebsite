@@ -1,4 +1,5 @@
 import 'package:MyWebsite/ui/common/states.dart';
+import 'package:MyWebsite/ui/component/fade_in_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/common/about_list.dart';
 import 'package:MyWebsite/ui/common/about_page.dart';
@@ -39,20 +40,23 @@ class _AboutState extends State<WebAbout> {
           Align(
             alignment: Alignment.topCenter,
             child: Directionality(
-              child: PageIndicatorContainer(
-                child: PageView.builder(
-                    onPageChanged: (pos) {},
-                    itemCount: pages.length,
-                    controller: _pageController,
-                    itemBuilder: (BuildContext context, index) {
-                      return AboutPage(pages[index], States.WEB);
-                    }),
-                align: IndicatorAlign.bottom,
-                length: pages.length,
-                indicatorColor: Colors.grey[300]!,
-                indicatorSelectorColor: Colors.grey,
-                padding: const EdgeInsets.only(bottom: 36.0),
-                shape: IndicatorShape.circle(size: 15.0),
+              child: FadeIn(
+                3,
+                PageIndicatorContainer(
+                  child: PageView.builder(
+                      onPageChanged: (pos) {},
+                      itemCount: pages.length,
+                      controller: _pageController,
+                      itemBuilder: (BuildContext context, index) {
+                        return AboutPage(pages[index], States.WEB);
+                      }),
+                  align: IndicatorAlign.bottom,
+                  length: pages.length,
+                  indicatorColor: Colors.grey[300]!,
+                  indicatorSelectorColor: Colors.grey,
+                  padding: const EdgeInsets.only(bottom: 36.0),
+                  shape: IndicatorShape.circle(size: 15.0),
+                ),
               ),
               textDirection: TextDirection.ltr,
             ),
