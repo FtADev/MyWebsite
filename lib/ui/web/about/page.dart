@@ -38,15 +38,8 @@ class _WebAboutPageState extends State<WebAboutPage>
           child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.6,
-            child: Stack(
-              children: [
-                MyCustomShape(),
-                Center(
-                  child: Image.asset(
-                    widget.viewModel!.image,
-                  ),
-                ),
-              ],
+            child: Image.asset(
+              widget.viewModel!.image,
             ),
           ),
         ),
