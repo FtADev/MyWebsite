@@ -1,6 +1,6 @@
-import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/common/about_page.dart';
 import 'package:MyWebsite/ui/common/my_custom_shape.dart';
+import 'package:flutter/material.dart';
 
 class WebAboutPage extends StatefulWidget {
   final PageViewModel? viewModel;
@@ -11,7 +11,8 @@ class WebAboutPage extends StatefulWidget {
   _WebAboutPageState createState() => _WebAboutPageState();
 }
 
-class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderStateMixin {
+class _WebAboutPageState extends State<WebAboutPage>
+    with SingleTickerProviderStateMixin {
   AnimationController? _controller;
 
   @override
@@ -20,7 +21,6 @@ class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderSt
     _controller = AnimationController(
         duration: const Duration(milliseconds: 5000), vsync: this);
     _controller!.forward(from: 0);
-
   }
 
   @override
@@ -38,7 +38,16 @@ class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderSt
           child: Container(
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.6,
-            child: MyCustomShape(),
+            child: Stack(
+              children: [
+                MyCustomShape(),
+                Center(
+                  child: Image.asset(
+                    widget.viewModel!.image,
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
         Expanded(
@@ -61,17 +70,17 @@ class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderSt
                   height: 15,
                 ),
                 TrackedOutText(
-                widget.viewModel!.text,
+                  widget.viewModel!.text,
                   CurvedAnimation(
                     curve: Interval(0.45, 0.7),
                     parent: _controller!,
                   ),
                   textAlign: TextAlign.center,
-                  style:  TextStyle(
-    color: Colors.black,
-    fontSize: 20,
-    fontFamily: 'dekko',
-    ),
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 20,
+                    fontFamily: 'dekko',
+                  ),
                 ),
                 SizedBox(height: 20),
                 widget.viewModel!.isLastPage
@@ -165,7 +174,6 @@ class _WebAboutPageState extends State<WebAboutPage> with SingleTickerProviderSt
   }
 }
 
-
 class TrackedOutText extends StatefulWidget {
   final String text;
 
@@ -178,13 +186,13 @@ class TrackedOutText extends StatefulWidget {
   final TextStyle? style;
 
   TrackedOutText(
-      this.text,
-      this.progress, {
-        this.textAlign,
-        this.style,
-      })  : _slices = _generateSlices(text, style!, false).toList(growable: false),
+    this.text,
+    this.progress, {
+    this.textAlign,
+    this.style,
+  })  : _slices = _generateSlices(text, style!, false).toList(growable: false),
         _slicesTransparent =
-        _generateSlices(text, style, true).toList(growable: false);
+            _generateSlices(text, style, true).toList(growable: false);
 
   static Iterable<TextSpan> _generateSlices(
       String text, TextStyle style, bool transparent) sync* {

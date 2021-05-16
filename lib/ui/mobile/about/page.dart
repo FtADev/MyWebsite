@@ -14,7 +14,16 @@ class MobileAboutPage extends StatelessWidget {
         Container(
           width: MediaQuery.of(context).size.width * 0.9,
           height: MediaQuery.of(context).size.height * 0.5,
-          child: MyCustomShape(),
+          child: Stack(
+            children: [
+              MyCustomShape(),
+              Center(
+                child: Image.asset(
+                  viewModel!.image,
+                ),
+              ),
+            ],
+          ),
         ),
         Container(
           margin: EdgeInsets.symmetric(horizontal: 24),

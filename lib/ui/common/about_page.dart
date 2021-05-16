@@ -1,17 +1,19 @@
 import 'package:MyWebsite/ui/common/states.dart';
-import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/mobile/about/page.dart';
 import 'package:MyWebsite/ui/web/about/page.dart';
+import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PageViewModel {
   final String title;
   final String text;
+  final String image;
   final bool isLastPage;
 
   PageViewModel(
     this.title,
     this.text,
+    this.image,
     this.isLastPage,
   );
 }
