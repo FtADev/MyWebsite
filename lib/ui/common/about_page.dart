@@ -71,13 +71,30 @@ linkedInLauncher() async {
   }
 }
 
-class AboutPageWidget extends StatelessWidget {
-  final PageController? pageController;
+class AboutPageWidget extends StatefulWidget {
   final States? state;
 
-  const AboutPageWidget({Key? key, this.pageController, this.state})
+  const AboutPageWidget({Key? key, this.state})
       : super(key: key);
 
+  @override
+  _AboutPageWidgetState createState() => _AboutPageWidgetState();
+}
+
+class _AboutPageWidgetState extends State<AboutPageWidget> {
+  PageController? _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0, keepPage: false);
+  }
+
+  @override
+  void dispose() {
+    _pageController!.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -87,9 +104,9 @@ class AboutPageWidget extends StatelessWidget {
           child: PageView.builder(
               onPageChanged: (pos) {},
               itemCount: pages.length,
-              controller: pageController,
+              controller: _pageController,
               itemBuilder: (BuildContext context, index) =>
-                  AboutPage(pages[index], state!)),
+                  AboutPage(pages[index], widget.state!)),
           align: IndicatorAlign.bottom,
           length: pages.length,
           indicatorColor: Colors.purple[100]!,

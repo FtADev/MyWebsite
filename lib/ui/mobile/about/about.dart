@@ -3,29 +3,11 @@ import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 
-class MobileAbout extends StatefulWidget {
+class MobileAbout extends StatelessWidget {
   final screen;
 
   const MobileAbout({Key? key, required this.screen}) : super(key: key);
 
-  @override
-  _MobileAboutState createState() => _MobileAboutState();
-}
-
-class _MobileAboutState extends State<MobileAbout> {
-  PageController? _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: 0, keepPage: false);
-  }
-
-  @override
-  void dispose() {
-    _pageController!.dispose();
-    super.dispose();
-  }
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +16,7 @@ class _MobileAboutState extends State<MobileAbout> {
           "About Me",
           style: TextStyle(
             fontFamily: 'dekko',
-            fontSize: widget.screen.bioFont3,
+            fontSize: screen.bioFont3,
             fontWeight: FontWeight.bold,
             color: Colors.black,
           ),
@@ -52,7 +34,6 @@ class _MobileAboutState extends State<MobileAbout> {
         ),
       ),
       body: AboutPageWidget(
-        pageController: _pageController,
         state: States.MOBILE,
       ),
     );
