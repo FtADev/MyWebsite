@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           )
                         : isWeb
                             ? model.currentState == States.ABOUT
-                                ? WebAbout(screen: screen)
+                                ? WebAbout(screen: screen, changeState: model.changeState,)
                                 : model.currentState == States.PROJECTS
                                     ? ProjectsGridView(
                       changeState: model.changeState,
