@@ -71,11 +71,19 @@ linkedInLauncher() async {
   }
 }
 
+mailLauncher() async {
+  const url = 'mailto:akhlaghi.fatemeh@gmail.com';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
 class AboutPageWidget extends StatefulWidget {
   final States? state;
 
-  const AboutPageWidget({Key? key, this.state})
-      : super(key: key);
+  const AboutPageWidget({Key? key, this.state}) : super(key: key);
 
   @override
   _AboutPageWidgetState createState() => _AboutPageWidgetState();
@@ -95,6 +103,7 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
     _pageController!.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     return Directionality(
@@ -186,26 +195,32 @@ class TextPartWidget extends StatelessWidget {
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
                     children: <Widget>[
-                      Row(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Image.asset(
-                            'assets/network/email.png',
-                            width: screen?.iconSize,
-                            height: screen?.iconSize,
-                            fit: BoxFit.fitWidth,
+                      MouseRegion(
+                        cursor: SystemMouseCursors.click,
+                        child: GestureDetector(
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Image.asset(
+                                'assets/network/email.png',
+                                width: screen?.iconSize,
+                                height: screen?.iconSize,
+                                fit: BoxFit.fitWidth,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                'akhlaghi.fatemeh@gmail.com',
+                                style: TextStyle(
+                                  fontFamily: 'dekko',
+                                  fontSize: screen?.flatBtnFont,
+                                  color: Colors.black,
+                                ),
+                              )
+                            ],
                           ),
-                          SizedBox(width: 10),
-                          Text(
-                            'akhlaghi.fatemeh@gmail.com',
-                            style: TextStyle(
-                              fontFamily: 'dekko',
-                              fontSize: screen?.flatBtnFont,
-                              color: Colors.black,
-                            ),
-                          )
-                        ],
+                          onTap: mailLauncher,
+                        ),
                       ),
                       SizedBox(
                         height: screen?.boxSizeMedium,
