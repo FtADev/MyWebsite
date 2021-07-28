@@ -9,9 +9,7 @@ import 'package:MyWebsite/ui/mobile/project/Projects.dart';
 import 'package:MyWebsite/ui/provider/home_view_model.dart';
 import 'package:MyWebsite/ui/web/about/about.dart';
 import 'package:MyWebsite/ui/web/home/top_buttons.dart';
-import 'package:MyWebsite/ui/web/project/project_size1.dart';
-import 'package:MyWebsite/ui/web/project/project_size2.dart';
-import 'package:MyWebsite/ui/web/project/project_size3.dart';
+import 'package:MyWebsite/ui/web/project/project_grid_view.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -55,11 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             ? model.currentState == States.ABOUT
                                 ? WebAbout(screen: screen)
                                 : model.currentState == States.PROJECTS
-                                    ? (screenSize < 1000
-                                        ? ProjectsSize1()
-                                        : screenSize < 1600
-                                            ? ProjectsSize2()
-                                            : ProjectsSize3())
+                                    ? ProjectsGridView()
                                     : Container()
                             : Container(),
                   ),

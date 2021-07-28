@@ -98,7 +98,7 @@ final projectList = [
     colorLang: Colors.blue,
     image: "./assets/behin/behin-logo.png",
     detail: "A website for B2B shopping with seller and buyer mode",
-    url: "https://ftadev.github.io/#/projects/0",
+    url: "https://ftadev.github.io/#/projects/3",
   ),
 ];
 
