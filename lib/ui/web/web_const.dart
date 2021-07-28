@@ -9,5 +9,5 @@ class WebConst extends Screen {
   final flatBtnFont = 20.0;
   final boxSizeMedium = 15.0;
   final boxSizeLarge = 20.0;
-  final iconSize = 50.0;
+  final iconSize = 40.0;
 }
