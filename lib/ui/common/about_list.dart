@@ -3,17 +3,17 @@ import 'about_page.dart';
 final pages = [
   PageViewModel(
       'Starting',
-      'My programming world was created on 2015 since I went to college! I said \'Hello, World\' with C++, and learnt basics of programming with it. After that I started to learn Java. I practiced more and learnt Java Core. Then I tested a bit C# as a Windows Form, too :) \nAfter one year, I found my way around Android Developing! I started android development with java and after that I switched to Kotlin, my lovely language!',
+      'I started programming in 2015 since I went to college. I started with C++! After learning its syntax, I tested Java! I learned its intermediate rules and code more efficiently! I try a bit C# as a Windows Form, too!',
       'assets/about-1.gif',
       false),
   PageViewModel(
       'Create a Team',
-      'On 2017, with 4 of my friends, made a small team that named ExceptionalDev Team and started working together with a lot of Motivation! After a year, we make the team bigger. We developed some applications in different fields, and we were working on IoT for about 6 month. I was there for more than 3 years',
+      'In 2017, four of my friends and I made a small team named ExceptionalDev Team and started working together with a lot of motivation! After a year, we made the team bigger. We developed some applications in different fields, and we were working on IoT for about six months. I was there for more than three years.',
       'assets/friends.gif',
       false),
   PageViewModel(
       'And Now...',
-      'After that I looked for a new job. I found Erfan Salamat Health Services Group and started working with them for a few month, but they got into trouble together and cancel the project and fired all developers!\nNow I\'m looking for a new job!',
+      'After that, I looked for a new job. I was hired at \"Erfan Salamat Health Services Group\" and worked for them for a few months, but they got into trouble together and cancel the project!\nNow I\'m looking for a new perfect job!',
       'assets/thanks.gif',
       true),
 ];
