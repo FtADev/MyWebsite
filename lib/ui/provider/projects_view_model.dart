@@ -12,7 +12,7 @@ class ProjectViewModel extends ChangeNotifier {
 
   Future delay() async {
     loading = true;
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(milliseconds: 1500));
     loading = false;
   }
 }
