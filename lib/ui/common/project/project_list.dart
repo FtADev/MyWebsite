@@ -25,7 +25,8 @@ final projectList = [
     lang: "Flutter",
     colorLang: Colors.blue,
     image: "./assets/therappy/therappy-logo.png",
-    detail: "A psychology application that has multiple personality tests, related posts, useful books, and ...",
+    detail:
+        "A psychology application that has multiple personality tests, related posts, useful books, and ...",
     url: "https://ftadev.github.io/#/projects/1",
   ),
   ProjectModel(
@@ -43,7 +44,8 @@ final projectList = [
     lang: "Java",
     colorLang: Colors.orange,
     image: "./assets/yas/yas-logo.png",
-    detail: "A charity application that collect money, equipments, ... from a person who wants to help others.",
+    detail:
+        "A charity application that collect money, equipments, ... from a person who wants to help others.",
     url: "https://ftadev.github.io/#/projects/0",
   ),
   ProjectModel(
@@ -80,7 +82,8 @@ final projectList = [
     colorLang: Colors.yellow,
     image: "./assets/broker.png",
     detail: "A broker that transfer data from sensors to server.",
-    url: "https://gitlab.com/exceptionaldev-pub/pythonexception/playingwithbrokers",
+    url:
+        "https://gitlab.com/exceptionaldev-pub/pythonexception/playingwithbrokers",
   ),
   ProjectModel(
     title: "My Website",
@@ -103,20 +106,20 @@ final projectList = [
 ];
 
 class ProjectModel {
-  String? title;
-  String? image;
-  String? detail;
-  String? lang;
-  Color? colorLang;
-  bool? isTeamWork;
-  String? url;
+  String title;
+  String image;
+  String detail;
+  String lang;
+  Color colorLang;
+  bool isTeamWork;
+  String url;
 
   ProjectModel(
-      {this.title,
-      this.image,
-      this.detail,
-      this.lang,
-      this.colorLang,
-      this.isTeamWork,
-      this.url});
+      {required this.title,
+      required this.image,
+      required this.detail,
+      required this.lang,
+      required this.colorLang,
+      required this.isTeamWork,
+      required this.url});
 }

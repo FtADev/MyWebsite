@@ -73,17 +73,17 @@ final otherProjectList = [
 ];
 
 class OtherProjectModel {
-  int? id;
-  String? title;
-  String? detail;
-  List<String>? image;
-  bool? isHorizontal = false;
+  int id;
+  String title;
+  String detail;
+  List<String> image;
+  bool isHorizontal = false;
 
   OtherProjectModel({
-    this.id,
-    this.title,
-    this.detail,
-    this.image,
-    this.isHorizontal,
+    required this.id,
+    required this.title,
+    required this.detail,
+    required this.image,
+    required this.isHorizontal,
   });
 }
