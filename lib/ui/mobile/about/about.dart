@@ -1,4 +1,4 @@
-import 'package:MyWebsite/ui/common/about_page.dart';
+import 'package:MyWebsite/ui/common/about/about_page_widget.dart';
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -7,7 +7,6 @@ class MobileAbout extends StatelessWidget {
   final screen;
 
   const MobileAbout({Key? key, required this.screen}) : super(key: key);
-
 
   Widget build(BuildContext context) {
     return Scaffold(
