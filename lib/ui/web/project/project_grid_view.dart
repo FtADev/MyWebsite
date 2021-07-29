@@ -1,7 +1,7 @@
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:MyWebsite/ui/provider/projects_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:MyWebsite/ui/common/project_list.dart';
+import 'package:MyWebsite/ui/common/project/project_list.dart';
 import 'package:MyWebsite/ui/component/dynamic_card.dart';
 import 'package:MyWebsite/ui/component/fade_in_ui.dart';
 import 'package:MyWebsite/ui/component/project_item.dart';
@@ -109,7 +109,7 @@ class _ProjectsGridViewState extends State<ProjectsGridView> {
                                 ],
                               ),
                             ),
-                            items: projectList.length,
+                            items: 4,
                             period: Duration(microseconds: 1500),
                             highlightColor: Colors.lightBlue[300]!,
                             direction: SkeletonDirection.ltr,

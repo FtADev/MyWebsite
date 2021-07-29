@@ -5,7 +5,7 @@ import 'package:MyWebsite/ui/component/flat_border_button.dart';
 import 'package:MyWebsite/ui/mobile/about/about.dart';
 import 'package:MyWebsite/ui/mobile/home/top_buttons.dart';
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
-import 'package:MyWebsite/ui/mobile/project/Projects.dart';
+import 'package:MyWebsite/ui/mobile/project/projects.dart';
 import 'package:MyWebsite/ui/provider/home_view_model.dart';
 import 'package:MyWebsite/ui/web/about/about.dart';
 import 'package:MyWebsite/ui/web/home/top_buttons.dart';
