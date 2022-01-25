@@ -8,7 +8,7 @@ final pages = [
       false),
   PageViewModel(
       'Create a Team',
-      'On 2017, with 4 of my friends, made a small team that named ExceptionalDev Team and started working together with a lot of Motivation! After a year, we make the team bigger. We developed some applications in different fields, and we were working on IoT for about 6 month. I was there more for than 3 years',
+      'On 2017, with 4 of my friends, made a small team that named ExceptionalDev Team and started working together with a lot of Motivation! After a year, we make the team bigger. We developed some applications in different fields, and we were working on IoT for about 6 month. I was there for more than 3 years',
       'assets/friends.gif',
       false),
   PageViewModel(
