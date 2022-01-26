@@ -31,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a one-line script
-        run: echo Hello, world!
+      - run: echo Hello, world!
 
       # https://github.com/marketplace/actions/flutter-action
       - name: Flutter action
