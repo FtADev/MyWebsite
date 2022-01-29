@@ -55,7 +55,7 @@ jobs:
           git status
           # change this remote url for examle your remote url is https://github.com/FtADev/ftadev.github.io.git then the following:
           git remote add origin https://${{secrets.commit_secret}}@github.com/FtADev/ftadev.github.io.git
-          git checkout -b gh-pages
+          # git checkout -b gh-pages
           git add --all
           git commit -m "update"
-          git push origin gh-pages -f
+          git push origin master -f
