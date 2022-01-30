@@ -17,6 +17,8 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    env:
+      my_secret: ${{secrets.commit_secret}}
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     environment: 
@@ -41,4 +43,19 @@ jobs:
       - run: flutter --version
       - run: flutter pub get
       - run: flutter test
-      - run: flutter build web
+      - run: flutter build web --release
+      - run: |
+          cd build/web
+          git init
+          # type configurations: your user.email and user.name followed lines
+          # git config --global user.email your_email
+          # git config --global user.name your_name
+          git config --global user.email akhlaghi.fatemeh@gmail.com
+          git config --global user.name ftadev
+          git status
+          # change this remote url for examle your remote url is https://github.com/FtADev/ftadev.github.io.git then the following:
+          git remote add origin https://${{secrets.commit_secret}}@github.com/FtADev/ftadev.github.io.git
+          # git checkout -b gh-pages
+          git add --all
+          git commit -m "update"
+          git push origin master -f
