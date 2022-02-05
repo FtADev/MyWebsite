@@ -43,3 +43,4 @@ class _StarsBackgroundState extends State<StarsBackground> {
     );
   }
 }
+
