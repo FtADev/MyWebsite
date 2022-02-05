@@ -21,7 +21,7 @@ class TextPartWidget extends StatelessWidget {
         Text(
           model.title,
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontWeight: FontWeight.bold,
             fontSize: screen.bioFont3,
             fontFamily: 'dekko',
@@ -33,7 +33,7 @@ class TextPartWidget extends StatelessWidget {
         Text(
           model.text,
           style: TextStyle(
-            color: Colors.black,
+            color: Colors.white,
             fontSize: screen.flatBtnFont,
             fontFamily: 'dekko',
           ),
@@ -64,7 +64,7 @@ class TextPartWidget extends StatelessWidget {
                                 style: TextStyle(
                                   fontFamily: 'dekko',
                                   fontSize: screen.flatBtnFont,
-                                  color: Colors.black,
+                                  color: Colors.white,
                                 ),
                               )
                             ],
