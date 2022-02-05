@@ -11,29 +11,32 @@ class WebAboutPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: SingleChildScrollView(
-            child: Container(
-              margin: EdgeInsets.symmetric(horizontal: 20,),
-              child: TextPartWidget(
-                model: model,
-                screen: WebConst(),
+    return Container(
+      margin: EdgeInsets.symmetric(horizontal: 150),
+      child: Row(
+        children: <Widget>[
+          Expanded(
+            flex: 1,
+            child: SingleChildScrollView(
+              child: Container(
+                margin: EdgeInsets.symmetric(horizontal: 20,),
+                child: TextPartWidget(
+                  model: model,
+                  screen: WebConst(),
+                ),
               ),
             ),
           ),
-        ),
-        Expanded(
-          flex: 1,
-          child: GifPartWidget(
-            model: model,
-            widthPercent: 0.8,
-            heightPercent: 0.6,
+          Expanded(
+            flex: 1,
+            child: GifPartWidget(
+              model: model,
+              widthPercent: 0.8,
+              heightPercent: 0.6,
+            ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
