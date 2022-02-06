@@ -1,17 +1,14 @@
-import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
 
 class HomeViewModel extends ChangeNotifier {
-  States _currentState = States.HOME;
+  PageController _pageController =
+      PageController(initialPage: 0, keepPage: false);
 
-  States get currentState => _currentState;
+  PageController get pageController => _pageController;
 
-  set currentState(States value) {
-    if (value != _currentState) {
-      _currentState = value;
-      notifyListeners();
-    }
-  }
-
-  void changeState(States state) => currentState = state;
+  void moveToPage(int index) => _pageController.animateToPage(
+        index,
+        duration: Duration(milliseconds: 500),
+        curve: Curves.easeIn,
+      );
 }

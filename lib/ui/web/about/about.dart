@@ -6,9 +6,8 @@ import 'package:flutter/material.dart';
 
 class WebAbout extends StatelessWidget {
   final screen;
-  final Function changeState;
 
-  const WebAbout({Key? key, this.screen, required this.changeState})
+  const WebAbout({Key? key, this.screen,})
       : super(key: key);
 
   @override

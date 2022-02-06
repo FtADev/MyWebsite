@@ -3,10 +3,10 @@ import 'package:MyWebsite/ui/component/flat_border_button.dart';
 import 'package:flutter/material.dart';
 
 class WebTopButtons extends StatelessWidget {
-  final Function? changeState;
+  final Function? moveToPage;
   final screen;
 
-  const WebTopButtons({Key? key, this.changeState, this.screen})
+  const WebTopButtons({Key? key, this.moveToPage, this.screen})
       : super(key: key);
 
   @override
@@ -23,7 +23,7 @@ class WebTopButtons extends StatelessWidget {
           children: <Widget>[
             FlatBorderButton(
               text: "About Me",
-              onTap: () => changeState!(States.ABOUT),
+              onTap: () => moveToPage!(1),
               screen: screen,
             ),
             SizedBox(
@@ -39,7 +39,7 @@ class WebTopButtons extends StatelessWidget {
 //            ),
             FlatBorderButton(
               text: "My Projects",
-              onTap: () => changeState!(States.PROJECTS),
+              onTap: () => moveToPage!(2),
               screen: screen,
             ),
           ],

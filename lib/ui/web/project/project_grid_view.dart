@@ -10,9 +10,8 @@ import 'package:provider/provider.dart';
 import 'package:skeleton_loader/skeleton_loader.dart';
 
 class ProjectsGridView extends StatefulWidget {
-  final Function changeState;
 
-  const ProjectsGridView({Key? key, required this.changeState})
+  const ProjectsGridView({Key? key,})
       : super(key: key);
 
   @override
@@ -37,27 +36,14 @@ class _ProjectsGridViewState extends State<ProjectsGridView> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Row(
-              children: [
-                Text(
-                  "My Projects",
-                  style: TextStyle(
-                      fontSize: 30,
-                      color: Colors.black,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'dekko'),
-                ),
-                Spacer(),
-                IconButton(
-                  onPressed: () => widget.changeState(States.HOME),
-                  icon: Icon(
-                    Icons.close,
-                    color: Colors.red,
-                    size: 25,
-                  ),
-                ),
-              ],
-            ),
+          Text(
+            "My Projects",
+            style: TextStyle(
+                fontSize: 30,
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontFamily: 'dekko'),
+          ),
           SizedBox(height: 20),
           Expanded(
             child: ChangeNotifierProvider<ProjectViewModel>(

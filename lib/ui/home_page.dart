@@ -24,17 +24,10 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isWeb = true;
   double screenSize = 0.0;
   var screen;
-  late PageController _pageController;
-
-  @override
-  void initState() {
-    super.initState();
-    _pageController = PageController(initialPage: 0, keepPage: false);
-  }
 
   @override
   void dispose() {
-    _pageController.dispose();
+    // _pageController.dispose();
     super.dispose();
   }
 
@@ -68,19 +61,18 @@ class _MyHomePageState extends State<MyHomePage> {
                           scrollDirection: Axis.vertical,
                           onPageChanged: (pos) {},
                           itemCount: 3,
-                          controller: _pageController,
+                          controller: model.pageController,
                           itemBuilder: (BuildContext context, index) {
                             if (index == 0) // Home
-                              return Bio(screen: screen,);
-                            else if(index == 1) // About
+                              return Bio(
+                                screen: screen,
+                              );
+                            else if (index == 1) // About
                               return WebAbout(
                                 screen: screen,
-                                changeState: model.changeState,
                               );
-                                else // Projects
-                              return ProjectsGridView(
-                                changeState: model.changeState,
-                              );
+                            else // Projects
+                              return ProjectsGridView();
                           }),
                     ),
                   ),
@@ -94,7 +86,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       child: FlatBorderButton(
                         text: isWeb ? "Home" : "About Me",
                         onTap: () => isWeb
-                            ? model.changeState(States.HOME)
+                            ? model.moveToPage(0) // Home
                             : mobileChangeState(States.ABOUT),
                         screen: screen,
                       ),
@@ -102,7 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   ),
                   isWeb
                       ? WebTopButtons(
-                          changeState: model.changeState,
+                          moveToPage: model.moveToPage,
                           screen: screen,
                         )
                       : MobileTopButtons(
