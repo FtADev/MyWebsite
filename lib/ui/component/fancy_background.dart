@@ -118,12 +118,12 @@ class AnimatedBackground extends StatelessWidget {
       ..add(
         DefaultAnimationProperties.color1,
         ColorTween(begin: Color(0xffD38312), end: Colors.lightBlue.shade900),
-        Duration(seconds: 3),
+        Duration(seconds: 5),
       )
       ..add(
         DefaultAnimationProperties.color2,
         ColorTween(begin: Color(0xffA83279), end: Colors.blue.shade600),
-        Duration(seconds: 3),
+        Duration(seconds: 5),
       );
 
     return MirrorAnimation(
