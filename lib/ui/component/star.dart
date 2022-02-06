@@ -40,22 +40,22 @@ class Star extends StatelessWidget {
       ..add(
         DefaultAnimationProperties.x,
         Tween(begin: 1.0, end: 2.0),
-        Duration(milliseconds: 1000),
+        Duration(seconds: 3),
       )
       ..add(
         DefaultAnimationProperties.x,
         Tween(begin: 2.0, end: 1.0),
-        Duration(milliseconds: 2000),
+        Duration(seconds: 5),
       )
       ..add(
         DefaultAnimationProperties.x,
         Tween(begin: 1.0, end: 2.0),
-        Duration(milliseconds: 3000),
+        Duration(seconds: 7),
       )
       ..add(
         DefaultAnimationProperties.x,
         Tween(begin: 2.0, end: 1.0),
-        Duration(milliseconds: 4000),
+        Duration(seconds: 9),
       );
 
     return MirrorAnimation(
