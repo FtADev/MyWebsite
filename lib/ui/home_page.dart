@@ -12,6 +12,7 @@ import 'package:MyWebsite/ui/web/home/top_buttons.dart';
 import 'package:MyWebsite/ui/web/project/project_grid_view.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
 import 'package:flutter/material.dart';
+import 'package:page_indicator/page_indicator.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -23,6 +24,19 @@ class _MyHomePageState extends State<MyHomePage> {
   bool isWeb = true;
   double screenSize = 0.0;
   var screen;
+  late PageController _pageController;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController(initialPage: 0, keepPage: false);
+  }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 
   mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
         newState,
@@ -45,19 +59,30 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Align(
                     alignment: Alignment.center,
-                    child: model.currentState == States.HOME
-                        ? Bio(
-                            screen: screen,
-                          )
-                        : isWeb
-                            ? model.currentState == States.ABOUT
-                                ? WebAbout(screen: screen, changeState: model.changeState,)
-                                : model.currentState == States.PROJECTS
-                                    ? ProjectsGridView(
-                      changeState: model.changeState,
-                    )
-                                    : Container()
-                            : Container(),
+                    child: PageIndicatorContainer(
+                      align: IndicatorAlign.bottom,
+                      length: 3,
+                      indicatorColor: Colors.purple[100]!,
+                      indicatorSelectorColor: Colors.purple[200]!,
+                      child: PageView.builder(
+                          scrollDirection: Axis.vertical,
+                          onPageChanged: (pos) {},
+                          itemCount: 3,
+                          controller: _pageController,
+                          itemBuilder: (BuildContext context, index) {
+                            if (index == 0) // Home
+                              return Bio(screen: screen,);
+                            else if(index == 1) // About
+                              return WebAbout(
+                                screen: screen,
+                                changeState: model.changeState,
+                              );
+                                else // Projects
+                              return ProjectsGridView(
+                                changeState: model.changeState,
+                              );
+                          }),
+                    ),
                   ),
                   Align(
                     alignment: Alignment.topLeft,
