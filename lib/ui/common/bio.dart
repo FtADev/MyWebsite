@@ -9,35 +9,37 @@ class Bio extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        TypewriterText(
-          text: "Hello, It's Me!",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: screen.bioFont1,
-            fontFamily: 'dekko',
+    return Center(
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          TypewriterText(
+            text: "Hello, It's Me!",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screen.bioFont1,
+              fontFamily: 'dekko',
+            ),
           ),
-        ),
-        TypewriterText(
-          text: "Fatemeh Akhlaghi",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: screen.bioFont2,
-            fontWeight: FontWeight.bold,
-            fontFamily: 'dekko',
+          TypewriterText(
+            text: "Fatemeh Akhlaghi",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screen.bioFont2,
+              fontWeight: FontWeight.bold,
+              fontFamily: 'dekko',
+            ),
           ),
-        ),
-        TypewriterText(
-          text: "I Am A Mobile Application Developer",
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: screen.bioFont3,
-            fontFamily: 'dekko',
-          ),
-        )
-      ],
+          TypewriterText(
+            text: "I Am A Mobile Application Developer",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: screen.bioFont3,
+              fontFamily: 'dekko',
+            ),
+          )
+        ],
+      ),
     );
   }
 }
