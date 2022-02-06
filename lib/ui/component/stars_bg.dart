@@ -22,8 +22,8 @@ class _StarsBackgroundState extends State<StarsBackground> {
 
   @override
   void initState() {
-    double? starsInRow = widget.width / 50;
-    double? starsInColumn = widget.height / 50;
+    double? starsInRow = widget.width / 100;
+    double? starsInColumn = widget.height / 100;
 
     starsNum = starsInRow != 0
         ? starsInRow! * (starsInColumn != 0 ? starsInColumn! : starsInRow)
@@ -38,7 +38,7 @@ class _StarsBackgroundState extends State<StarsBackground> {
       children: List.generate(starsNum!.floor(), (index) => Star(
           top: random.nextInt(widget.height.floor()).toDouble(),
           right: random.nextInt(widget.width.floor()).toDouble(),
-          size: random.nextInt(3).toDouble(),
+          size: random.nextInt(2).toDouble(),
         )),
     );
   }
