@@ -69,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 screen: screen,
                               );
                             else if (index == 1) // About
-                              return AboutPage(pages[2], States.WEB);
+                              return AboutPage(pages[3], States.WEB);
                             else // Projects
                               return ProjectsGridView();
                           }),

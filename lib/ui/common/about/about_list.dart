@@ -24,4 +24,22 @@ final pages = [
           'cancel the project!\nNow I\'m looking for a new perfect job!',
       'assets/thanks.gif',
       true),
+  AboutPageModel(
+      'About Me',
+      'Hello and Welcome to my website! I\'m Fatemeh Akhlaghi, and '
+          'I am Flutter and Android Developer.\n'
+          'My programming world was created since I went to university. With some of my friends, '
+          'we make a little team to do some business projects. I was an Android Developer in '
+          'those projects for almost one year. And also we were working on IoT for about '
+          'six months. That was a very challenging experience! '
+          'Then we heard about Flutter and planned to started our new projects with it. '
+          'We were working with Flutter until the team was alive! '
+          'After graduated from Bachelor Degree, I worked as a Flutter Developer '
+          'for a company related to a hospital that called \"Erfan Salamat Health Services Group\". '
+          'I was there for a few months, but they got into trouble and cancel the project! '
+          'And now I am studying Master Degree of Software Engineering at '
+          'Azad University of Tehran/Iran and keep learning new things about Flutter and Android '
+          'and do some personal projects.',
+      'assets/about-1.gif',
+      true),
 ];
