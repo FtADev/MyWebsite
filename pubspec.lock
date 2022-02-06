@@ -165,13 +165,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "5.0.0"
-  shimmer:
-    dependency: transitive
-    description:
-      name: shimmer
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0"
   simple_animations:
     dependency: "direct main"
     description:
@@ -179,13 +172,6 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "3.1.1"
-  skeleton_loader:
-    dependency: "direct main"
-    description:
-      name: skeleton_loader
-      url: "https://pub.dartlang.org"
-    source: hosted
-    version: "2.0.0+4"
   sky_engine:
     dependency: transitive
     description: flutter

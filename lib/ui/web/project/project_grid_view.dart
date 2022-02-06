@@ -7,12 +7,11 @@ import 'package:MyWebsite/ui/component/fade_in_ui.dart';
 import 'package:MyWebsite/ui/component/project_item.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
-import 'package:skeleton_loader/skeleton_loader.dart';
 
 class ProjectsGridView extends StatefulWidget {
-
-  const ProjectsGridView({Key? key,})
-      : super(key: key);
+  const ProjectsGridView({
+    Key? key,
+  }) : super(key: key);
 
   @override
   _ProjectsGridViewState createState() => _ProjectsGridViewState();
@@ -36,7 +35,9 @@ class _ProjectsGridViewState extends State<ProjectsGridView> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 100,),
+          SizedBox(
+            height: 100,
+          ),
           Text(
             "My Projects",
             style: TextStyle(
@@ -54,75 +55,32 @@ class _ProjectsGridViewState extends State<ProjectsGridView> {
                         Widget? child) =>
                     Container(
                   padding: EdgeInsets.symmetric(horizontal: 5),
-                  child: model.loading!
-                      ? SkeletonGridLoader(
-                          itemsPerRow: screenSize < 1000
-                              ? 1
-                              : screenSize < 1600
-                                  ? 2
-                                  : 3,
-                          childAspectRatio: 3 / 1,
-                          builder: Container(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: 15, vertical: 10),
-                            child: Row(
-                              children: <Widget>[
-                                CircleAvatar(
-                                  backgroundColor: Colors.white,
-                                  radius: 30,
-                                ),
-                                SizedBox(width: 10),
-                                Expanded(
-                                  child: Column(
-                                    children: <Widget>[
-                                      Container(
-                                        width: double.infinity,
-                                        height: 10,
-                                        color: Colors.white,
-                                      ),
-                                      SizedBox(height: 10),
-                                      Container(
-                                        width: double.infinity,
-                                        height: 12,
-                                        color: Colors.white,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ],
-                            ),
+                  child: StaggeredGridView.count(
+                    crossAxisCount: screenSize < 1000
+                        ? 2
+                        : screenSize < 1600
+                            ? 4
+                            : 6,
+                    padding: const EdgeInsets.all(2.0),
+                    children: projectList
+                        .map<Widget>(
+                          (item) => ProjectItem(
+                            title: item.title,
+                            detail: item.detail,
+                            image: item.image,
+                            lang: item.lang,
+                            colorLang: item.colorLang,
+                            isTeamWork: item.isTeamWork,
+                            url: item.url,
                           ),
-                          items: 4,
-                          period: Duration(microseconds: 1500),
-                          highlightColor: Colors.lightBlue[300]!,
-                          direction: SkeletonDirection.ltr,
                         )
-                      : StaggeredGridView.count(
-                          crossAxisCount: screenSize < 1000
-                              ? 2
-                              : screenSize < 1600
-                                  ? 4
-                                  : 6,
-                          padding: const EdgeInsets.all(2.0),
-                          children: projectList
-                              .map<Widget>(
-                                (item) => ProjectItem(
-                                  title: item.title,
-                                  detail: item.detail,
-                                  image: item.image,
-                                  lang: item.lang,
-                                  colorLang: item.colorLang,
-                                  isTeamWork: item.isTeamWork,
-                                  url: item.url,
-                                ),
-                              )
-                              .toList(),
-                          staggeredTiles: projectList
-                              .map<StaggeredTile>((_) => StaggeredTile.fit(2))
-                              .toList(),
-                          mainAxisSpacing: 3.0,
-                          crossAxisSpacing: 2.0,
-                        ),
+                        .toList(),
+                    staggeredTiles: projectList
+                        .map<StaggeredTile>((_) => StaggeredTile.fit(2))
+                        .toList(),
+                    mainAxisSpacing: 3.0,
+                    crossAxisSpacing: 2.0,
+                  ),
                 ),
               ),
             ),
