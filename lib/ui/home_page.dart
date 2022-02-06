@@ -53,27 +53,21 @@ class _MyHomePageState extends State<MyHomePage> {
                 children: <Widget>[
                   Align(
                     alignment: Alignment.center,
-                    child: PageIndicatorContainer(
-                      align: IndicatorAlign.bottom,
-                      length: 3,
-                      indicatorColor: Colors.purple[100]!,
-                      indicatorSelectorColor: Colors.purple[200]!,
-                      child: PageView.builder(
-                          scrollDirection: Axis.vertical,
-                          onPageChanged: (pos) {},
-                          itemCount: 3,
-                          controller: model.pageController,
-                          itemBuilder: (BuildContext context, index) {
-                            if (index == 0) // Home
-                              return Bio(
-                                screen: screen,
-                              );
-                            else if (index == 1) // About
-                              return AboutPage(pages[3], States.WEB);
-                            else // Projects
-                              return ProjectsGridView();
-                          }),
-                    ),
+                    child: PageView.builder(
+                        scrollDirection: Axis.vertical,
+                        onPageChanged: (pos) {},
+                        itemCount: 3,
+                        controller: model.pageController,
+                        itemBuilder: (BuildContext context, index) {
+                          if (index == 0) // Home
+                            return Bio(
+                              screen: screen,
+                            );
+                          else if (index == 1) // About
+                            return AboutPage(pages[3], States.WEB);
+                          else // Projects
+                            return ProjectsGridView();
+                        }),
                   ),
                   Align(
                     alignment: Alignment.topLeft,
