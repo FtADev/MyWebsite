@@ -31,9 +31,7 @@ dependencies:
     git:
       url: https://github.com/Arkangel12/flutter_swiper
   provider: ^5.0.0
-  skeleton_loader:
-    git:
-      url: https://github.com/HrBDev/skeleton_loader
+  skeleton_loader: ^2.0.0+4
 
 dev_dependencies:
   flutter_test:
