@@ -32,23 +32,6 @@ class _AboutPageWidgetState extends State<AboutPageWidget> {
 
   @override
   Widget build(BuildContext context) {
-    return Directionality(
-      child: PageIndicatorContainer(
-        child: PageView.builder(
-            scrollDirection: Axis.vertical,
-            onPageChanged: (pos) {},
-            itemCount: pages.length,
-            controller: _pageController,
-            itemBuilder: (BuildContext context, index) =>
-                AboutPage(pages[index], widget.state)),
-        align: IndicatorAlign.bottom,
-        length: pages.length,
-        indicatorColor: Colors.purple[100]!,
-        indicatorSelectorColor: Colors.purple[200]!,
-        // padding: const EdgeInsets.only(bottom: 15.0),
-        shape: IndicatorShape.circle(size: 10.0),
-      ),
-      textDirection: TextDirection.ltr,
-    );
+    return AboutPage(pages[2], widget.state);
   }
 }
