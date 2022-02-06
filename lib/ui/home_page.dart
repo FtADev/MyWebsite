@@ -1,3 +1,5 @@
+import 'package:MyWebsite/ui/common/about/about_list.dart';
+import 'package:MyWebsite/ui/common/about/about_page.dart';
 import 'package:MyWebsite/ui/common/bio.dart';
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:MyWebsite/ui/component/fancy_background.dart';
@@ -7,7 +9,6 @@ import 'package:MyWebsite/ui/mobile/home/top_buttons.dart';
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
 import 'package:MyWebsite/ui/mobile/project/projects.dart';
 import 'package:MyWebsite/ui/provider/home_view_model.dart';
-import 'package:MyWebsite/ui/web/about/about.dart';
 import 'package:MyWebsite/ui/web/home/top_buttons.dart';
 import 'package:MyWebsite/ui/web/project/project_grid_view.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
@@ -68,9 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                 screen: screen,
                               );
                             else if (index == 1) // About
-                              return WebAbout(
-                                screen: screen,
-                              );
+                              return AboutPage(pages[2], States.WEB);
                             else // Projects
                               return ProjectsGridView();
                           }),

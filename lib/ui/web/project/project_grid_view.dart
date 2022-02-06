@@ -36,11 +36,12 @@ class _ProjectsGridViewState extends State<ProjectsGridView> {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(height: 100,),
           Text(
             "My Projects",
             style: TextStyle(
                 fontSize: 30,
-                color: Colors.black,
+                color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'dekko'),
           ),

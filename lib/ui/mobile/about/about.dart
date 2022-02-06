@@ -1,4 +1,5 @@
-import 'package:MyWebsite/ui/common/about/about_page_widget.dart';
+import 'package:MyWebsite/ui/common/about/about_list.dart';
+import 'package:MyWebsite/ui/common/about/about_page.dart';
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
@@ -32,9 +33,7 @@ class MobileAbout extends StatelessWidget {
           onTap: () => Navigator.of(context).pop(),
         ),
       ),
-      body: AboutPageWidget(
-        state: States.MOBILE,
-      ),
+      body: AboutPage(pages[2], States.MOBILE),
     );
   }
 }

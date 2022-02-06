@@ -39,8 +39,7 @@ class TextPartWidget extends StatelessWidget {
           ),
         ),
         SizedBox(height: screen.boxSizeLarge),
-        model.isLastPage
-            ? Center(
+        Center(
                 child: Container(
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -134,8 +133,7 @@ class TextPartWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-              )
-            : Container(),
+              ),
       ],
     );
   }
