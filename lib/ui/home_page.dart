@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     alignment: Alignment.center,
                     child: PageView.builder(
                         scrollDirection: Axis.vertical,
-                        onPageChanged: (pos) {},
+                        onPageChanged: (pos) => model.currentIndex = pos,
                         itemCount: 3,
                         controller: model.pageController,
                         itemBuilder: (BuildContext context, index) {
@@ -64,7 +64,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               screen: screen,
                             );
                           else if (index == 1) // About
-                            return AboutPage(pages[3], isWeb ? States.WEB : States.MOBILE);
+                            return AboutPage(
+                                pages[3], isWeb ? States.WEB : States.MOBILE);
                           else // Projects
                             return ProjectsGridView();
                         }),
@@ -77,10 +78,16 @@ class _MyHomePageState extends State<MyHomePage> {
                         left: screen.marginLeft,
                       ),
                       child: FlatBorderButton(
-                        text: isWeb ? "Home" : "About Me",
+                        text: isWeb
+                            ? "Home"
+                            : model.currentIndex == 0
+                                ? "About Me"
+                                : "Home",
                         onTap: () => isWeb
                             ? model.moveToPage(0) // Home
-                            : model.moveToPage(1), // About
+                            : model.currentIndex == 0
+                                ? model.moveToPage(1)
+                                : model.moveToPage(0),
                         screen: screen,
                       ),
                     ),
