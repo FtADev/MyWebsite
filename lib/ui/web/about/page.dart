@@ -16,7 +16,7 @@ class WebAboutPage extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Expanded(
-            flex: 1,
+            flex: 2,
             child: SingleChildScrollView(
               child: Container(
                 margin: EdgeInsets.symmetric(horizontal: 20,),
