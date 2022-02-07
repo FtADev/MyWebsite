@@ -1,13 +1,12 @@
 import 'package:MyWebsite/ui/common/about/about_list.dart';
 import 'package:MyWebsite/ui/common/about/about_page.dart';
 import 'package:MyWebsite/ui/common/bio.dart';
+import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:MyWebsite/ui/component/fancy_background.dart';
 import 'package:MyWebsite/ui/component/flat_border_button.dart';
-import 'package:MyWebsite/ui/mobile/home/top_buttons.dart';
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
 import 'package:MyWebsite/ui/provider/home_view_model.dart';
-import 'package:MyWebsite/ui/web/home/top_buttons.dart';
 import 'package:MyWebsite/ui/web/project/project_grid_view.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +15,7 @@ import 'package:provider/provider.dart';
 class MyHomePage extends StatelessWidget {
   bool isWeb = true;
   double screenSize = 0.0;
-  var screen;
+  late Screen screen;
 
   @override
   Widget build(BuildContext context) {
@@ -36,21 +35,24 @@ class MyHomePage extends StatelessWidget {
                   Align(
                     alignment: Alignment.center,
                     child: PageView.builder(
-                        scrollDirection: Axis.vertical,
-                        onPageChanged: (pos) => model.currentIndex = pos,
-                        itemCount: 3,
-                        controller: model.pageController,
-                        itemBuilder: (BuildContext context, index) {
-                          if (index == 0) // Home
-                            return Bio(
-                              screen: screen,
-                            );
-                          else if (index == 1) // About
-                            return AboutPage(
-                                pages[3], isWeb ? States.WEB : States.MOBILE);
-                          else // Projects
-                            return ProjectsGridView();
-                        }),
+                      scrollDirection: Axis.vertical,
+                      onPageChanged: (pos) => model.currentIndex = pos,
+                      itemCount: 3,
+                      controller: model.pageController,
+                      itemBuilder: (BuildContext context, index) {
+                        if (index == 0) // Home
+                          return Bio(
+                            screen: screen,
+                          );
+                        else if (index == 1) // About
+                          return AboutPage(
+                            pages[3],
+                            isWeb ? States.WEB : States.MOBILE,
+                          );
+                        else // Projects
+                          return ProjectsGridView();
+                      },
+                    ),
                   ),
                   Align(
                     alignment: Alignment.topLeft,
@@ -60,30 +62,52 @@ class MyHomePage extends StatelessWidget {
                         left: screen.marginLeft,
                       ),
                       child: FlatBorderButton(
-                        text: isWeb
-                            ? "Home"
-                            : model.currentIndex == 0
-                                ? "About Me"
-                                : "Home",
-                        onTap: () => isWeb
-                            ? model.moveToPage(0) // Home
-                            : model.currentIndex == 0
-                                ? model.moveToPage(1)
-                                : model.moveToPage(0),
+                        text: (model.currentIndex == 0 && !isWeb)
+                            ? "About"
+                            : "Home",
+                        onTap: () => (model.currentIndex == 0 && !isWeb)
+                            ? model.moveToPage(1)
+                            : model.moveToPage(0),
                         screen: screen,
                       ),
                     ),
                   ),
-                  isWeb
-                      ? WebTopButtons(
-                          moveToPage: model.moveToPage,
-                          screen: screen,
-                        )
-                      : MobileTopButtons(
-                          moveToPage: model.moveToPage,
-                          screen: screen,
-                          index: model.currentIndex,
-                        ),
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: Container(
+                      margin: EdgeInsets.only(
+                        top: screen.marginTop,
+                        right: screen.marginLeft,
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: <Widget>[
+                          isWeb
+                              ? FlatBorderButton(
+                                  text: "About Me",
+                                  onTap: () => model.moveToPage(1),
+                                  screen: screen,
+                                )
+                              : Container(
+                            width: 10,
+                            height: 10,
+                          ),
+                          SizedBox(
+                            width: 20,
+                          ),
+                          FlatBorderButton(
+                            text: (model.currentIndex == 2 && !isWeb)
+                                ? "About"
+                                : "My Projects",
+                            onTap: () => (model.currentIndex == 2 && !isWeb)
+                                ? model.moveToPage(1)
+                                : model.moveToPage(2),
+                            screen: screen,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ],
               ),
             ),
