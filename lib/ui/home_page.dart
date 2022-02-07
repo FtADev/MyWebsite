@@ -4,16 +4,13 @@ import 'package:MyWebsite/ui/common/bio.dart';
 import 'package:MyWebsite/ui/common/states.dart';
 import 'package:MyWebsite/ui/component/fancy_background.dart';
 import 'package:MyWebsite/ui/component/flat_border_button.dart';
-import 'package:MyWebsite/ui/mobile/about/about.dart';
 import 'package:MyWebsite/ui/mobile/home/top_buttons.dart';
 import 'package:MyWebsite/ui/mobile/mobile_const.dart';
-import 'package:MyWebsite/ui/mobile/project/projects.dart';
 import 'package:MyWebsite/ui/provider/home_view_model.dart';
 import 'package:MyWebsite/ui/web/home/top_buttons.dart';
 import 'package:MyWebsite/ui/web/project/project_grid_view.dart';
 import 'package:MyWebsite/ui/web/web_const.dart';
 import 'package:flutter/material.dart';
-import 'package:page_indicator/page_indicator.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -32,9 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
     super.dispose();
   }
 
-  mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
-        newState,
-      ));
+  // mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
+  //       newState,
+  //     ));
 
   @override
   Widget build(BuildContext context) {
@@ -110,32 +107,32 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  Route createRoute(States state) {
-    late Widget page;
-    if (state == States.PROJECTS)
-      page = Projects(
-        screen: MobileConst(),
-      );
-    else if (state == States.ABOUT)
-      page = MobileAbout(
-        screen: MobileConst(),
-      );
-    return PageRouteBuilder(
-      pageBuilder: (context, animation, secondaryAnimation) => page,
-      transitionDuration: Duration(seconds: 2),
-      transitionsBuilder: (context, animation, secondaryAnimation, child) {
-        var begin = Offset(0.0, 1.0);
-        var end = Offset.zero;
-        var curve = Curves.fastOutSlowIn;
-
-        var tween =
-            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-
-        return SlideTransition(
-          position: animation.drive(tween),
-          child: child,
-        );
-      },
-    );
-  }
+  // Route createRoute(States state) {
+  //   late Widget page;
+  //   if (state == States.PROJECTS)
+  //     page = Projects(
+  //       screen: MobileConst(),
+  //     );
+  //   else if (state == States.ABOUT)
+  //     page = MobileAbout(
+  //       screen: MobileConst(),
+  //     );
+  //   return PageRouteBuilder(
+  //     pageBuilder: (context, animation, secondaryAnimation) => page,
+  //     transitionDuration: Duration(seconds: 2),
+  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+  //       var begin = Offset(0.0, 1.0);
+  //       var end = Offset.zero;
+  //       var curve = Curves.fastOutSlowIn;
+  //
+  //       var tween =
+  //           Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+  //
+  //       return SlideTransition(
+  //         position: animation.drive(tween),
+  //         child: child,
+  //       );
+  //     },
+  //   );
+  // }
 }
