@@ -19,10 +19,17 @@ class HomeViewModel extends ChangeNotifier {
 
   void moveToPage(int index) {
     _pageController.animateToPage(
-        index,
-        duration: Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-      );
+      index,
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeIn,
+    );
+    currentIndex = index;
+  }
+
+  void jumpToPage(int index) {
+    _pageController.jumpToPage(
+      index,
+    );
     currentIndex = index;
   }
 
