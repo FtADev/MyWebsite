@@ -6,8 +6,9 @@ import 'package:MyWebsite/ui/component/flat_border_button.dart';
 class MobileTopButtons extends StatelessWidget {
   final Function? moveToPage;
   final screen;
+  late final int? index;
 
-  const MobileTopButtons({Key? key, this.screen, this.moveToPage}) : super(key: key);
+  MobileTopButtons({Key? key, this.screen, this.moveToPage, this.index}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,17 +22,9 @@ class MobileTopButtons extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: <Widget>[
-//            FlatBorderButton(
-//              text: "My Abilities",
-//              onTap: () => changeState(States.ABILITY),
-//              screen: screen,
-//            ),
-//            SizedBox(
-//              height: screen.sizedBox,
-//            ),
             FlatBorderButton(
-              text: "My Projects",
-              onTap: () => moveToPage!(2),
+              text: index == 2 ? "About" : "My Projects",
+              onTap: () => index == 2 ? moveToPage!(1) : moveToPage!(2),
               screen: screen,
             ),
           ],

@@ -97,6 +97,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       : MobileTopButtons(
                           moveToPage: model.moveToPage,
                           screen: screen,
+                          index: model.currentIndex,
                         ),
                 ],
               ),
@@ -107,32 +108,32 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  // Route createRoute(States state) {
-  //   late Widget page;
-  //   if (state == States.PROJECTS)
-  //     page = Projects(
-  //       screen: MobileConst(),
-  //     );
-  //   else if (state == States.ABOUT)
-  //     page = MobileAbout(
-  //       screen: MobileConst(),
-  //     );
-  //   return PageRouteBuilder(
-  //     pageBuilder: (context, animation, secondaryAnimation) => page,
-  //     transitionDuration: Duration(seconds: 2),
-  //     transitionsBuilder: (context, animation, secondaryAnimation, child) {
-  //       var begin = Offset(0.0, 1.0);
-  //       var end = Offset.zero;
-  //       var curve = Curves.fastOutSlowIn;
-  //
-  //       var tween =
-  //           Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
-  //
-  //       return SlideTransition(
-  //         position: animation.drive(tween),
-  //         child: child,
-  //       );
-  //     },
-  //   );
-  // }
+// Route createRoute(States state) {
+//   late Widget page;
+//   if (state == States.PROJECTS)
+//     page = Projects(
+//       screen: MobileConst(),
+//     );
+//   else if (state == States.ABOUT)
+//     page = MobileAbout(
+//       screen: MobileConst(),
+//     );
+//   return PageRouteBuilder(
+//     pageBuilder: (context, animation, secondaryAnimation) => page,
+//     transitionDuration: Duration(seconds: 2),
+//     transitionsBuilder: (context, animation, secondaryAnimation, child) {
+//       var begin = Offset(0.0, 1.0);
+//       var end = Offset.zero;
+//       var curve = Curves.fastOutSlowIn;
+//
+//       var tween =
+//           Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+//
+//       return SlideTransition(
+//         position: animation.drive(tween),
+//         child: child,
+//       );
+//     },
+//   );
+// }
 }
