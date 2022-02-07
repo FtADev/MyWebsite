@@ -64,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
                               screen: screen,
                             );
                           else if (index == 1) // About
-                            return AboutPage(pages[3], States.WEB);
+                            return AboutPage(pages[3], isWeb ? States.WEB : States.MOBILE);
                           else // Projects
                             return ProjectsGridView();
                         }),
@@ -80,7 +80,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         text: isWeb ? "Home" : "About Me",
                         onTap: () => isWeb
                             ? model.moveToPage(0) // Home
-                            : mobileChangeState(States.ABOUT),
+                            : model.moveToPage(1), // About
                         screen: screen,
                       ),
                     ),
@@ -91,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           screen: screen,
                         )
                       : MobileTopButtons(
-                          changeState: mobileChangeState,
+                          moveToPage: model.moveToPage,
                           screen: screen,
                         ),
                 ],
