@@ -29,14 +29,6 @@ class WebTopButtons extends StatelessWidget {
             SizedBox(
               width: 20,
             ),
-//            FlatBorderButton(
-//              text: "My Abilities",
-//              onTap: () => changeState(States.ABILITY),
-//              screen: screen,
-//            ),
-//            SizedBox(
-//              width: screen.sizedBox,
-//            ),
             FlatBorderButton(
               text: "My Projects",
               onTap: () => moveToPage!(2),

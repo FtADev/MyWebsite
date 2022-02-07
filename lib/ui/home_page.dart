@@ -13,25 +13,10 @@ import 'package:MyWebsite/ui/web/web_const.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class MyHomePage extends StatefulWidget {
-  @override
-  _MyHomePageState createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
+class MyHomePage extends StatelessWidget {
   bool isWeb = true;
   double screenSize = 0.0;
   var screen;
-
-  @override
-  void dispose() {
-    // _pageController.dispose();
-    super.dispose();
-  }
-
-  // mobileChangeState(States newState) => Navigator.of(context).push(createRoute(
-  //       newState,
-  //     ));
 
   @override
   Widget build(BuildContext context) {
