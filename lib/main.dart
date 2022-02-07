@@ -2,8 +2,12 @@ import 'package:MyWebsite/ui/config/application.dart';
 import 'package:MyWebsite/ui/config/routes.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
+import 'package:url_strategy/url_strategy.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  setPathUrlStrategy();
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   @override
