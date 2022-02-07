@@ -25,4 +25,10 @@ class HomeViewModel extends ChangeNotifier {
       );
     currentIndex = index;
   }
+
+  @override
+  void dispose() {
+    _pageController.dispose();
+    super.dispose();
+  }
 }
