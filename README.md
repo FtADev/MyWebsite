@@ -1,6 +1,6 @@
 # My Website
 
-You can see the output on [My Website](https://ftadev.github.io/)
+You can see the output on [My Website](https://ftadev.ir/)
 
 ## Getting Started
 
