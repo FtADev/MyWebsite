@@ -7,7 +7,7 @@ import 'package:MyWebsite/ui/background/fancy_background.dart';
 import 'package:MyWebsite/ui/home/flat_border_button.dart';
 import 'package:MyWebsite/ui/common/mobile_const.dart';
 import 'package:MyWebsite/ui/home/home_view_model.dart';
-import 'package:MyWebsite/ui/projects/web/project_grid_view.dart';
+import 'package:MyWebsite/ui/projects/projects.dart';
 import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

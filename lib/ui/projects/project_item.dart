@@ -25,19 +25,19 @@ class ProjectItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8),
+      padding: const EdgeInsets.only(bottom: 8), //2
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
           onTap: () => urlLauncher(url!),
           child: Card(
             child: Padding(
-              padding: const EdgeInsets.all(20.0),
+              padding: const EdgeInsets.all(20.0), //10
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(right: 20.0),
+                    padding: const EdgeInsets.only(right: 20.0),//10
                     child: ClipOval(
                       child: Container(
                         color: (image == null) ? Colors.grey.shade300 : Colors.white,
@@ -53,7 +53,7 @@ class ProjectItem extends StatelessWidget {
                       children: [
                         Text((title != null) ? title! : "Project Title",
                             style: TextStyle(
-                              fontSize: 25,
+                              fontSize: 25, //20
                               fontWeight: FontWeight.bold,
                               fontFamily: 'dekko',
                             )),
@@ -64,7 +64,7 @@ class ProjectItem extends StatelessWidget {
                           (detail != null)
                               ? detail!
                               : "Lorem Ipsum is simply dummy text of remaining of all.",
-                          style: TextStyle(fontSize: 20, fontFamily: 'dekko'),
+                          style: TextStyle(fontSize: 20 /*16*/, fontFamily: 'dekko'),
                         ),
                         SizedBox(
                           height: 5,
@@ -89,12 +89,12 @@ class ProjectItem extends StatelessWidget {
                               style: TextStyle(fontSize: 16, fontFamily: 'dekko'),
                             ),
                             SizedBox(
-                              width: 20,
+                              width: 20, //5
                             ),
                             (isTeamWork != null && isTeamWork!)
                                 ? Container(
-                                    width: 10,
-                                    height: 10,
+                                    width: 10, //5
+                                    height: 10, //5
                                     decoration: BoxDecoration(
                                       color: Colors.green,
                                       shape: BoxShape.circle,
@@ -102,13 +102,13 @@ class ProjectItem extends StatelessWidget {
                                   )
                                 : Container(),
                             SizedBox(
-                              width: 5,
+                              width: 5, //3
                             ),
                             (isTeamWork != null && isTeamWork!)
                                 ? Text(
                                     "Team Work",
                                     style: TextStyle(
-                                        fontSize: 16, fontFamily: 'dekko'),
+                                        fontSize: 16 /*14*/, fontFamily: 'dekko'),
                                   )
                                 : Container()
                           ],
