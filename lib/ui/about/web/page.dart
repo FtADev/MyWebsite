@@ -1,7 +1,7 @@
-import 'package:MyWebsite/ui/common/about/about_page_model.dart';
-import 'package:MyWebsite/ui/common/about/gif_part.dart';
-import 'package:MyWebsite/ui/common/about/text_part.dart';
-import 'package:MyWebsite/ui/web/web_const.dart';
+import 'package:MyWebsite/ui/about/about_page_model.dart';
+import 'package:MyWebsite/ui/about/gif_part.dart';
+import 'package:MyWebsite/ui/about/text_part.dart';
+import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:flutter/material.dart';
 
 class WebAboutPage extends StatelessWidget {

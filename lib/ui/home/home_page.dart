@@ -1,14 +1,14 @@
-import 'package:MyWebsite/ui/common/about/about_list.dart';
-import 'package:MyWebsite/ui/common/about/about_page.dart';
-import 'package:MyWebsite/ui/common/bio.dart';
+import 'package:MyWebsite/ui/about/about_list.dart';
+import 'package:MyWebsite/ui/about/about_page.dart';
+import 'package:MyWebsite/ui/home/bio.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/common/states.dart';
-import 'package:MyWebsite/ui/component/fancy_background.dart';
-import 'package:MyWebsite/ui/component/flat_border_button.dart';
-import 'package:MyWebsite/ui/mobile/mobile_const.dart';
-import 'package:MyWebsite/ui/provider/home_view_model.dart';
-import 'package:MyWebsite/ui/web/project/project_grid_view.dart';
-import 'package:MyWebsite/ui/web/web_const.dart';
+import 'package:MyWebsite/ui/background/fancy_background.dart';
+import 'package:MyWebsite/ui/home/flat_border_button.dart';
+import 'package:MyWebsite/ui/common/mobile_const.dart';
+import 'package:MyWebsite/ui/home/home_view_model.dart';
+import 'package:MyWebsite/ui/projects/web/project_grid_view.dart';
+import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

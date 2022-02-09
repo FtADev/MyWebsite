@@ -1,10 +1,10 @@
 import 'package:MyWebsite/ui/common/states.dart';
-import 'package:MyWebsite/ui/provider/projects_view_model.dart';
+import 'package:MyWebsite/ui/projects/projects_view_model.dart';
 import 'package:flutter/material.dart';
-import 'package:MyWebsite/ui/common/project/project_list.dart';
+import 'package:MyWebsite/ui/projects/project_list.dart';
 import 'package:MyWebsite/ui/component/dynamic_card.dart';
 import 'package:MyWebsite/ui/component/fade_in_ui.dart';
-import 'package:MyWebsite/ui/component/project_item.dart';
+import 'package:MyWebsite/ui/projects/project_item.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:provider/provider.dart';
 

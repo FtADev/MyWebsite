@@ -1,4 +1,4 @@
-import 'package:MyWebsite/ui/common/project/other_project_list.dart';
+import 'package:MyWebsite/ui/projects/other_project_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';

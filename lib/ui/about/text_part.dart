@@ -1,4 +1,4 @@
-import 'package:MyWebsite/ui/common/about/about_page_model.dart';
+import 'package:MyWebsite/ui/about/about_page_model.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';

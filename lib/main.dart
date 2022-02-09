@@ -1,5 +1,5 @@
-import 'package:MyWebsite/ui/config/application.dart';
-import 'package:MyWebsite/ui/config/routes.dart';
+import 'package:MyWebsite/ui/routing/application.dart';
+import 'package:MyWebsite/ui/routing/routes.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';

@@ -1,4 +1,4 @@
-import 'package:MyWebsite/ui/config/route_handlers.dart';
+import 'package:MyWebsite/ui/routing/route_handlers.dart';
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
 

@@ -1,5 +1,5 @@
-import 'package:MyWebsite/ui/home_page.dart';
-import 'package:MyWebsite/ui/common/project/other_projects.dart';
+import 'package:MyWebsite/ui/home/home_page.dart';
+import 'package:MyWebsite/ui/projects/other_projects.dart';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
