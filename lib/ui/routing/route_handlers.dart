@@ -1,5 +1,5 @@
 import 'package:MyWebsite/ui/home/home_page.dart';
-import 'package:MyWebsite/ui/projects/other_projects.dart';
+import 'package:MyWebsite/ui/projects/project_page.dart';
 
 import 'package:fluro/fluro.dart';
 import 'package:flutter/material.dart';
@@ -18,5 +18,5 @@ var rootHandler = Handler(
 
 var projectHandler = Handler(handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
   final int id = int.parse(params["id"][0]);
-  return OtherProjects(id: id);
+  return ProjectPage(id: id);
 });
