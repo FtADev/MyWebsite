@@ -9,13 +9,6 @@ var rootHandler = Handler(
   return MyHomePage();
 });
 
-// var aboutHandler = Handler(
-//     handlerFunc: (BuildContext? context, Map<String, List<String>> params) {
-//       return MobileAbout(
-//         screen: MobileConst(),
-//       );
-//     });
-
 var projectHandler = Handler(handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
   final String name = params["name"][0];
   return ProjectPage(name: name);
