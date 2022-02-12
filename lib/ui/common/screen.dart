@@ -8,6 +8,7 @@ class Screen {
   final boxSizeMedium = 0.0;
   final boxSizeLarge = 0.0;
   final iconSize = 0.0;
+  final projectAboveSpace = 0.0;
   final projectWholePadding = 0.0;
   final projectBottomPadding = 0.0;
   final projectCardPadding = 0.0;

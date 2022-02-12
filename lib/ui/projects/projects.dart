@@ -19,7 +19,7 @@ class ProjectsGridView extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
-            height: 100,
+            height: screen.projectAboveSpace,
           ),
           Text(
             "My Projects",

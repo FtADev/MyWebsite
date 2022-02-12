@@ -10,6 +10,7 @@ class MobileConst extends Screen {
   final boxSizeMedium = 5.0;
   final boxSizeLarge = 10.0;
   final iconSize = 25.0;
+  final projectAboveSpace = 60.0;
   final projectWholePadding = 10.0;
   final projectBottomPadding = 2.0;
   final projectCardPadding = 10.0;
