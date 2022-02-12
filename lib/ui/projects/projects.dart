@@ -1,14 +1,19 @@
+import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/projects/project_item.dart';
 import 'package:MyWebsite/ui/projects/project_list.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProjectsGridView extends StatelessWidget {
+  final Screen screen;
+
+  const ProjectsGridView({Key? key, required this.screen}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final double screenSize = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.all(50),
+      padding: EdgeInsets.all(screen.projectWholePadding),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -19,7 +24,7 @@ class ProjectsGridView extends StatelessWidget {
           Text(
             "My Projects",
             style: TextStyle(
-                fontSize: 30, //18
+                fontSize: screen.bioFont3,
                 color: Colors.white,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'dekko'),
@@ -40,6 +45,7 @@ class ProjectsGridView extends StatelessWidget {
                 children: projectList
                     .map<Widget>(
                       (item) => ProjectItem(
+                        screen: screen,
                         title: item.title,
                         detail: item.detail,
                         image: item.image,

@@ -1,14 +1,14 @@
 import 'package:MyWebsite/ui/about/about_list.dart';
 import 'package:MyWebsite/ui/about/about_page.dart';
-import 'package:MyWebsite/ui/home/bio.dart';
+import 'package:MyWebsite/ui/background/fancy_background.dart';
+import 'package:MyWebsite/ui/common/mobile_const.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/common/states.dart';
-import 'package:MyWebsite/ui/background/fancy_background.dart';
+import 'package:MyWebsite/ui/common/web_const.dart';
+import 'package:MyWebsite/ui/home/bio.dart';
 import 'package:MyWebsite/ui/home/flat_border_button.dart';
-import 'package:MyWebsite/ui/common/mobile_const.dart';
 import 'package:MyWebsite/ui/home/home_view_model.dart';
 import 'package:MyWebsite/ui/projects/projects.dart';
-import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -50,7 +50,9 @@ class MyHomePage extends StatelessWidget {
                             isWeb ? States.WEB : States.MOBILE,
                           );
                         else // Projects
-                          return ProjectsGridView();
+                          return ProjectsGridView(
+                            screen: screen,
+                          );
                       },
                     ),
                   ),
@@ -63,7 +65,7 @@ class MyHomePage extends StatelessWidget {
                       ),
                       child: FlatBorderButton(
                         text: (model.currentIndex == 0 && !isWeb)
-                            ? "About"
+                            ? "About Me"
                             : "Home",
                         onTap: () => (model.currentIndex == 0 && !isWeb)
                             ? model.moveToPage(1)
@@ -89,15 +91,15 @@ class MyHomePage extends StatelessWidget {
                                   screen: screen,
                                 )
                               : Container(
-                            width: 10,
-                            height: 10,
-                          ),
+                                  width: 10,
+                                  height: 10,
+                                ),
                           SizedBox(
                             width: 20,
                           ),
                           FlatBorderButton(
                             text: (model.currentIndex == 2 && !isWeb)
-                                ? "About"
+                                ? "About Me"
                                 : "My Projects",
                             onTap: () => (model.currentIndex == 2 && !isWeb)
                                 ? model.moveToPage(1)

@@ -10,4 +10,13 @@ class MobileConst extends Screen {
   final boxSizeMedium = 5.0;
   final boxSizeLarge = 10.0;
   final iconSize = 25.0;
+  final projectWholePadding = 10.0;
+  final projectBottomPadding = 2.0;
+  final projectCardPadding = 10.0;
+  final projectTitleFontSize = 20.0;
+  final projectTextFontSize = 16.0;
+  final projectSpace = 5.0;
+  final projectLangSpace = 3.0;
+  final projectTeamWorkSize = 5.0;
+  final projectTeamWorkFont = 14.0;
 }

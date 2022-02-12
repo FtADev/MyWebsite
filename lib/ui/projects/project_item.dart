@@ -1,8 +1,10 @@
+import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ProjectItem extends StatelessWidget {
+  final Screen screen;
   final String? image;
   final String? title;
   final String? detail;
@@ -11,39 +13,43 @@ class ProjectItem extends StatelessWidget {
   final bool? isTeamWork;
   final String? url;
 
-  const ProjectItem(
-      {Key? key,
-      this.image,
-      this.title,
-      this.detail,
-      this.colorLang,
-      this.lang,
-      this.isTeamWork,
-      this.url})
-      : super(key: key);
+  const ProjectItem({
+    Key? key,
+    required this.screen,
+    this.image,
+    this.title,
+    this.detail,
+    this.colorLang,
+    this.lang,
+    this.isTeamWork,
+    this.url,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(bottom: 8), //2
+      padding: EdgeInsets.only(bottom: screen.projectBottomPadding),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
           onTap: () => urlLauncher(url!),
           child: Card(
             child: Padding(
-              padding: const EdgeInsets.all(20.0), //10
+              padding: EdgeInsets.all(screen.projectCardPadding),
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Padding(
-                    padding: const EdgeInsets.only(right: 20.0),//10
+                    padding: EdgeInsets.only(right: screen.projectCardPadding),
                     child: ClipOval(
                       child: Container(
-                        color: (image == null) ? Colors.grey.shade300 : Colors.white,
+                        color: (image == null)
+                            ? Colors.grey.shade300
+                            : Colors.white,
                         width: 100,
                         height: 100,
-                        child: (image != null) ? Image.asset(image!) : Container(),
+                        child:
+                            (image != null) ? Image.asset(image!) : Container(),
                       ),
                     ),
                   ),
@@ -51,12 +57,14 @@ class ProjectItem extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text((title != null) ? title! : "Project Title",
-                            style: TextStyle(
-                              fontSize: 25, //20
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'dekko',
-                            )),
+                        Text(
+                          (title != null) ? title! : "Project Title",
+                          style: TextStyle(
+                            fontSize: screen.projectTitleFontSize,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'dekko',
+                          ),
+                        ),
                         SizedBox(
                           height: 5,
                         ),
@@ -64,7 +72,9 @@ class ProjectItem extends StatelessWidget {
                           (detail != null)
                               ? detail!
                               : "Lorem Ipsum is simply dummy text of remaining of all.",
-                          style: TextStyle(fontSize: 20 /*16*/, fontFamily: 'dekko'),
+                          style: TextStyle(
+                              fontSize: screen.projectTextFontSize,
+                              fontFamily: 'dekko'),
                         ),
                         SizedBox(
                           height: 5,
@@ -73,28 +83,30 @@ class ProjectItem extends StatelessWidget {
                           mainAxisSize: MainAxisSize.min,
                           children: <Widget>[
                             Container(
-                              width: 10,
-                              height: 10,
+                              width: screen.projectTeamWorkSize,
+                              height: screen.projectTeamWorkSize,
                               decoration: BoxDecoration(
-                                color:
-                                    (colorLang != null) ? colorLang : Colors.black,
+                                color: (colorLang != null)
+                                    ? colorLang
+                                    : Colors.black,
                                 shape: BoxShape.circle,
                               ),
                             ),
                             SizedBox(
-                              width: 5,
+                              width: screen.projectLangSpace,
                             ),
                             Text(
                               (lang != null) ? lang! : "Language",
-                              style: TextStyle(fontSize: 16, fontFamily: 'dekko'),
+                              style:
+                                  TextStyle(fontSize: screen.projectTeamWorkFont, fontFamily: 'dekko'),
                             ),
                             SizedBox(
-                              width: 20, //5
+                              width: screen.projectSpace,
                             ),
                             (isTeamWork != null && isTeamWork!)
                                 ? Container(
-                                    width: 10, //5
-                                    height: 10, //5
+                                    width: screen.projectTeamWorkSize,
+                                    height: screen.projectTeamWorkSize,
                                     decoration: BoxDecoration(
                                       color: Colors.green,
                                       shape: BoxShape.circle,
@@ -102,13 +114,14 @@ class ProjectItem extends StatelessWidget {
                                   )
                                 : Container(),
                             SizedBox(
-                              width: 5, //3
+                              width: screen.projectLangSpace,
                             ),
                             (isTeamWork != null && isTeamWork!)
                                 ? Text(
                                     "Team Work",
                                     style: TextStyle(
-                                        fontSize: 16 /*14*/, fontFamily: 'dekko'),
+                                        fontSize: screen.projectTeamWorkFont,
+                                        fontFamily: 'dekko'),
                                   )
                                 : Container()
                           ],
