@@ -17,6 +17,6 @@ var rootHandler = Handler(
 //     });
 
 var projectHandler = Handler(handlerFunc: (BuildContext? context, Map<String, dynamic> params) {
-  final int id = int.parse(params["id"][0]);
-  return ProjectPage(id: id);
+  final String name = params["name"][0];
+  return ProjectPage(name: name);
 });

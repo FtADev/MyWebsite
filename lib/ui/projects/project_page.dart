@@ -3,10 +3,27 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-class ProjectPage extends StatelessWidget {
-  final id;
+class ProjectPage extends StatefulWidget {
+  final name;
 
-  const ProjectPage({Key? key, required this.id}) : super(key: key);
+  const ProjectPage({Key? key, required this.name}) : super(key: key);
+
+  @override
+  State<ProjectPage> createState() => _ProjectPageState();
+}
+
+class _ProjectPageState extends State<ProjectPage> {
+  late int id = 0;
+
+  void findProjectId(String name) => projectList.forEach((element) {
+        if (element.name == name) id = element.id;
+      });
+
+  @override
+  void initState() {
+    findProjectId(widget.name);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

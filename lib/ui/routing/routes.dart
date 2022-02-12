@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Routes {
   static String root = "/";
   static String about = "/about";
-  static String projects = "/projects/:id";
+  static String projects = "/projects/:name";
 
   static void configureRoutes(FluroRouter  router) {
     router.notFoundHandler = Handler(
