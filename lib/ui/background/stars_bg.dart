@@ -22,8 +22,8 @@ class _StarsBackgroundState extends State<StarsBackground> {
 
   @override
   void initState() {
-    double? starsInRow = widget.width / 100;
-    double? starsInColumn = widget.height / 100;
+    double? starsInRow = widget.width / 70;
+    double? starsInColumn = widget.height / 70;
 
     starsNum = starsInRow != 0
         ? starsInRow! * (starsInColumn != 0 ? starsInColumn! : starsInRow)
