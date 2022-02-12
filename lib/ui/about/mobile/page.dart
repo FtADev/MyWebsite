@@ -14,6 +14,9 @@ class MobileAboutPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         children: <Widget>[
+          SizedBox(
+            height: 60,
+          ),
           GifPartWidget(
             model: model,
             widthPercent: 0.8,
