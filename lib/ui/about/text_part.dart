@@ -81,21 +81,10 @@ class TextPartWidget extends StatelessWidget {
                           MouseRegion(
                             cursor: SystemMouseCursors.click,
                             child: GestureDetector(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(50.0),
-                                    ),
-                                    border: Border.all(
-                                      width: 1,
-                                      color: Colors.white,
-                                    )),
-                                child: Image.asset(
-                                  'assets/network/github.png',
-                                  width: screen.iconSize,
-                                  height: screen.iconSize,
-                                ),
+                              child: Image.asset(
+                                'assets/network/github.png',
+                                width: screen.iconSize,
+                                height: screen.iconSize,
                               ),
                               onTap: githubLauncher,
                             ),
@@ -126,6 +115,20 @@ class TextPartWidget extends StatelessWidget {
                                 height: screen.iconSize,
                               ),
                               onTap: telegramLauncher,
+                            ),
+                          ),
+                          SizedBox(
+                            width: screen.boxSizeLarge,
+                          ),
+                          MouseRegion(
+                            cursor: SystemMouseCursors.click,
+                            child: GestureDetector(
+                              child: Image.asset(
+                                'assets/network/cv.png',
+                                width: screen.iconSize,
+                                height: screen.iconSize,
+                              ),
+                              onTap: cvLauncher,
                             ),
                           ),
                         ],
@@ -159,6 +162,15 @@ Future telegramLauncher() async {
 
 Future linkedInLauncher() async {
   const url = 'https://www.linkedin.com/in/fatemeh-akhlaghi-6a211615b';
+  if (await canLaunch(url)) {
+    await launch(url);
+  } else {
+    throw 'Could not launch $url';
+  }
+}
+
+Future cvLauncher() async {
+  const url = 'https://drive.google.com/file/d/1qt9itofBl9Ec_3L0BFIIT6X_CoLeG0Fc/view';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
