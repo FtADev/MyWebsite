@@ -119,7 +119,7 @@ final projectList = [
     isTeamWork: false,
     lang: "Python",
     colorLang: Colors.yellow,
-    image: "./assets/twitter-blue.png",
+    image: "./assets/twitter.png",
     detail: "Create a shape with the words of your tweets.",
     url: "https://github.com/FtADev/TwitterWordCloud",
   ),
@@ -141,7 +141,7 @@ final projectList = [
     isTeamWork: false,
     lang: "Python",
     colorLang: Colors.yellow,
-    image: "./assets/broker.png",
+    image: "./assets/broker1.png",
     detail: "A broker that transfer data from sensors to server.",
     url:
         "https://gitlab.com/exceptionaldev-pub/pythonexception/playingwithbrokers",
