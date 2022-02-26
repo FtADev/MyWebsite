@@ -13,10 +13,13 @@ class ProjectPage extends StatefulWidget {
 }
 
 class _ProjectPageState extends State<ProjectPage> {
-  late int id = 0;
+  late int id;
 
   void findProjectId(String name) => projectList.forEach((element) {
-        if (element.name == name) id = element.id;
+        if (element.name == name) {
+          id = element.id;
+          return;
+        }
       });
 
   @override
