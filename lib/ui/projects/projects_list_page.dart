@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 class ProjectsListPage extends StatelessWidget {
+  static const String route = '/projects';
+
   final Screen screen;
 
   const ProjectsListPage({Key? key, required this.screen}) : super(key: key);

@@ -1,4 +1,8 @@
 import 'package:MyWebsite/routing/path.dart';
+import 'package:MyWebsite/ui/about/about_list.dart';
+import 'package:MyWebsite/ui/about/about_page.dart';
+import 'package:MyWebsite/ui/common/states.dart';
+import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:MyWebsite/ui/home/home_page.dart';
 import 'package:MyWebsite/ui/projects/project_page.dart';
 import 'package:MyWebsite/ui/projects/projects_list_page.dart';
@@ -14,6 +18,14 @@ class RouteConfiguration {
     Path(
       r'^' + MyHomePage.route,
           (context, match) => MyHomePage(),
+    ),
+    Path(
+      r'^' + AboutPage.route,
+          (context, match) => AboutPage(pages[3], States.WEB),
+    ),
+    Path(
+      r'^' + ProjectsListPage.route,
+          (context, match) => ProjectsListPage(screen: WebConst()),
     ),
     Path(
       r'^' + ProjectPage.baseRoute + r'/([\w-]+)$',
