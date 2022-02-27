@@ -1,4 +1,5 @@
 import 'package:MyWebsite/ui/common/screen.dart';
+import 'package:MyWebsite/ui/projects/project_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,6 +8,7 @@ class ProjectItem extends StatelessWidget {
   final Screen screen;
   final String? image;
   final String? title;
+  final String name;
   final String? detail;
   final Color? colorLang;
   final String? lang;
@@ -18,6 +20,7 @@ class ProjectItem extends StatelessWidget {
     required this.screen,
     this.image,
     this.title,
+    required this.name,
     this.detail,
     this.colorLang,
     this.lang,
@@ -32,7 +35,9 @@ class ProjectItem extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: () => urlLauncher(url!),
+          onTap: () =>  Navigator.of(context).pushNamed(
+            ProjectPage.routeFromName(name),
+          ),
           child: Padding(
             padding: EdgeInsets.all(screen.projectCardPadding),
             child: Row(

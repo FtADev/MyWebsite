@@ -1,13 +1,20 @@
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/projects/project_item.dart';
 import 'package:MyWebsite/ui/projects/project_list.dart';
+import 'package:MyWebsite/ui/projects/project_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-class ProjectsGridView extends StatelessWidget {
+class ProjectsListPage extends StatelessWidget {
   final Screen screen;
 
-  const ProjectsGridView({Key? key, required this.screen}) : super(key: key);
+  const ProjectsListPage({Key? key, required this.screen}) : super(key: key);
+
+  static Widget findProject(String? name) {
+    for (ProjectModel project in projectList)
+      if (project.name == name) return ProjectPage(id: project.id);
+    return Container();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,6 +54,7 @@ class ProjectsGridView extends StatelessWidget {
                       (item) => ProjectItem(
                         screen: screen,
                         title: item.title,
+                        name: item.name,
                         detail: item.detail,
                         image: item.image,
                         lang: item.lang,

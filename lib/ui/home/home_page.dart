@@ -8,11 +8,13 @@ import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:MyWebsite/ui/home/bio.dart';
 import 'package:MyWebsite/ui/home/flat_border_button.dart';
 import 'package:MyWebsite/ui/home/home_view_model.dart';
-import 'package:MyWebsite/ui/projects/projects.dart';
+import 'package:MyWebsite/ui/projects/projects_list_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
+  static const String route = '/';
+
   bool isWeb = true;
   double screenSize = 0.0;
   late Screen screen;
@@ -50,7 +52,7 @@ class MyHomePage extends StatelessWidget {
                             isWeb ? States.WEB : States.MOBILE,
                           );
                         else // Projects
-                          return ProjectsGridView(
+                          return ProjectsListPage(
                             screen: screen,
                           );
                       },

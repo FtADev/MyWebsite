@@ -3,30 +3,14 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 
-class ProjectPage extends StatefulWidget {
-  final name;
+class ProjectPage extends StatelessWidget {
+  static const String baseRoute = '/projects';
+  static String Function(String name) routeFromName =
+      (String name) => baseRoute + '/$name';
 
-  const ProjectPage({Key? key, required this.name}) : super(key: key);
+  final int id;
 
-  @override
-  State<ProjectPage> createState() => _ProjectPageState();
-}
-
-class _ProjectPageState extends State<ProjectPage> {
-  late int id;
-
-  void findProjectId(String name) => projectList.forEach((element) {
-        if (element.name == name) {
-          id = element.id;
-          return;
-        }
-      });
-
-  @override
-  void initState() {
-    findProjectId(widget.name);
-    super.initState();
-  }
+  const ProjectPage({Key? key, required this.id}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
