@@ -1,10 +1,10 @@
 import 'package:MyWebsite/routing/route_configuration.dart';
 import 'package:MyWebsite/ui/home/home_page.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_web_plugins/flutter_web_plugins.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 void main() {
-  setUrlStrategy(PathUrlStrategy());
+  setPathUrlStrategy();
   runApp(MyApp());
 }
 
