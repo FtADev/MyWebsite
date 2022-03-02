@@ -1,3 +1,4 @@
+import 'package:MyWebsite/ui/404_unknown_page.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/projects/project_item.dart';
 import 'package:MyWebsite/ui/projects/project_list.dart';
@@ -15,7 +16,7 @@ class ProjectsListPage extends StatelessWidget {
   static Widget findProject(String? name) {
     for (ProjectModel project in projectList)
       if (project.name == name) return ProjectPage(id: project.id);
-    return Container();
+    return UnknownPage();
   }
 
   @override

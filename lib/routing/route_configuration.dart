@@ -1,4 +1,5 @@
 import 'package:MyWebsite/routing/path.dart';
+import 'package:MyWebsite/ui/404_unknown_page.dart';
 import 'package:MyWebsite/ui/about/about_list.dart';
 import 'package:MyWebsite/ui/about/about_page.dart';
 import 'package:MyWebsite/ui/common/states.dart';
@@ -38,19 +39,34 @@ class RouteConfiguration {
   /// [WidgetsApp.onGenerateRoute] to make use of the [paths] for route
   /// matching.
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
-    for (Path path in paths) {
-      final regExpPattern = RegExp(path.pattern);
-      if (regExpPattern.hasMatch(settings.name!)) {
-        final firstMatch = regExpPattern.firstMatch(settings.name!);
-        final match = (firstMatch?.groupCount == 1) ? firstMatch?.group(1) : null;
-        return MaterialPageRoute<void>(
-          builder: (context) => path.builder(context, match),
-          settings: settings,
-        );
-      }
+    if (settings.name == '/') {
+      return MaterialPageRoute(builder: (context) => MyHomePage());
     }
 
-    // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
-    return null;
+    // Handle '/details/:id'
+    var uri = Uri.parse(settings.name!);
+    if (uri.pathSegments.length == 2 &&
+        uri.pathSegments.first == 'projects') {
+      var id = uri.pathSegments[1];
+      return MaterialPageRoute(builder: (context) => ProjectPage(id: int.parse(id)));
+    }
+
+    return MaterialPageRoute(builder: (context) => UnknownPage());
+
+
+  //   for (Path path in paths) {
+  //     final regExpPattern = RegExp(path.pattern);
+  //     if (regExpPattern.hasMatch(settings.name!)) {
+  //       final firstMatch = regExpPattern.firstMatch(settings.name!);
+  //       final match = (firstMatch?.groupCount == 1) ? firstMatch?.group(1) : null;
+  //       return MaterialPageRoute<void>(
+  //         builder: (context) => path.builder(context, match),
+  //         settings: settings,
+  //       );
+  //     }
+  //   }
+  //
+  //   // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
+  //   return null;
   }
 }
