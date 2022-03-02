@@ -18,19 +18,19 @@ class RouteConfiguration {
   static List<Path> paths = [
     Path(
       r'^' + MyHomePage.route,
-          (context, match) => MyHomePage(),
+      (context, match) => MyHomePage(),
     ),
     Path(
       r'^' + AboutPage.route,
-          (context, match) => AboutPage(pages[3], States.WEB),
+      (context, match) => AboutPage(pages[3], States.WEB),
     ),
     Path(
       r'^' + ProjectsListPage.route,
-          (context, match) => ProjectsListPage(screen: WebConst()),
+      (context, match) => ProjectsListPage(screen: WebConst()),
     ),
     Path(
       r'^' + ProjectPage.baseRoute + r'/([\w-]+)$',
-          (context, match) => ProjectsListPage.findProject(match),
+      (context, match) => ProjectsListPage.findProject(match),
     ),
   ];
 
@@ -45,28 +45,29 @@ class RouteConfiguration {
 
     // Handle '/details/:id'
     var uri = Uri.parse(settings.name!);
-    if (uri.pathSegments.length == 2 &&
-        uri.pathSegments.first == 'projects') {
+    if (uri.pathSegments.length == 2 && uri.pathSegments.first == 'projects') {
       var id = uri.pathSegments[1];
-      return MaterialPageRoute(builder: (context) => ProjectPage(id: int.parse(id)));
+      List availableProjects = ['2', '3', '4', '10'];
+      if (availableProjects.contains(id))
+        return MaterialPageRoute(
+            builder: (context) => ProjectPage(id: int.parse(id)));
     }
 
     return MaterialPageRoute(builder: (context) => UnknownPage());
 
-
-  //   for (Path path in paths) {
-  //     final regExpPattern = RegExp(path.pattern);
-  //     if (regExpPattern.hasMatch(settings.name!)) {
-  //       final firstMatch = regExpPattern.firstMatch(settings.name!);
-  //       final match = (firstMatch?.groupCount == 1) ? firstMatch?.group(1) : null;
-  //       return MaterialPageRoute<void>(
-  //         builder: (context) => path.builder(context, match),
-  //         settings: settings,
-  //       );
-  //     }
-  //   }
-  //
-  //   // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
-  //   return null;
+    //   for (Path path in paths) {
+    //     final regExpPattern = RegExp(path.pattern);
+    //     if (regExpPattern.hasMatch(settings.name!)) {
+    //       final firstMatch = regExpPattern.firstMatch(settings.name!);
+    //       final match = (firstMatch?.groupCount == 1) ? firstMatch?.group(1) : null;
+    //       return MaterialPageRoute<void>(
+    //         builder: (context) => path.builder(context, match),
+    //         settings: settings,
+    //       );
+    //     }
+    //   }
+    //
+    //   // If no match was found, we let [WidgetsApp.onUnknownRoute] handle it.
+    //   return null;
   }
 }
