@@ -15,7 +15,6 @@ class ProjectPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
-    print(width);
     return Scaffold(
       body: SingleChildScrollView(
         child: Column(
