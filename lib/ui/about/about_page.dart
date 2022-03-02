@@ -5,8 +5,6 @@ import 'package:MyWebsite/ui/common/states.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatelessWidget {
-  static const String route = '/about';
-
   final AboutPageModel model;
   final States state;
 

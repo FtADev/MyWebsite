@@ -13,8 +13,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class MyHomePage extends StatelessWidget {
-  static const String route = '/';
-
   bool isWeb = true;
   double screenSize = 0.0;
   late Screen screen;
