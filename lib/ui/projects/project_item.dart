@@ -35,9 +35,7 @@ class ProjectItem extends StatelessWidget {
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
         child: GestureDetector(
-          onTap: () =>  Navigator.of(context).pushNamed(
-            ProjectPage.routeFromName(name),
-          ),
+          onTap: () =>  urlLauncher(url!),
           child: Padding(
             padding: EdgeInsets.all(screen.projectCardPadding),
             child: Row(
