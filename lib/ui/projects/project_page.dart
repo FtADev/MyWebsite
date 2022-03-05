@@ -8,9 +8,9 @@ class ProjectPage extends StatelessWidget {
   static String Function(String name) routeFromName =
       (String name) => baseRoute + '/$name';
 
-  final int id;
+  final ProjectModel project;
 
-  const ProjectPage({Key? key, required this.id}) : super(key: key);
+  const ProjectPage({Key? key, required this.project}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class ProjectPage extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      projectList[id].title,
+                      project.title,
                       style: TextStyle(
                         fontFamily: 'dekko',
                         fontSize: 40,
@@ -34,7 +34,7 @@ class ProjectPage extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      projectList[id].otherDetail!,
+                      project.otherDetail!,
                       style: TextStyle(
                         fontFamily: 'dekko',
                         fontSize: 20,
@@ -48,9 +48,9 @@ class ProjectPage extends StatelessWidget {
                   : MediaQuery.of(context).size.height * 0.5,
               child: Swiper(
                 fade: 0.1,
-                itemCount: projectList[id].imageList!.length,
+                itemCount: project.imageList!.length,
                 loop: true,
-                viewportFraction: projectList[id].isHorizontal!
+                viewportFraction: project.isHorizontal!
                     ? 0.6
                     : width > 600
                         ? 0.2
@@ -58,7 +58,7 @@ class ProjectPage extends StatelessWidget {
                 scale: 0.5,
                 itemBuilder: (BuildContext context, int index) {
                   return Image.asset(
-                    projectList[id].imageList![index],
+                    project.imageList![index],
                     fit: BoxFit.fitWidth,
                   );
                 },

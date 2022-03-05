@@ -12,9 +12,12 @@ class ProjectsListPage extends StatelessWidget {
 
   const ProjectsListPage({Key? key, required this.screen}) : super(key: key);
 
-  static Widget findProject(String? name) {
-    for (ProjectModel project in projectList)
-      if (project.name == name) return ProjectPage(id: project.id);
+  static Widget findProject(String slug) {
+    for (ProjectModel project in projectList) {
+      if (project.name == slug) {
+        return ProjectPage(project: project);
+      }
+    }
     return UnknownPage();
   }
 

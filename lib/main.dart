@@ -1,4 +1,5 @@
 import 'package:MyWebsite/routing/route_configuration.dart';
+import 'package:MyWebsite/ui/home/home_page.dart';
 import 'package:flutter/material.dart';
 import 'package:url_strategy/url_strategy.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      // initialRoute: MyHomePage.route,
+      initialRoute: MyHomePage.route,
       onGenerateRoute: RouteConfiguration.onGenerateRoute,
     );
   }
