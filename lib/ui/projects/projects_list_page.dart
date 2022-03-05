@@ -2,6 +2,7 @@ import 'package:MyWebsite/ui/404_unknown_page.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:MyWebsite/ui/projects/project_item.dart';
 import 'package:MyWebsite/ui/projects/project_list.dart';
+import 'package:MyWebsite/ui/projects/project_model.dart';
 import 'package:MyWebsite/ui/projects/project_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
