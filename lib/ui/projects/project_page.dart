@@ -51,19 +51,23 @@ class ProjectPage extends StatelessWidget {
                 child: Container(
                   padding: EdgeInsets.symmetric(horizontal: 5),
                   child: StaggeredGridView.count(
-                    crossAxisCount: screenSize < 600
-                        ? 4
-                        : screenSize < 1000
-                            ? 6
-                            : screenSize < 1600
-                                ? 8
-                                : 10,
+                    crossAxisCount: project.isHorizontal!
+                        ? 1
+                        : screenSize < 600
+                            ? 4
+                            : screenSize < 1000
+                                ? 6
+                                : screenSize < 1600
+                                    ? 8
+                                    : 10,
                     padding: const EdgeInsets.all(10),
                     children: project.imageList!
                         .map<Widget>(
                           (item) => Image.asset(
                             item,
-                            fit: BoxFit.fitHeight,
+                            fit: project.isHorizontal!
+                                ? BoxFit.fitWidth
+                                : BoxFit.fitHeight,
                           ),
                         )
                         .toList(),
