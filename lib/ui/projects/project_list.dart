@@ -20,7 +20,7 @@ final projectList = [
       isTeamWork: true,
       lang: "Flutter",
       colorLang: Colors.blue,
-      image: "./assets/timeset.png",
+      image: "./assets/timeset/timeset.png",
       detail: "An app that you can reserve a sport sans with it!",
       url: "https://ftadev.ir/#/projects/timeset",
       otherDetail:
