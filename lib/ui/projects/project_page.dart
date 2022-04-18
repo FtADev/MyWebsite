@@ -63,11 +63,14 @@ class ProjectPage extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     children: project.imageList!
                         .map<Widget>(
-                          (item) => Image.asset(
-                            item,
-                            fit: project.isHorizontal!
-                                ? BoxFit.fitWidth
-                                : BoxFit.fitHeight,
+                          (item) => ClipRRect(
+                            borderRadius: BorderRadius.circular(20),
+                            child: Image.asset(
+                              item,
+                              fit: project.isHorizontal!
+                                  ? BoxFit.fitWidth
+                                  : BoxFit.fitHeight,
+                            ),
                           ),
                         )
                         .toList(),
