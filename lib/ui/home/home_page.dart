@@ -48,7 +48,7 @@ class MyHomePage extends StatelessWidget {
                           );
                         else if (index == 1) // About
                           return AboutPage(
-                            pages[3],
+                            pages[0],
                             isWeb ? States.WEB : States.MOBILE,
                           );
                         else // Projects
