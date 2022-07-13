@@ -194,4 +194,15 @@ final projectList = [
         './assets/behin/6.png',
         './assets/behin/7.png',
       ]),
+  ProjectModel(
+    id: 11,
+    title: "Books World",
+    name: "booksworld",
+    isTeamWork: false,
+    lang: "Kotlin",
+    colorLang: Colors.red,
+    image: "./assets/books-logo.png",
+    detail: "An application with list of books that you can bookmark any of them",
+    url: "https://github.com/FtADev/BooksWorld",
+  ),
 ];
