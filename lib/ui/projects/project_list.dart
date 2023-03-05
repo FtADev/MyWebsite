@@ -22,7 +22,7 @@ final projectList = [
       colorLang: Colors.blue,
       image: "./assets/timeset/timeset.png",
       detail: "An app that you can reserve a sport sans with it!",
-      url: "https://ftadev.ir/#/projects/timeset",
+      url: "https://ftadev.github.io/#/projects/timeset",
       otherDetail:
           "With Timeset you can quickly find  sports complex of your choice and order tickets online. Just login with your account any time of the day and order suitable tickets according to your schedule.",
       isHorizontal: false,
@@ -49,7 +49,7 @@ final projectList = [
       image: "./assets/therappy/therappy-logo.png",
       detail:
           "A psychology application that has multiple personality tests, related posts, useful books, and ...",
-      url: "https://ftadev.ir/#/projects/therappy",
+      url: "https://ftadev.github.io/#/projects/therappy",
       otherDetail:
           "A psychology application that has multiple personality tests, related posts, useful books, and ...",
       isHorizontal: false,
@@ -70,7 +70,7 @@ final projectList = [
       colorLang: Colors.blue,
       image: "./assets/payatam/partner-logo.png",
       detail: "An application to find a teammate in sports, class, ...",
-      url: "https://ftadev.ir/#/projects/payatam",
+      url: "https://ftadev.github.io/#/projects/payatam",
       otherDetail: "An application to find a teammate in sports, class, ...",
       isHorizontal: false,
       imageList: [
@@ -100,7 +100,7 @@ final projectList = [
       image: "./assets/yas/yas-logo.png",
       detail:
           "A charity application that collect money, equipments, ... from a person who wants to help others.",
-      url: "https://ftadev.ir/#/projects/yas",
+      url: "https://ftadev.github.io/#/projects/yas",
       otherDetail:
           "A charity application that collect money, equipments, ... from a person who wants to help others.",
       isHorizontal: false,
@@ -182,7 +182,7 @@ final projectList = [
       colorLang: Colors.blue,
       image: "./assets/behin/behin-logo.png",
       detail: "A website for B2B shopping with seller and buyer mode",
-      url: "https://ftadev.ir/#/projects/behinsource",
+      url: "https://ftadev.github.io/#/projects/behinsource",
       otherDetail: "A website for B2B shopping with seller and buyer mode",
       isHorizontal: true,
       imageList: [
