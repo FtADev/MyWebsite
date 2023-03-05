@@ -161,7 +161,7 @@ Future telegramLauncher() async {
 }
 
 Future linkedInLauncher() async {
-  const url = 'https://www.linkedin.com/in/fatemeh-akhlaghi-6a211615b';
+  const url = 'https://www.linkedin.com/in/fatemeh-akhlaghi';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
@@ -170,7 +170,7 @@ Future linkedInLauncher() async {
 }
 
 Future cvLauncher() async {
-  const url = 'https://drive.google.com/file/d/1qt9itofBl9Ec_3L0BFIIT6X_CoLeG0Fc/view';
+  const url = 'https://drive.google.com/file/d/1ludmydZh1HIJtPjARvfSkacw_-jCLUTr/view?usp=sharing';
   if (await canLaunch(url)) {
     await launch(url);
   } else {
