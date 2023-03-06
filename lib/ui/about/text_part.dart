@@ -1,4 +1,5 @@
 import 'package:MyWebsite/ui/about/about_page_model.dart';
+import 'package:MyWebsite/ui/common/mobile_const.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
 import 'package:flutter/material.dart';
 
@@ -37,7 +38,7 @@ class TextPartWidget extends StatelessWidget {
               fontSize: screen.flatBtnFont,
               fontFamily: 'dekko',
             ),
-            textAlign: TextAlign.justify,
+            textAlign: (screen is MobileConst) ? null : TextAlign.justify,
           ),
         ),
         SizedBox(height: screen.boxSizeLarge),
