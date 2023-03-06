@@ -1,6 +1,7 @@
 import 'package:MyWebsite/ui/about/about_page_model.dart';
 import 'package:MyWebsite/ui/about/gif_part.dart';
 import 'package:MyWebsite/ui/about/text_part.dart';
+import 'package:MyWebsite/ui/about/web/information_part.dart';
 import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:flutter/material.dart';
 
@@ -29,10 +30,19 @@ class WebAboutPage extends StatelessWidget {
           ),
           Expanded(
             flex: 1,
-            child: GifPartWidget(
-              model: model,
-              widthPercent: 0.8,
-              heightPercent: 0.6,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                GifPartWidget(
+                  model: model,
+                  widthPercent: 0.8,
+                  heightPercent: 0.6,
+                ),
+                InformationPart(
+                  screen: WebConst(),
+                )
+              ],
             ),
           ),
         ],
