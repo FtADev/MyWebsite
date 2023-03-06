@@ -43,11 +43,11 @@ class ProjectsListPage extends StatelessWidget {
             child: Container(
               padding: EdgeInsets.symmetric(horizontal: 5),
               child: StaggeredGridView.count(
-                crossAxisCount: screenSize < 600
+                crossAxisCount: screenSize < 300
                     ? 1
-                    : screenSize < 1000
+                    : screenSize < 800
                         ? 2
-                        : screenSize < 1600
+                        : screenSize < 1200
                             ? 4
                             : 6,
                 padding: const EdgeInsets.all(2.0),

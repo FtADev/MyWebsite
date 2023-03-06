@@ -6,7 +6,7 @@ class WebConst extends Screen {
   final boxSizeMedium = 15.0;
   final boxSizeLarge = 20.0;
   final iconSize = 40.0;
-  final projectAboveSpace = 100.0;
+  final projectAboveSpace = 70.0;
   final projectWholePadding = 50.0;
   final projectBottomPadding = 8.0;
   final projectCardPadding = 20.0;

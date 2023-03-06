@@ -20,6 +20,23 @@ class Styles {
     color: Colors.white,
   );
 
+
+  static const TextStyle bio1m = TextStyle(
+    fontSize: FontConstants.f24,
+    fontWeight: FontWeight.bold,
+    color: Colors.white,
+  );
+
+  static const TextStyle bio2m = TextStyle(
+    fontSize: FontConstants.f18,
+    color: Colors.white,
+  );
+
+  static const TextStyle bio3m = TextStyle(
+    fontSize: FontConstants.f12,
+    color: Colors.white,
+  );
+
   static const TextStyle email = TextStyle(
     fontSize: FontConstants.f16,
     color: Colors.white,

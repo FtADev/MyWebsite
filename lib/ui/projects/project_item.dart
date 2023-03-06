@@ -48,8 +48,8 @@ class ProjectItem extends StatelessWidget {
                     child: SizedBox(
                       // color:
                       //     (image == null) ? Colors.grey.shade300 : Colors.white,
-                      width: 100,
-                      height: 100,
+                      width: 50,
+                      height: 50,
                       child:
                           (image != null) ? Image.asset(image!) : Container(),
                     ),
