@@ -1,7 +1,7 @@
 import 'package:MyWebsite/ui/about/about_page_model.dart';
 import 'package:MyWebsite/ui/about/gif_part.dart';
 import 'package:MyWebsite/ui/about/text_part.dart';
-import 'package:MyWebsite/ui/about/web/information_part.dart';
+import 'package:MyWebsite/ui/about/information_part.dart';
 import 'package:MyWebsite/ui/common/web_const.dart';
 import 'package:flutter/material.dart';
 
@@ -13,7 +13,7 @@ class WebAboutPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(horizontal: 150),
+      margin: EdgeInsets.symmetric(horizontal: 100),
       child: Row(
         children: <Widget>[
           Expanded(

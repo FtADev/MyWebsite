@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../common/screen.dart';
+import '../common/screen.dart';
 
 class InformationPart extends StatelessWidget {
   final Screen screen;

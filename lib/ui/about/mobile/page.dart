@@ -1,7 +1,7 @@
 import 'package:MyWebsite/ui/about/about_page_model.dart';
 import 'package:MyWebsite/ui/about/gif_part.dart';
 import 'package:MyWebsite/ui/about/text_part.dart';
-import 'package:MyWebsite/ui/about/web/information_part.dart';
+import 'package:MyWebsite/ui/about/information_part.dart';
 import 'package:MyWebsite/ui/common/mobile_const.dart';
 import 'package:flutter/material.dart';
 
