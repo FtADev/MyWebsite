@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 
+import '../common/styles.dart';
+
 class FlatBorderButton extends StatelessWidget {
   final text;
   final onTap;
@@ -17,7 +19,7 @@ class FlatBorderButton extends StatelessWidget {
           padding: EdgeInsets.all(7),
           child: Text(
             text,
-            style: TextStyle(color: Colors.white, fontSize: screen.flatBtnFont, fontFamily: 'dekko'),
+            style: Styles.flatBtn,
           ),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(30.0),

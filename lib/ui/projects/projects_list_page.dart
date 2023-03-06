@@ -1,5 +1,6 @@
 import 'package:MyWebsite/ui/404_unknown_page.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
+import 'package:MyWebsite/ui/common/styles.dart';
 import 'package:MyWebsite/ui/projects/project_item.dart';
 import 'package:MyWebsite/ui/projects/project_list.dart';
 import 'package:MyWebsite/ui/projects/project_model.dart';
@@ -35,11 +36,7 @@ class ProjectsListPage extends StatelessWidget {
           ),
           Text(
             "My Projects",
-            style: TextStyle(
-                fontSize: screen.bioFont3,
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'dekko'),
+            style: Styles.project1,
           ),
           SizedBox(height: 20),
           Expanded(

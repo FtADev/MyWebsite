@@ -1,8 +1,9 @@
 import 'package:MyWebsite/ui/common/screen.dart';
-import 'package:MyWebsite/ui/projects/project_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../common/styles.dart';
 
 class ProjectItem extends StatelessWidget {
   final Screen screen;
@@ -44,7 +45,7 @@ class ProjectItem extends StatelessWidget {
                 Padding(
                   padding: EdgeInsets.only(right: screen.projectCardPadding),
                   child: ClipOval(
-                    child: Container(
+                    child: SizedBox(
                       // color:
                       //     (image == null) ? Colors.grey.shade300 : Colors.white,
                       width: 100,
@@ -60,12 +61,7 @@ class ProjectItem extends StatelessWidget {
                     children: [
                       Text(
                         (title != null) ? title! : "Project Title",
-                        style: TextStyle(
-                          fontSize: screen.projectTitleFontSize,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'dekko',
-                          color: Colors.white,
-                        ),
+                        style: Styles.project2,
                       ),
                       SizedBox(
                         height: 5,
@@ -74,11 +70,7 @@ class ProjectItem extends StatelessWidget {
                         (detail != null)
                             ? detail!
                             : "Lorem Ipsum is simply dummy text of remaining of all.",
-                        style: TextStyle(
-                          fontSize: screen.projectTextFontSize,
-                          fontFamily: 'dekko',
-                          color: Colors.white,
-                        ),
+                        style: Styles.project3,
                       ),
                       SizedBox(
                         height: 5,
@@ -101,11 +93,7 @@ class ProjectItem extends StatelessWidget {
                           ),
                           Text(
                             (lang != null) ? lang! : "Language",
-                            style: TextStyle(
-                              fontSize: screen.projectTeamWorkFont,
-                              fontFamily: 'dekko',
-                              color: Colors.white,
-                            ),
+                            style: Styles.project4,
                           ),
                           SizedBox(
                             width: screen.projectSpace,
@@ -126,11 +114,7 @@ class ProjectItem extends StatelessWidget {
                           (isTeamWork != null && isTeamWork!)
                               ? Text(
                                   "Team Work",
-                                  style: TextStyle(
-                                    fontSize: screen.projectTeamWorkFont,
-                                    fontFamily: 'dekko',
-                                    color: Colors.white,
-                                  ),
+                                  style: Styles.project4,
                                 )
                               : Container()
                         ],

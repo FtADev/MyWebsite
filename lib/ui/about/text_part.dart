@@ -1,6 +1,7 @@
 import 'package:MyWebsite/ui/about/about_page_model.dart';
 import 'package:MyWebsite/ui/common/mobile_const.dart';
 import 'package:MyWebsite/ui/common/screen.dart';
+import 'package:MyWebsite/ui/common/styles.dart';
 import 'package:flutter/material.dart';
 
 class TextPartWidget extends StatelessWidget {
@@ -20,12 +21,7 @@ class TextPartWidget extends StatelessWidget {
       children: [
         Text(
           model.title,
-          style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: screen.bioFont3,
-            fontFamily: 'dekko',
-          ),
+          style: Styles.about1,
         ),
         SizedBox(
           height: screen.boxSizeMedium,
@@ -33,11 +29,7 @@ class TextPartWidget extends StatelessWidget {
         SelectionArea(
           child: Text(
             model.text,
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: screen.flatBtnFont,
-              fontFamily: 'dekko',
-            ),
+            style: Styles.about2,
             textAlign: (screen is MobileConst) ? null : TextAlign.justify,
           ),
         ),

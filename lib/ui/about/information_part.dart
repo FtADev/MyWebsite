@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../common/screen.dart';
+import '../common/styles.dart';
 
 class InformationPart extends StatelessWidget {
   final Screen screen;
@@ -28,14 +29,10 @@ class InformationPart extends StatelessWidget {
                       height: screen.iconSize,
                       fit: BoxFit.fitWidth,
                     ),
-                    SizedBox(width: 10),
-                    Text(
+                    const SizedBox(width: 10),
+                    const Text(
                       'akhlaghi.fatemeh@gmail.com',
-                      style: TextStyle(
-                        fontFamily: 'dekko',
-                        fontSize: screen.flatBtnFont,
-                        color: Colors.white,
-                      ),
+                      style: Styles.email,
                     )
                   ],
                 ),

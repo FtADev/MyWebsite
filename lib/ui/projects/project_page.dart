@@ -1,4 +1,5 @@
 import 'package:MyWebsite/ui/background/fancy_background.dart';
+import 'package:MyWebsite/ui/common/styles.dart';
 import 'package:MyWebsite/ui/projects/project_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -30,20 +31,11 @@ class ProjectPage extends StatelessWidget {
                     children: [
                       Text(
                         project.title,
-                        style: TextStyle(
-                          fontFamily: 'dekko',
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.white,
-                        ),
+                        style: Styles.project1,
                       ),
                       Text(
                         project.otherDetail!,
-                        style: TextStyle(
-                          fontFamily: 'dekko',
-                          fontSize: 20,
-                          color: Colors.white,
-                        ),
+                        style: Styles.project3,
                       ),
                     ]),
               ),

@@ -1,3 +1,4 @@
+import 'package:MyWebsite/ui/common/styles.dart';
 import 'package:flutter/material.dart';
 import 'package:MyWebsite/ui/component/typewriter_box.dart';
 
@@ -15,28 +16,15 @@ class Bio extends StatelessWidget {
         children: [
           TypewriterText(
             text: "Hello, It's Me!",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: screen.bioFont1,
-              fontFamily: 'dekko',
-            ),
+            style: Styles.bio2,
           ),
           TypewriterText(
             text: "Fatemeh Akhlaghi",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: screen.bioFont2,
-              fontWeight: FontWeight.bold,
-              fontFamily: 'dekko',
-            ),
+            style: Styles.bio1,
           ),
           TypewriterText(
             text: "I Am A Mobile Application Developer",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: screen.bioFont3,
-              fontFamily: 'dekko',
-            ),
+            style: Styles.bio3,
           )
         ],
       ),
