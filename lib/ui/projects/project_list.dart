@@ -78,10 +78,10 @@ final projectList = [
       colorLang: Colors.blue,
       image: "./assets/payatam/partner-logo.png",
       detail: "An application that facilitates finding partners "
-          "for various activities such as sports, education, and work. ",
+          "for various activities such as sports, education, or renting office. ",
       url: "https://ftadev.github.io/#/projects/payatam",
       otherDetail: "An innovative application that facilitates finding partners "
-          "for various activities such as sports, education, and work. "
+          "for various activities such as sports, education, or renting office. "
           "This app allows users to easily request and connect with others who share "
           "similar interests and goals. "
           "For instance, users can request a chess partner or find classmates for a math class "
