@@ -55,13 +55,26 @@ class ProjectPage extends StatelessWidget {
                     padding: const EdgeInsets.all(10),
                     children: project.imageList!
                         .map<Widget>(
-                          (item) => ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image.asset(
-                              item,
-                              fit: project.isHorizontal!
-                                  ? BoxFit.fitWidth
-                                  : BoxFit.fitHeight,
+                          (item) => InkWell(
+                            onTap: () => showDialog(context: context, builder: (_) => SimpleDialog(
+                              contentPadding: EdgeInsets.zero,
+                              children: [
+                                Image.asset(
+                                  item,
+                                  fit: project.isHorizontal!
+                                      ? BoxFit.fitWidth
+                                      : BoxFit.fitHeight,
+                                )
+                              ],
+                            )),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(20),
+                              child: Image.asset(
+                                item,
+                                fit: project.isHorizontal!
+                                    ? BoxFit.fitWidth
+                                    : BoxFit.fitHeight,
+                              ),
                             ),
                           ),
                         )
