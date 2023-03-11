@@ -21,10 +21,13 @@ final projectList = [
       lang: "Flutter",
       colorLang: Colors.blue,
       image: "./assets/timeset/timeset.png",
-      detail: "An app that you can reserve a sport sans with it!",
+      detail: "A sports reservation application in collaboration with Tehran Municipality. ",
       url: "https://ftadev.github.io/#/projects/timeset",
       otherDetail:
-          "With Timeset you can quickly find  sports complex of your choice and order tickets online. Just login with your account any time of the day and order suitable tickets according to your schedule.",
+          "A sports reservation application in collaboration with Tehran Municipality. "
+              "This application allows users to reserve sports facilities at a complex and "
+              "purchase tickets online, making it more convenient for them to access the facilities "
+              "they need.",
       isHorizontal: false,
       imageList: [
         './assets/timeset/1.png',
@@ -47,11 +50,16 @@ final projectList = [
       lang: "Flutter",
       colorLang: Colors.blue,
       image: "./assets/therappy/therappy-logo.png",
-      detail:
-          "A psychology application that has multiple personality tests, related posts, useful books, and ...",
+      detail: "An innovative application focused on psychology to help "
+          "users gain a deeper understanding of themselves.",
       url: "https://ftadev.github.io/#/projects/therappy",
       otherDetail:
-          "A psychology application that has multiple personality tests, related posts, useful books, and ...",
+          "Innovative application focused on psychology. "
+              "This application includes a range of personality tests designed to help "
+              "users gain a deeper understanding of themselves. "
+              "Additionally, it features a library of books and articles related to the field of "
+              "psychology, as well as news and posts to keep users up-to-date with the latest "
+              "achievement in this area.",
       isHorizontal: false,
       imageList: [
         './assets/therappy/1.jpg',
@@ -63,15 +71,21 @@ final projectList = [
       ]),
   ProjectModel(
       id: 3,
-      title: "Payatam",
+      title: "Payatam (PartnerYaab)",
       name: "payatam",
       isTeamWork: true,
       lang: "Flutter",
       colorLang: Colors.blue,
       image: "./assets/payatam/partner-logo.png",
-      detail: "An application to find a teammate in sports, class, ...",
+      detail: "An application that facilitates finding partners "
+          "for various activities such as sports, education, and work. ",
       url: "https://ftadev.github.io/#/projects/payatam",
-      otherDetail: "An application to find a teammate in sports, class, ...",
+      otherDetail: "An innovative application that facilitates finding partners "
+          "for various activities such as sports, education, and work. "
+          "This app allows users to easily request and connect with others who share "
+          "similar interests and goals. "
+          "For instance, users can request a chess partner or find classmates for a math class "
+          "with just a few clicks.",
       isHorizontal: false,
       imageList: [
         './assets/payatam/1.png',
@@ -99,10 +113,13 @@ final projectList = [
       colorLang: Colors.orange,
       image: "./assets/yas/yas-logo.png",
       detail:
-          "A charity application that collect money, equipments, ... from a person who wants to help others.",
+          "A charity application that allows users to donate money or everything they want.",
       url: "https://ftadev.github.io/#/projects/yas",
       otherDetail:
-          "A charity application that collect money, equipments, ... from a person who wants to help others.",
+          "Our first Android application called YAS (Yaran Salamat), which is focused on charity. "
+              "The app allows users to donate money or equipment to various causes, "
+              "as well as volunteer their time to help others. "
+              "Additionally, the app features news and videos related to charity work.",
       isHorizontal: false,
       imageList: [
         './assets/yas/1.png',
