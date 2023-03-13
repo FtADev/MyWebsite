@@ -8,7 +8,7 @@ final pages = [
           'with over 4 years of experience in application development.\n'
           'Also I have a background in Android development (using both Java and Kotlin).\n'
           'Over the past 3 years, I have become a big fan of Flutter and have honed my skills '
-          'in this technology.\n'
+          'in this framework.\n'
           'I have worked in various teams throughout my career, including Exceptional Dev for 3 years, '
           'Erfan Salamat Health Services Group, and the last one is Startrick, a Malaysian company.\n'
           'During my time at Exceptional Dev, I had the opportunity to work on a diverse range of '

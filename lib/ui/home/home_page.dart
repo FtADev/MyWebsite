@@ -25,14 +25,14 @@ class MyHomePage extends StatelessWidget {
     isWeb = screenSize > 600;
     screen = isWeb ? WebConst() : MobileConst();
 
-    return Scaffold(
-      body: Stack(
-        children: <Widget>[
-          FancyBackgroundApp(),
-          ChangeNotifierProvider<HomeViewModel>(
-            create: (context) => HomeViewModel(),
-            child: Consumer<HomeViewModel>(
-              builder: (BuildContext context, model, Widget? child) => Stack(
+    return ChangeNotifierProvider<HomeViewModel>(
+      create: (context) => HomeViewModel(),
+      child: Consumer<HomeViewModel>(
+        builder: (BuildContext context, model, Widget? child) => Scaffold(
+          body: Stack(
+            children: <Widget>[
+              FancyBackgroundApp(),
+              Stack(
                 children: <Widget>[
                   Align(
                     alignment: Alignment.center,
@@ -96,7 +96,7 @@ class MyHomePage extends StatelessWidget {
                                   width: 10,
                                   height: 10,
                                 ),
-                          SizedBox(
+                          const SizedBox(
                             width: 20,
                           ),
                           FlatBorderButton(
@@ -114,9 +114,19 @@ class MyHomePage extends StatelessWidget {
                   ),
                 ],
               ),
+            ],
+          ),
+          floatingActionButton: InkWell(
+            onTap: () => model.currentIndex == 2 ? model.moveToPage(0) : model.moveToPage(model.currentIndex + 1),
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: Icon(
+                model.currentIndex == 2 ? Icons.arrow_upward_sharp: Icons.arrow_downward_sharp,
+                color: Colors.white,
+              ),
             ),
           ),
-        ],
+        ),
       ),
     );
   }
