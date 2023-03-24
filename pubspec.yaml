@@ -54,6 +54,9 @@ flutter:
     - assets/payatam/
     - assets/behin/
     - assets/network/
+    - assets/jojo/
+    - assets/jojo/customer/
+    - assets/jojo/shop/
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

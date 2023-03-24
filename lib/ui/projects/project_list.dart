@@ -222,4 +222,59 @@ final projectList = [
     detail: "An application with list of books that you can bookmark any of them",
     url: "https://github.com/FtADev/BooksWorld",
   ),
+  ProjectModel(
+      id: 12,
+      title: "JoJo Hub (Shop)",
+      name: "jojo-shop",
+      isTeamWork: true,
+      lang: "Flutter",
+      colorLang: Colors.blue,
+      image: "./assets/jojo/jojo-logo.png",
+      detail:
+      "A website for pet shops. ",
+      url: "https://ftadev.github.io/#/projects/jojo-shop",
+      otherDetail:
+      "A website for pet shops. The website has two parts: grooming services and boarding services. "
+          "The grooming services part includes features such as hair cutting and bathing for pets, "
+          "while the boarding services part allows pet owners to reserve a room for their pets "
+          "when they are away.\n"
+          "Additionally, the website is integrated with a customer application, "
+          "which allows shop owners to manage requests from customers "
+          "and assign groomers or rooms accordingly.",
+      isHorizontal: true,
+      imageList: [
+        './assets/jojo/shop/1.png',
+        './assets/jojo/shop/2.png',
+        './assets/jojo/shop/3.png',
+        './assets/jojo/shop/4.png',
+      ]),
+  ProjectModel(
+      id: 13,
+      title: "JoJo Hub (Customer)",
+      name: "jojo-customer",
+      isTeamWork: true,
+      lang: "Flutter",
+      colorLang: Colors.blue,
+      image: "./assets/jojo/jojo-logo.png",
+      detail:
+      "An application for pet owners that allows them to access pet shops services.",
+      url: "https://ftadev.github.io/#/projects/jojo-customer",
+      otherDetail:
+      "An application for pet owners that allows them to access pet shops services such as "
+          "grooming and reserving a room for their pets.\n"
+          "The application also includes a feature where each pet has its own profile, "
+          "and pet owners can manage a list of their pets and submit requests for each one "
+          "whenever they want. Shop owners can answer these requests through the Shop Website.",
+      isHorizontal: false,
+      imageList: [
+        './assets/jojo/customer/1.png',
+        './assets/jojo/customer/2.png',
+        './assets/jojo/customer/3.png',
+        './assets/jojo/customer/4.png',
+        './assets/jojo/customer/5.png',
+        './assets/jojo/customer/7.png',
+        './assets/jojo/customer/8.png',
+        './assets/jojo/customer/9.png',
+      ]),
+
 ];
