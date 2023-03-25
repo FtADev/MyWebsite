@@ -37,6 +37,7 @@ final projectList = [
         './assets/jojo/shop/2.png',
         './assets/jojo/shop/3.png',
         './assets/jojo/shop/4.png',
+        './assets/jojo/shop/5.png',
       ]),
   ProjectModel(
       id: 13,
@@ -65,6 +66,15 @@ final projectList = [
         './assets/jojo/customer/7.png',
         './assets/jojo/customer/8.png',
         './assets/jojo/customer/9.png',
+        './assets/jojo/customer/10.png',
+        './assets/jojo/customer/11.png',
+        './assets/jojo/customer/12.png',
+        './assets/jojo/customer/13.png',
+        './assets/jojo/customer/14.png',
+        './assets/jojo/customer/15.png',
+        './assets/jojo/customer/16.png',
+        './assets/jojo/customer/17.png',
+        './assets/jojo/customer/18.png',
       ]),
   ProjectModel(
       id: 3,
