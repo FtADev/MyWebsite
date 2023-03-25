@@ -40,6 +40,7 @@ final projectList = [
         './assets/jojo/shop/5.png',
         './assets/jojo/shop/6.png',
         './assets/jojo/shop/7.png',
+
       ]),
   ProjectModel(
       id: 13,
