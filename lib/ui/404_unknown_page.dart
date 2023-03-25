@@ -23,7 +23,7 @@ class UnknownPage extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "This Page Not Found!",
+                  "Sorry, this Page is not Found :(",
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
