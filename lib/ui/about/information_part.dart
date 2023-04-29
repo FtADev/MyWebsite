@@ -136,7 +136,7 @@ class InformationPart extends StatelessWidget {
 
   Future cvLauncher() async {
     const url =
-        'https://drive.google.com/file/d/1ludmydZh1HIJtPjARvfSkacw_-jCLUTr/view?usp=sharing';
+        'https://drive.google.com/file/d/1Uh527WQecgft57pILoLBuutVaZLkrB1G/view?usp=sharing';
     if (await canLaunch(url)) {
       await launch(url);
     } else {
