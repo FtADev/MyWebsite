@@ -19,67 +19,66 @@ class Star extends StatelessWidget {
       ..add(
         DefaultAnimationProperties.y,
         Tween(begin: 0.0, end: 10.0),
-        Duration(seconds: 8),
+        const Duration(seconds: 8),
+        Curves.easeInOutSine,
       )
       ..add(
         DefaultAnimationProperties.y,
         Tween(begin: 10.0, end: 0.0),
-        Duration(seconds: 6),
+        const Duration(seconds: 6),
+        Curves.easeInOutSine,
       )
       ..add(
         DefaultAnimationProperties.x,
         Tween(begin: 0.0, end: 10.0),
-        Duration(seconds: 7),
+        const Duration(seconds: 7),
+        Curves.easeInOutSine,
       )
       ..add(
         DefaultAnimationProperties.x,
         Tween(begin: 10.0, end: 0.0),
-        Duration(seconds: 5),
-      );
-    final sizedTween = MultiTween<DefaultAnimationProperties>()
+        const Duration(seconds: 5),
+        Curves.easeInOutSine,
+      )
       ..add(
-        DefaultAnimationProperties.x,
+        DefaultAnimationProperties.size,
         Tween(begin: 1.0, end: 2.0),
-        Duration(seconds: 3),
+        const Duration(seconds: 3),
+        Curves.fastOutSlowIn,
       )
       ..add(
-        DefaultAnimationProperties.x,
+        DefaultAnimationProperties.size,
         Tween(begin: 2.0, end: 1.0),
-        Duration(seconds: 5),
+        const Duration(seconds: 5),
+        Curves.fastOutSlowIn,
       )
       ..add(
-        DefaultAnimationProperties.x,
+        DefaultAnimationProperties.size,
         Tween(begin: 1.0, end: 2.0),
-        Duration(seconds: 7),
+        const Duration(seconds: 7),
+        Curves.fastOutSlowIn,
       )
       ..add(
-        DefaultAnimationProperties.x,
+        DefaultAnimationProperties.size,
         Tween(begin: 2.0, end: 1.0),
-        Duration(seconds: 9),
+        const Duration(seconds: 9),
+        Curves.fastOutSlowIn,
       );
 
     return MirrorAnimation(
       tween: movingTween,
       duration: movingTween.duration,
-      curve: Curves.easeInOutSine,
-      builder: (context, child, MultiTweenValues positionValue) => MirrorAnimation(
-        tween: sizedTween,
-        duration: sizedTween.duration,
-        curve: Curves.fastOutSlowIn,
-        builder: (context, child, MultiTweenValues value) => Positioned(
-          top: top % 2 == 0
-              ? top + positionValue.get(DefaultAnimationProperties.y)
-              : top,
-          right: right % 2 == 0
-              ? right + positionValue.get(DefaultAnimationProperties.x)
-              : right,
-          child: Container(
-            width: value.get(DefaultAnimationProperties.x) + size * 0.5,
-            height: value.get(DefaultAnimationProperties.x) + size * 0.5,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              shape: BoxShape.circle,
-            ),
+      builder: (context, child, MultiTweenValues value) => Positioned(
+        top: top % 2 == 0 ? top + value.get(DefaultAnimationProperties.y) : top,
+        right: right % 2 == 0
+            ? right + value.get(DefaultAnimationProperties.x)
+            : right,
+        child: Container(
+          width: value.get(DefaultAnimationProperties.size) + size * 0.5,
+          height: value.get(DefaultAnimationProperties.size) + size * 0.5,
+          decoration: const BoxDecoration(
+            color: Colors.white,
+            shape: BoxShape.circle,
           ),
         ),
       ),
