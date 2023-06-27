@@ -17,8 +17,8 @@ final pages = [
           'on the industry and has helped me develop a keen eye for detail.\n'
           'After that, I worked for Erfan Salamat where I gained valuable experience working '
           'in health services and hospitals.\n'
-          'Currently, I am working remotely as a Flutter Developer for Startrick in Malaysia '
-          'where we are developing pet shop services.\n'
+          'And my last experience was working remotely as a Flutter Developer for Startrick in Malaysia '
+          'where we were developing pet shop services.\n'
           'My expertise lies in developing high-quality applications that are user-friendly '
           'and visually appealing. I am passionate about staying up-to-date with the latest '
           'technologies and trends in the industry to ensure that my work is always cutting-edge.',
